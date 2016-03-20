@@ -9,9 +9,10 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Say OWL</title>
+    <title>OWLs say Hoot</title>
 
     <!-- Bootstrap core CSS -->
+    <link href="stylesheets/style.css" rel="stylesheet">
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -52,14 +53,22 @@
     </nav>
 
     <div class="container">
-      <form ref='uploadForm'
-        id='uploadForm'
-        action='http://localhost:3000/upload'
-        method='post'
-        encType="multipart/form-data">
-          <input type="file" name="sampleFile" />
-          <input type='submit' value='Upload!' />
-      </form>
+      <div class="panel panel-default" style="margin-top: 20px;">
+        <div class="panel-heading"><strong>Upload File</strong> <small>Upload your OWL file.</small></div>
+        <div class="panel-body">
+
+          <!-- Standar Form -->
+          <h4>Select file from your computer</h4>
+          <form action="http://localhost:3000/upload" method="post" enctype="multipart/form-data" id="js-upload-form">
+            <div class="form-inline">
+              <div class="form-group">
+                <input type="file" name="OWLFile" id="js-upload-files" multiple>
+              </div>
+              <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+            </div>
+          </form>
+        </div>
+      </div>
 
 
       <div class="starter-template">
