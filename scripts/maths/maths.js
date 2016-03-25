@@ -34,6 +34,12 @@ let simpleEnglish = {
   maxCardinality: function (subC, superC, rel, card) {
     return subC+"  &#8849;  &#8804;"+card+rel+"."+superC;
   },
+  equivalentClassesText: function () {
+    return "Equivalent To";
+  },
+  equivalentClasses: function (subC, superC) {
+    return subC+" &#8801; "+superC;
+  },
   disjointWithText: function () {
     return "Disjoint Classes";
   },

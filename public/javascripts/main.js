@@ -10,6 +10,12 @@ $(function () {
   }
   $('#classTree').on("changed.jstree", function (e, data) {
     $("#classDisp").html("");
+    if (data.node.original.displayOutput.equivalentClasses.length > 1){
+      $("#classDisp").append("<h3>"+data.node.original.displayOutput.equivalentClasses[0]+"</h3>");
+    }
+    for (var i = 1; i < data.node.original.displayOutput.equivalentClasses.length; i++){
+      $("#classDisp").append("<p>"+data.node.original.displayOutput.equivalentClasses[i]+"</p>");
+    }
     if (data.node.original.displayOutput.subClassOf.length > 1){
       $("#classDisp").append("<h3>"+data.node.original.displayOutput.subClassOf[0]+"</h3>");
     }

@@ -37,6 +37,12 @@ let technicalEnglish = {
   maxCardinality: function (subC, superC, rel, card) {
     return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" a maximum of "+card+" "+decamelize(superC, " ").capitalize(true)
   },
+  equivalentClassesText: function () {
+    return "Equivalent To";
+  },
+  equivalentClasses: function (subC, superC) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" is equivalent to "+articles.articlize(decamelize(superC, " ").capitalize(true))
+  },
   disjointWithText: function () {
     return "Disjoint Classes";
   },

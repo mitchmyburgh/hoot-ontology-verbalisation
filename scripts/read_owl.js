@@ -51,6 +51,7 @@ let read_file = function(filename, filepath, cb){
           !classTree[clas.replace("#", "")].displayOutput.subClassOf ? classTree[clas.replace("#", "")].displayOutput.subClassOf = [languages[language].subClassText()] : null;
           !classTree[clas.replace("#", "")].displayOutput.disjointWith ? classTree[clas.replace("#", "")].displayOutput.disjointWith = [languages[language].disjointWithText()] : null;
           !classTree[clas.replace("#", "")].displayOutput.instances ? classTree[clas.replace("#", "")].displayOutput.instances = [languages[language].instancesText()] : null;
+          !classTree[clas.replace("#", "")].displayOutput.equivalentClasses ? classTree[clas.replace("#", "")].displayOutput.equivalentClasses = [languages[language].equivalentClassesText()] : null;
         }
       }
       //list all relations
@@ -89,6 +90,12 @@ let read_file = function(filename, filepath, cb){
           };
           !neTree[ne.replace("#", "")].displayOutput.subObjectOf ? neTree[ne.replace("#", "")].displayOutput.subObjectOf = [languages[language].subObjectText()] : null;
         }
+      }
+      //Equivalent Classes
+      for (let i = 0; i < result["Ontology"]["EquivalentClasses"].length; i++){
+        let subC = result["Ontology"]["EquivalentClasses"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+        let superC = result["Ontology"]["EquivalentClasses"][i]["Class"][1]["$"]["IRI"].replace("#", "");
+        classTree[subC].displayOutput.equivalentClasses.push(languages[language].equivalentClasses(subC, superC));
       }
       //Disjoint Classes
       for (let i = 0; i < result["Ontology"]["DisjointClasses"].length; i++){

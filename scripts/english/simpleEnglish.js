@@ -37,6 +37,12 @@ let simpleEnglish = {
   maxCardinality: function (subC, superC, rel, card) {
     return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" at most "+card+" "+decamelize(superC, " ").capitalize(true)
   },
+  equivalentClassesText: function () {
+    return "Is Also";
+  },
+  equivalentClasses: function (subC, superC) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" is the same as "+articles.articlize(decamelize(superC, " ").capitalize(true))
+  },
   disjointWithText: function () {
     return "Different Classes";
   },
