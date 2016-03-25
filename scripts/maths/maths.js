@@ -13,32 +13,33 @@ let simpleEnglish = {
     return "Classes";
   },
   subClassOf: function (subC, superC) {
-    return (articles.articlize(decamelize(subC, " ")).capitalize(true)+" is "+articles.articlize(decamelize(superC, " ").capitalize(true)));
+    return (subC+" &#8849; "+superC);
   },
   subClassText: function (){
-    return "Is A";
+    return "Sub Class Of";
   },
   disjointWithText: function () {
-    return "Different Classes";
+    return "Disjoint Classes";
   },
   disjointWith: function (classes){
-    var return_string = articles.articlize(decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ")).capitalize(true)+" is different from ";
-    for (var i = 1; i < classes.length; i++){
-      return_string += articles.articlize(decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true))
+    var return_string = "";
+    for (var i = 0; i < classes.length; i++){
+      return_string += classes[i]["$"]["IRI"].replace("#", "")
       if (i != classes.length-1){
-        return_string += " and ";
+        return_string += " &#8851; ";
       }
     }
+    return_string += " =  &#8869;";
     return return_string;
   },
   objectPropertyText: function () {
     return "Object Properties";
   },
   subPropertyOf: function (subR, superR) {
-    return (decamelize(subR, " ").capitalize(true)+" is "+articles.articlize(decamelize(superR, " ").capitalize(true)));
+    return (subR+" &#8849; "+superR);
   },
   subPropertyText: function (){
-    return "Is A";
+    return "Sub Property Of";
   },
   namedEntitiesText: function () {
     return "Named Entities";
@@ -47,7 +48,7 @@ let simpleEnglish = {
     return "Parent";
   },
   subObjectOf: function (subC, superC) {
-    return subC + " is a type of "+superC;
+    return subC + " &#8849; "+superC;
   }
 }
 
