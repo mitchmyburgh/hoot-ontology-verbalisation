@@ -9,18 +9,27 @@ String.prototype.capitalize = function(lower) {
 };
 
 let technicalEnglish = {
+  classText: function () {
+    return "Classes";
+  },
   subClassOf: function (subC, superC) {
     return (decamelize(subC, " ").capitalize(true)+" is a sub class of "+ decamelize(superC, " ").capitalize(true));
   },
   subClassText: function (){
     return "Sub Class Of";
   },
+  objectPropertyText: function () {
+    return "Object Properties";
+  },
   subPropertyOf: function (subR, superR) {
     return (decamelize(subR, " ").capitalize(true)+" is a sub property of "+ decamelize(superR, " ").capitalize(true));
   },
   subPropertyText: function (){
     return "Sub Property Of";
-  }
+  },
+  namedEntitiesText: function () {
+    return "Named Entities";
+  },
 }
 
 

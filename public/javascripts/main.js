@@ -1,8 +1,11 @@
 $(function () {
   if (tree){
-    console.log(tree[0]);
-    $('#classTree').jstree({core: {data: tree[0]}});
-    $('#relTree').jstree({core: {data: tree[1]}});
+    //set interface text
+    $('#classText').html(tree[0].classText);
+    $('#objectPropertyText').html(tree[0].objectPropertyText);
+    $('#namedEntitiesText').html(tree[0].namedEntitiesText);
+    $('#classTree').jstree({core: {data: tree[1]}});
+    $('#relTree').jstree({core: {data: tree[2]}});
   }
   $('#classTree').on("changed.jstree", function (e, data) {
     $("#classDisp").html("");

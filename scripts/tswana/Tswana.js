@@ -9,18 +9,27 @@ String.prototype.capitalize = function(lower) {
 };
 
 let Tswana = {
+  classText: function () {
+    return "Classes";
+  },
   subClassOf: function (subC, superC) {
     return (decamelize(subC, " ").capitalize(true)+" is "+articles.articlize(decamelize(superC, " ").capitalize(true)));
   },
   subClassText: function (){
     return "Is A";
   },
+  objectPropertyText: function () {
+    return "Object Properties";
+  },
   subPropertyOf: function (subR, superR) {
     return (decamelize(subR, " ").capitalize(true)+" is "+articles.articlize(decamelize(superR, " ").capitalize(true)));
   },
   subPropertyText: function (){
     return "Is A";
-  }
+  },
+  namedEntitiesText: function () {
+    return "Named Entities";
+  },
 }
 
 module.exports = Tswana;

@@ -5,7 +5,7 @@ let xml2js = require('xml2js');
 
 
 //load the language translations
-let language = "Afrikaans";
+let language = "simpleEnglish";
 let languages = {};
 languages["simpleEnglish"] = require('./english/simpleEnglish');
 languages["technicalEnglish"] = require('./english/technicalEnglish');
@@ -17,13 +17,18 @@ let read_file = function(filename, filepath, cb){
   var parser = new xml2js.Parser();
   fs.readFile(filepath, function(err, data) {
     parser.parseString(data, function (err, result) {
+      //interface text
+      let intText = {}
       //class tree structure
       let classTree = {};
       let outClassTree = [];
       //relationship tree structure
       let relTree = {};
       let outRelTree = [];
-      console.log(result["Ontology"]);
+      //Write interface text translations
+      intText.classText = languages[language].classText();
+      intText.objectPropertyText = languages[language].objectPropertyText();
+      intText.namedEntitiesText = languages[language].namedEntitiesText();
       //list all clases
       for (let i = 0; i < result["Ontology"]["Declaration"].length; i++){
         if (result["Ontology"]["Declaration"][i]["Class"]){
@@ -104,15 +109,15 @@ let read_file = function(filename, filepath, cb){
       }
       console.log(JSON.stringify(classTree));
       console.log('Done');
-      write_file(filename+".js", [outClassTree, outRelTree], function (path){
+      write_file(filename+".js", [intText, outClassTree, outRelTree], function (path){
         cb(path);
       });
     });
   });
 }
 
-let write_file = function (filename, trees, cb){
-  var string = "var tree = "+JSON.stringify(trees);
+let write_file = function (filename, trees, cb) {
+  let string = "var tree = "+JSON.stringify(trees);
   console.log("../"+filename)
   fs.writeFile("./public/rendered/"+filename, string, function(err) {
     if(err) {
