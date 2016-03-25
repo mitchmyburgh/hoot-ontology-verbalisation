@@ -28,9 +28,6 @@
         <Class IRI="#Owl"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#JimTheOwl"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Zebra"/>
     </Declaration>
     <Declaration>
@@ -74,15 +71,7 @@
         <NamedIndividual IRI="#BobTheOwl"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Owl"/>
-        <NamedIndividual IRI="#JimTheOwl"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#BarnOwl"/>
-        <NamedIndividual IRI="#SamTheOwl"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#EagleOwl"/>
         <NamedIndividual IRI="#SamTheOwl"/>
     </ClassAssertion>
     <SubObjectPropertyOf>

@@ -30,6 +30,12 @@ let technicalEnglish = {
   namedEntitiesText: function () {
     return "Named Entities";
   },
+  subObjectText: function () {
+    return "Parent";
+  },
+  subObjectOf: function (subC, superC) {
+    return subC + " is an individual of "+superC;
+  }
 }
 
 

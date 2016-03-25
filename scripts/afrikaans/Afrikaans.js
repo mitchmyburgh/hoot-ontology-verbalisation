@@ -30,6 +30,12 @@ let Afrikaans = {
   namedEntitiesText: function () {
     return "Named Entities";
   },
+  subObjectText: function () {
+    return "Parent";
+  },
+  subObjectOf: function (subC, superC) {
+    return subC + " is a type of "+superC;
+  }
 }
 
 module.exports = Afrikaans;

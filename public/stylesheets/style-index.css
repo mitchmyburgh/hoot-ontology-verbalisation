@@ -1,8 +1,8 @@
-.commonTree, #classTree, #relTree {
+.commonTree, #classTree, #relTree, #neTree {
   display: inline-block;
 }
 
-.commonDisp, #classDisp, #relDisp {
+.commonDisp, #classDisp, #relDisp, #neDisp {
   padding-left: 3em;
   display: inline-block;
 }

@@ -25,6 +25,9 @@ let read_file = function(filename, filepath, cb){
       //relationship tree structure
       let relTree = {};
       let outRelTree = [];
+      //named Entity tree structure
+      let neTree = {};
+      let outNeTree = [];
       //Write interface text translations
       intText.classText = languages[language].classText();
       intText.objectPropertyText = languages[language].objectPropertyText();
@@ -65,7 +68,27 @@ let read_file = function(filename, filepath, cb){
           !relTree[rel.replace("#", "")].displayOutput.subPropertyOf ? relTree[rel.replace("#", "")].displayOutput.subPropertyOf = [languages[language].subPropertyText()] : null;
         }
       }
+
+      //list all named entities
+      for (let i = 0; i < result["Ontology"]["Declaration"].length; i++){
+        if (result["Ontology"]["Declaration"][i]["NamedIndividual"]){
+          let ne = result["Ontology"]["Declaration"][i]["NamedIndividual"][0]["$"]["IRI"];
+          neTree[ne.replace("#", "")] = {
+            id: ne.replace("#", "ne_"),
+            text: ne.replace("#", ""),
+            icon: "",
+            state: {opened: false, disabled: false, selected: false},
+            children: [],
+            li_attr: {},
+            a_attr: {href: ne+"_describe"},
+            displayOutput: {},
+            used: false
+          };
+          !neTree[ne.replace("#", "")].displayOutput.subObjectOf ? neTree[ne.replace("#", "")].displayOutput.subObjectOf = [languages[language].subObjectText()] : null;
+        }
+      }
       //create text entries for sub classes + build tree structure
+      var classTree2 = JSON.parse(JSON.stringify(classTree));
       for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
         let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
         let superC = result["Ontology"]["SubClassOf"][i]["Class"][1]["$"]["IRI"].replace("#", "");
@@ -81,6 +104,25 @@ let read_file = function(filename, filepath, cb){
         relTree[superC].children.push(relTree[subC]);
         relTree[subC].used = true;
       }
+      //create text entries for sub objects + build tree structure
+      for (let i = 0; i < result["Ontology"]["ClassAssertion"].length; i++){
+        let subC = result["Ontology"]["ClassAssertion"][i]["NamedIndividual"][0]["$"]["IRI"].replace("#", "");
+        let superC = result["Ontology"]["ClassAssertion"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+        neTree[subC].displayOutput.subObjectOf.push(languages[language].subObjectOf(subC, superC));
+        classTree2[superC].children.push(neTree[subC]);
+        neTree[subC].used = true;
+      }
+      //complete tree structure for ne tree
+      for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
+        let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+        let superC = result["Ontology"]["SubClassOf"][i]["Class"][1]["$"]["IRI"].replace("#", "");
+        classTree2[subC].displayOutput.subClassOf.push(languages[language].subClassOf(subC, superC));
+        classTree2[superC].children.push(classTree2[subC]);
+        classTree2[subC].used = true;
+      }
+      console.log("=================================");
+      console.log(JSON.stringify(classTree2))
+
       //remove class root nodes that are used elsewhere in the tree
       for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
         let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
@@ -95,6 +137,19 @@ let read_file = function(filename, filepath, cb){
           relTree[subC] = null;
         }
       }
+      //remove named entities root nodes that are used elsewhere in the tree
+      for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
+        let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+        if (classTree2[subC]) {
+          classTree2[subC].id = classTree2[subC].id+'_ne';
+          console.log(classTree2[subC].id);
+        }
+        if (classTree2[subC] && classTree2[subC].used) {
+          classTree2[subC] = null;
+        }
+      }
+      console.log("=================================");
+      console.log(JSON.stringify(classTree2))
       //make class tree into list
       for (var key in classTree) {
         if (classTree.hasOwnProperty(key)) {
@@ -107,9 +162,17 @@ let read_file = function(filename, filepath, cb){
           relTree[key] ? outRelTree.push(relTree[key]) : null;
         }
       }
+      //make named entity tree into list
+      for (var key in classTree2) {
+        if (classTree2.hasOwnProperty(key)) {
+          classTree2[key] ? outNeTree.push(classTree2[key]) : null;
+        }
+      }
+      console.log("=================================");
+      console.log(JSON.stringify(neTree))
       console.log(JSON.stringify(classTree));
       console.log('Done');
-      write_file(filename+".js", [intText, outClassTree, outRelTree], function (path){
+      write_file(filename+".js", [intText, outClassTree, outRelTree, outNeTree], function (path){
         cb(path);
       });
     });
