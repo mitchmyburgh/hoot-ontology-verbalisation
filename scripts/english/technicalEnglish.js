@@ -71,6 +71,30 @@ let technicalEnglish = {
   subPropertyText: function (){
     return "Sub Property Of";
   },
+  characteristicsText: function () {
+    return "Characteristics";
+  },
+  characteristicsFunctional: function (rel) {
+    return "The relation "+decamelize(rel, " ").capitalize(true)+" is Functional";
+  },
+  characteristicsInverseFunctional: function (rel) {
+    return "The relation "+decamelize(rel, " ").capitalize(true)+" is Inverse Functional";
+  },
+  characteristicsTransitive: function (rel) {
+    return "The relation "+decamelize(rel, " ").capitalize(true)+" is Transitive";
+  },
+  characteristicsSymmetric: function (rel) {
+    return "The relation "+decamelize(rel, " ").capitalize(true)+" is Symmetric";
+  },
+  characteristicsAsymmetric: function (rel) {
+    return "The relation "+decamelize(rel, " ").capitalize(true)+" is Asymmetric";
+  },
+  characteristicsReflexive: function (rel) {
+    return "The relation "+decamelize(rel, " ").capitalize(true)+" is Reflexive";
+  },
+  characteristicsIrreflexive: function (rel) {
+    return "The relation "+decamelize(rel, " ").capitalize(true)+" is Irreflexive";
+  },
   namedEntitiesText: function () {
     return "Named Entities";
   },

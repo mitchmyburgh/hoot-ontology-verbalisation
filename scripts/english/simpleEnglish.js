@@ -6,6 +6,11 @@ var natural = require('natural'),
 nounInflector = new natural.NounInflector();
 nounInflector.attach();
 
+//list of past tense verbs
+var pastTense = {
+  drinks: "drunk",
+}
+
 //http://stackoverflow.com/questions/2332811/capitalize-words-in-string
 String.prototype.capitalize = function(lower) {
     return (lower ? this.toLowerCase() : this).replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
@@ -70,6 +75,30 @@ let simpleEnglish = {
   },
   subPropertyText: function (){
     return "Is A";
+  },
+  characteristicsText: function () {
+    return "Characteristics";
+  },
+  characteristicsFunctional: function (rel) {
+    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+  },
+  characteristicsInverseFunctional: function (rel) {
+    return "Every Class or Object that is "+pastTense[rel]+", is only "+pastTense[rel]+" by 1 Class or Object";
+  },
+  characteristicsTransitive: function (rel) {
+    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+  },
+  characteristicsSymmetric: function (rel) {
+    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+  },
+  characteristicsAsymmetric: function (rel) {
+    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+  },
+  characteristicsReflexive: function (rel) {
+    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+  },
+  characteristicsIrreflexive: function (rel) {
+    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
   },
   namedEntitiesText: function () {
     return "Named Entities";

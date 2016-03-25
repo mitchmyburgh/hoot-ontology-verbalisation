@@ -70,6 +70,30 @@ let simpleEnglish = {
   subPropertyText: function (){
     return "Sub Property Of";
   },
+  characteristicsText: function () {
+    return "Characteristics";
+  },
+  characteristicsFunctional: function (rel) {
+    return "&#8704;x &#8707;!y:"+rel+"(x,y)";
+  },
+  characteristicsInverseFunctional: function (rel) {
+    return "&#8704;y &#8707;!x:"+rel+"(x,y)";
+  },
+  characteristicsTransitive: function (rel) {
+    return "&#8704;x,y,z "+rel+"(x,y) &#8743; "+rel+"(y,z) &#8658; "+rel+"(x,z)";
+  },
+  characteristicsSymmetric: function (rel) {
+    return "&#8704;x,y "+rel+"(x,y) &#8658; "+rel+"(y,x)";
+  },
+  characteristicsAsymmetric: function (rel) {
+    return "&#8704;x,y "+rel+"(x,y) &#8658; &#172;"+rel+"(y,x)";
+  },
+  characteristicsReflexive: function (rel) {
+    return "&#8704;x "+rel+"(x,x)";
+  },
+  characteristicsIrreflexive: function (rel) {
+    return "&#8704;x &#172;"+rel+"(x,x)";
+  },
   namedEntitiesText: function () {
     return "Named Entities";
   },

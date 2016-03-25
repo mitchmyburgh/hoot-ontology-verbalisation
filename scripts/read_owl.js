@@ -5,7 +5,7 @@ let xml2js = require('xml2js');
 var shortid = require('shortid');
 
 //load the language translations
-let language = "maths";
+let language = "technicalEnglish";
 let languages = {};
 languages["simpleEnglish"] = require('./english/simpleEnglish');
 languages["technicalEnglish"] = require('./english/technicalEnglish');
@@ -70,6 +70,7 @@ let read_file = function(filename, filepath, cb){
             used: false
           };
           !relTree[rel.replace("#", "")].displayOutput.subPropertyOf ? relTree[rel.replace("#", "")].displayOutput.subPropertyOf = [languages[language].subPropertyText()] : null;
+          !relTree[rel.replace("#", "")].displayOutput.characteristics ? relTree[rel.replace("#", "")].displayOutput.characteristics = [languages[language].characteristicsText()] : null;
         }
       }
 
@@ -89,6 +90,20 @@ let read_file = function(filename, filepath, cb){
             used: false
           };
           !neTree[ne.replace("#", "")].displayOutput.subObjectOf ? neTree[ne.replace("#", "")].displayOutput.subObjectOf = [languages[language].subObjectText()] : null;
+        }
+      }
+      //create text entries for sub classes + build tree structure
+      var classTree2 = JSON.parse(JSON.stringify(classTree));
+      for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
+        if (result["Ontology"]["SubClassOf"][i]["Class"].length >1){
+          let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+          let superC = result["Ontology"]["SubClassOf"][i]["Class"][1]["$"]["IRI"].replace("#", "");
+          classTree[subC].displayOutput.subClassOf.push(languages[language].subClassOf(subC, superC));
+          if (classTree[subC].used){
+            classTree[subC].id+= shortid.generate();
+          }
+          classTree[superC].children.push(classTree[subC]);
+          classTree[subC].used = true;
         }
       }
       //Equivalent Classes
@@ -132,20 +147,6 @@ let read_file = function(filename, filepath, cb){
         }
 
       }
-      //create text entries for sub classes + build tree structure
-      var classTree2 = JSON.parse(JSON.stringify(classTree));
-      for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
-        if (result["Ontology"]["SubClassOf"][i]["Class"].length >1){
-          let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
-          let superC = result["Ontology"]["SubClassOf"][i]["Class"][1]["$"]["IRI"].replace("#", "");
-          classTree[subC].displayOutput.subClassOf.push(languages[language].subClassOf(subC, superC));
-          if (classTree[subC].used){
-            classTree[subC].id+= shortid.generate();
-          }
-          classTree[superC].children.push(classTree[subC]);
-          classTree[subC].used = true;
-        }
-      }
       //create text entries for sub relations + build tree structure
       for (let i = 0; i < result["Ontology"]["SubObjectPropertyOf"].length; i++){
         let subC = result["Ontology"]["SubObjectPropertyOf"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
@@ -156,6 +157,42 @@ let read_file = function(filename, filepath, cb){
         }
         relTree[superC].children.push(relTree[subC]);
         relTree[subC].used = true;
+      }
+      // Characteristics
+      // Functional char
+      for (let i = 0; i < result["Ontology"]["FunctionalObjectProperty"].length; i++){
+        let rel = result["Ontology"]["FunctionalObjectProperty"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        relTree[rel].displayOutput.characteristics.push(languages[language].characteristicsFunctional(rel));
+      }
+      //inverse functional
+      for (let i = 0; i < result["Ontology"]["InverseFunctionalObjectProperty"].length; i++){
+        let rel = result["Ontology"]["InverseFunctionalObjectProperty"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        relTree[rel].displayOutput.characteristics.push(languages[language].characteristicsInverseFunctional(rel));
+      }
+      //symmetric
+      for (let i = 0; i < result["Ontology"]["SymmetricObjectProperty"].length; i++){
+        let rel = result["Ontology"]["SymmetricObjectProperty"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        relTree[rel].displayOutput.characteristics.push(languages[language].characteristicsSymmetric(rel));
+      }
+      //asymmetric
+      for (let i = 0; i < result["Ontology"]["AsymmetricObjectProperty"].length; i++){
+        let rel = result["Ontology"]["AsymmetricObjectProperty"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        relTree[rel].displayOutput.characteristics.push(languages[language].characteristicsAsymmetric(rel));
+      }
+      //Transitive
+      for (let i = 0; i < result["Ontology"]["TransitiveObjectProperty"].length; i++){
+        let rel = result["Ontology"]["TransitiveObjectProperty"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        relTree[rel].displayOutput.characteristics.push(languages[language].characteristicsTransitive(rel));
+      }
+      //Reflexive
+      for (let i = 0; i < result["Ontology"]["ReflexiveObjectProperty"].length; i++){
+        let rel = result["Ontology"]["ReflexiveObjectProperty"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        relTree[rel].displayOutput.characteristics.push(languages[language].characteristicsReflexive(rel));
+      }
+      //irreflexive
+      for (let i = 0; i < result["Ontology"]["IrreflexiveObjectProperty"].length; i++){
+        let rel = result["Ontology"]["IrreflexiveObjectProperty"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        relTree[rel].displayOutput.characteristics.push(languages[language].characteristicsIrreflexive(rel));
       }
       //create text entries for sub objects + build tree structure
       for (let i = 0; i < result["Ontology"]["ClassAssertion"].length; i++){

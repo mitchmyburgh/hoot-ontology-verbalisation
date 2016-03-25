@@ -237,21 +237,6 @@
     <InverseFunctionalObjectProperty>
         <ObjectProperty IRI="#drinks"/>
     </InverseFunctionalObjectProperty>
-    <SymmetricObjectProperty>
-        <ObjectProperty IRI="#drinks"/>
-    </SymmetricObjectProperty>
-    <AsymmetricObjectProperty>
-        <ObjectProperty IRI="#drinks"/>
-    </AsymmetricObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#drinks"/>
-    </TransitiveObjectProperty>
-    <ReflexiveObjectProperty>
-        <ObjectProperty IRI="#drinks"/>
-    </ReflexiveObjectProperty>
-    <IrreflexiveObjectProperty>
-        <ObjectProperty IRI="#drinks"/>
-    </IrreflexiveObjectProperty>
 </Ontology>
 
 
