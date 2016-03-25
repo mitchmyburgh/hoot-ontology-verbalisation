@@ -5,11 +5,12 @@ let xml2js = require('xml2js');
 
 
 //load the language translations
-let language = "technicalEnglish";
+let language = "Afrikaans";
 let languages = {};
 languages["simpleEnglish"] = require('./english/simpleEnglish');
 languages["technicalEnglish"] = require('./english/technicalEnglish');
 languages["Afrikaans"] = require('./afrikaans/Afrikaans');
+languages["Tswana"] = require('./tswana/Tswana');
 
 
 let read_file = function(filename, filepath, cb){

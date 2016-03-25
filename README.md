@@ -55,4 +55,9 @@ For Your code edit the file in
 ```
 and modify it to output the correct string given a certain input.
 
-NOTE: don't use any owl file, the one in `./sample-owl` contains the features that are currently in use
+NOTE: don't use any owl file, the one in `./sample-owl` contains the features that are currently in use.
+
+To change the language change the var `language` in
+```
+./scripts/read_owl.js
+```
