@@ -39,7 +39,7 @@ let read_file = function(filename, filepath, cb){
           classTree[clas.replace("#", "")] = {
             id: clas.replace("#", "class_"),
             text: clas.replace("#", ""),
-            icon: "",
+            icon: "img/class.png",
             state: {opened: false, disabled: false, selected: false},
             children: [],
             li_attr: {},
@@ -57,7 +57,7 @@ let read_file = function(filename, filepath, cb){
           relTree[rel.replace("#", "")] = {
             id: rel.replace("#", "rel_"),
             text: rel.replace("#", ""),
-            icon: "",
+            icon: "img/relation.png",
             state: {opened: false, disabled: false, selected: false},
             children: [],
             li_attr: {},
@@ -76,7 +76,7 @@ let read_file = function(filename, filepath, cb){
           neTree[ne.replace("#", "")] = {
             id: ne.replace("#", "ne_"),
             text: ne.replace("#", ""),
-            icon: "",
+            icon: "img/individ.png",
             state: {opened: false, disabled: false, selected: false},
             children: [],
             li_attr: {},
