@@ -8,7 +8,7 @@ String.prototype.capitalize = function(lower) {
     return (lower ? this.toLowerCase() : this).replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 };
 
-let Afrikaans = {
+let simpleEnglish = {
   subClassOf: function (subC, superC) {
     return (decamelize(subC, " ").capitalize(true)+" is "+articles.articlize(decamelize(superC, " ").capitalize(true)));
   },
@@ -23,4 +23,4 @@ let Afrikaans = {
   }
 }
 
-module.exports = Afrikaans;
+module.exports = simpleEnglish;

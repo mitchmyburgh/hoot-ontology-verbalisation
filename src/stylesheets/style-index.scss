@@ -1,0 +1,21 @@
+.commonTree {
+  display: inline-block;
+}
+.commonDisp {
+  padding-left: 3em;
+  display: inline-block;
+}
+
+#classTree {
+  @extend .commonTree;
+}
+#classDisp {
+  @extend .commonDisp;
+}
+
+#relTree {
+  @extend .commonTree;
+}
+#relDisp {
+  @extend .commonDisp;
+}

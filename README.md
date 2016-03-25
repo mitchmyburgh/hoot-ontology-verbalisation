@@ -8,25 +8,33 @@ Install the packages:
 ```bash
 npm install
 ```
-### Install Grunt
+
+### Install nodemon
+Nodemon reloads the project when files are changed
+```bash
+npm install -g nodemon
+```
+### The following steps are only for css, you can ignore them
+#### Install Grunt
 
 ```bash
 npm install -g grunt
 ```
 
-### Install Ruby
+#### Install Ruby
 ```bash
 sudo apt-get install ruby-full
 ```
-### Install SASS
+#### Install SASS
 ```bash
 sudo su -c "gem install sass"
 ```
+### /end css steps
 
 ## Running
 
 ```bash
-DEBUG=oe-verbalisation:* npm start
+npm start
 ```
 
 ## Coding
@@ -40,3 +48,11 @@ Then run:
 grunt
 ```
 Then refresh the site.
+
+For Your code edit the file in
+```
+./scripts/lang/lang.js
+```
+and modify it to output the correct string given a certain input.
+
+NOTE: don't use any owl file, the one in `./sample-owl` contains the features that are currently in use

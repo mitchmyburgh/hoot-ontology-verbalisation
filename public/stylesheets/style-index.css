@@ -1,3 +1,10 @@
+.commonTree, #classTree, #relTree {
+  display: inline-block;
+}
 
+.commonDisp, #classDisp, #relDisp {
+  padding-left: 3em;
+  display: inline-block;
+}
 
 /*# sourceMappingURL=style-index.css.map */

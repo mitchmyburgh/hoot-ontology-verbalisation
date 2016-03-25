@@ -60,7 +60,7 @@
 
           <!-- Standar Form -->
           <h4>Select file from your computer</h4>
-          <form action="http://localhost:3000/upload" method="post" enctype="multipart/form-data" id="js-upload-form">
+          <form action="http://localhost:3000/" method="post" enctype="multipart/form-data" id="js-upload-form">
             <div class="form-inline">
               <div class="form-group">
                 <input type="file" name="OWLFile" id="js-upload-files" single>
@@ -74,17 +74,15 @@
       <div id="classNode">
         <h2>Class</h2>
         <div id="classTree"></div>
+        <div id="classDisp"></div>
       </div>
       <div id="relationNode">
-
+        <h2>Object Properties</h2>
+        <div id="relTree"></div>
+        <div id="relDisp"></div>
       </div>
       <div id="entityNode">
 
-      </div>
-
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
       </div>
 
     </div><!-- /.container -->
@@ -96,6 +94,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="javascripts/lib/jquery.min.js"><\/script>')</script>
     <script src="javascripts/lib/bootstrap.min.js"></script>
+    <!-- lodash -->
+    <script src="javascripts/lib/lodash.core.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="javascripts/lib/ie10-viewport-bug-workaround.js"></script>
 
