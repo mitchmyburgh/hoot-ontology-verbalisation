@@ -61,9 +61,6 @@
         <Class IRI="#Owl"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Human"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#drinks"/>
     </Declaration>
     <Declaration>
@@ -133,17 +130,6 @@
         </ObjectMaxCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Human"/>
-        <Class IRI="#Animal"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Human"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#drinks"/>
-            <Class IRI="#Beer"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Owl"/>
         <Class IRI="#Animal"/>
     </SubClassOf>
@@ -160,6 +146,11 @@
         <Class IRI="#Owl"/>
         <Class IRI="#Zebra"/>
     </DisjointClasses>
+    <DisjointUnion>
+        <Class IRI="#Plant"/>
+        <Class IRI="#Animal"/>
+        <Class IRI="#amountOfMatter"/>
+    </DisjointUnion>
     <ClassAssertion>
         <Class IRI="#EagleOwl"/>
         <NamedIndividual IRI="#BobTheOwl"/>

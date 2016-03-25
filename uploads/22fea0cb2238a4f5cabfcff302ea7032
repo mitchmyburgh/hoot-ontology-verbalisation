@@ -16,12 +16,6 @@
         <Class IRI="#Animal"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#amountOfMatter"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Beer"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Zebra"/>
     </Declaration>
     <Declaration>
@@ -32,9 +26,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#EagleOwl"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Water"/>
     </Declaration>
     <Declaration>
         <Class IRI="#BarnOwl"/>
@@ -61,9 +52,6 @@
         <Class IRI="#Owl"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Human"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#drinks"/>
     </Declaration>
     <Declaration>
@@ -76,10 +64,6 @@
     <SubClassOf>
         <Class IRI="#BarnOwl"/>
         <Class IRI="#Owl"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Beer"/>
-        <Class IRI="#amountOfMatter"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#EagleOwl"/>
@@ -99,77 +83,47 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Horse"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#drinks"/>
-            <Class IRI="#Water"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Horse"/>
         <ObjectAllValuesFrom>
             <ObjectProperty IRI="#eats"/>
             <Class IRI="#Grass"/>
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Horse"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#digests"/>
-            <Class IRI="#Grass"/>
-        </ObjectMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Horse"/>
-        <ObjectExactCardinality cardinality="1">
-            <ObjectProperty IRI="#digests"/>
-            <Class IRI="#Grass"/>
-        </ObjectExactCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Horse"/>
-        <ObjectMaxCardinality cardinality="1">
-            <ObjectProperty IRI="#digests"/>
-            <Class IRI="#Grass"/>
-        </ObjectMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Human"/>
-        <Class IRI="#Animal"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Human"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#drinks"/>
-            <Class IRI="#Beer"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Owl"/>
         <Class IRI="#Animal"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Water"/>
-        <Class IRI="#amountOfMatter"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Zebra"/>
         <Class IRI="#Animal"/>
     </SubClassOf>
     <DisjointClasses>
+        <Class IRI="#Animal"/>
+        <Class IRI="#Plant"/>
+    </DisjointClasses>
+    <DisjointClasses>
         <Class IRI="#Horse"/>
         <Class IRI="#Owl"/>
         <Class IRI="#Zebra"/>
     </DisjointClasses>
+    <DisjointUnion>
+        <Class IRI="#Owl"/>
+        <Class IRI="#Horse"/>
+        <Class IRI="#Zebra"/>
+    </DisjointUnion>
     <ClassAssertion>
         <Class IRI="#EagleOwl"/>
         <NamedIndividual IRI="#BobTheOwl"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Animal"/>
+        <Class IRI="#Owl"/>
         <NamedIndividual IRI="#JimTheOwl"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BarnOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EagleOwl"/>
         <NamedIndividual IRI="#SamTheOwl"/>
     </ClassAssertion>
     <SubObjectPropertyOf>

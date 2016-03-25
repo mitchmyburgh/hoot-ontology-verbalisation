@@ -2,6 +2,9 @@
 
 let articles = require('articles');
 const decamelize = require('decamelize');
+var natural = require('natural'),
+nounInflector = new natural.NounInflector();
+nounInflector.attach();
 
 //http://stackoverflow.com/questions/2332811/capitalize-words-in-string
 String.prototype.capitalize = function(lower) {
@@ -17,6 +20,22 @@ let simpleEnglish = {
   },
   subClassText: function (){
     return "Is A";
+  },
+  //object restrictions
+  someValuesFrom: function (subC, superC, rel) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" sometimes "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
+  },
+  allValuesFrom: function (subC, superC, rel) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" always "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
+  },
+  exactCardinality: function (subC, superC, rel, card) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" exactly "+card+" "+decamelize(superC, " ").capitalize(true)
+  },
+  minCardinality: function (subC, superC, rel, card) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" at least "+card+" "+decamelize(superC, " ").capitalize(true)
+  },
+  maxCardinality: function (subC, superC, rel, card) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" at most "+card+" "+decamelize(superC, " ").capitalize(true)
   },
   disjointWithText: function () {
     return "Different Classes";

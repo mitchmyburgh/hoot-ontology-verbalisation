@@ -2,6 +2,9 @@
 
 let articles = require('articles');
 const decamelize = require('decamelize');
+var natural = require('natural'),
+nounInflector = new natural.NounInflector();
+nounInflector.attach();
 
 //http://stackoverflow.com/questions/2332811/capitalize-words-in-string
 String.prototype.capitalize = function(lower) {

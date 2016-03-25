@@ -2,10 +2,10 @@
 
 let fs = require('fs');
 let xml2js = require('xml2js');
-
+var shortid = require('shortid');
 
 //load the language translations
-let language = "maths";
+let language = "simpleEnglish";
 let languages = {};
 languages["simpleEnglish"] = require('./english/simpleEnglish');
 languages["technicalEnglish"] = require('./english/technicalEnglish');
@@ -90,26 +90,62 @@ let read_file = function(filename, filepath, cb){
         }
       }
       //Disjoint Classes
-      console.log(JSON.stringify(result["Ontology"]["DisjointClasses"]));
       for (let i = 0; i < result["Ontology"]["DisjointClasses"].length; i++){
-
         let subC = result["Ontology"]["DisjointClasses"][i]["Class"][0]["$"]["IRI"].replace("#", "");
         classTree[subC].displayOutput.disjointWith.push(languages[language].disjointWith(result["Ontology"]["DisjointClasses"][i]["Class"]));
+      }
+      //object relation restrictions
+      var classTree2 = JSON.parse(JSON.stringify(classTree));
+      for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
+        let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+        if (result["Ontology"]["SubClassOf"][i]["ObjectSomeValuesFrom"]){
+          let superC = result["Ontology"]["SubClassOf"][i]["ObjectSomeValuesFrom"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["SubClassOf"][i]["ObjectSomeValuesFrom"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          classTree[subC].displayOutput.subClassOf.push(languages[language].someValuesFrom(subC, superC, rel));
+        } else if (result["Ontology"]["SubClassOf"][i]["ObjectAllValuesFrom"]){
+          let superC = result["Ontology"]["SubClassOf"][i]["ObjectAllValuesFrom"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["SubClassOf"][i]["ObjectAllValuesFrom"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          classTree[subC].displayOutput.subClassOf.push(languages[language].allValuesFrom(subC, superC, rel));
+        } else if (result["Ontology"]["SubClassOf"][i]["ObjectExactCardinality"]){
+          let superC = result["Ontology"]["SubClassOf"][i]["ObjectExactCardinality"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["SubClassOf"][i]["ObjectExactCardinality"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let card = result["Ontology"]["SubClassOf"][i]["ObjectExactCardinality"][0]["$"]["cardinality"];
+          classTree[subC].displayOutput.subClassOf.push(languages[language].exactCardinality(subC, superC, rel, card));
+        } else if (result["Ontology"]["SubClassOf"][i]["ObjectMinCardinality"]){
+          let superC = result["Ontology"]["SubClassOf"][i]["ObjectMinCardinality"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["SubClassOf"][i]["ObjectMinCardinality"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let card = result["Ontology"]["SubClassOf"][i]["ObjectMinCardinality"][0]["$"]["cardinality"];
+          classTree[subC].displayOutput.subClassOf.push(languages[language].minCardinality(subC, superC, rel, card));
+        } else if (result["Ontology"]["SubClassOf"][i]["ObjectMaxCardinality"]){
+          let superC = result["Ontology"]["SubClassOf"][i]["ObjectMaxCardinality"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["SubClassOf"][i]["ObjectMaxCardinality"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let card = result["Ontology"]["SubClassOf"][i]["ObjectMaxCardinality"][0]["$"]["cardinality"];
+          classTree[subC].displayOutput.subClassOf.push(languages[language].maxCardinality(subC, superC, rel, card));
+        }
+
       }
       //create text entries for sub classes + build tree structure
       var classTree2 = JSON.parse(JSON.stringify(classTree));
       for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
-        let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
-        let superC = result["Ontology"]["SubClassOf"][i]["Class"][1]["$"]["IRI"].replace("#", "");
-        classTree[subC].displayOutput.subClassOf.push(languages[language].subClassOf(subC, superC));
-        classTree[superC].children.push(classTree[subC]);
-        classTree[subC].used = true;
+        if (result["Ontology"]["SubClassOf"][i]["Class"].length >1){
+          let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+          let superC = result["Ontology"]["SubClassOf"][i]["Class"][1]["$"]["IRI"].replace("#", "");
+          classTree[subC].displayOutput.subClassOf.push(languages[language].subClassOf(subC, superC));
+          if (classTree[subC].used){
+            classTree[subC].id+= shortid.generate();
+          }
+          classTree[superC].children.push(classTree[subC]);
+          classTree[subC].used = true;
+        }
       }
       //create text entries for sub relations + build tree structure
       for (let i = 0; i < result["Ontology"]["SubObjectPropertyOf"].length; i++){
         let subC = result["Ontology"]["SubObjectPropertyOf"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
         let superC = result["Ontology"]["SubObjectPropertyOf"][i]["ObjectProperty"][1]["$"]["IRI"].replace("#", "");
         relTree[subC].displayOutput.subPropertyOf.push(languages[language].subPropertyOf(subC, superC));
+        if (relTree[subC].used){
+          relTree[subC].id+= shortid.generate();
+        }
         relTree[superC].children.push(relTree[subC]);
         relTree[subC].used = true;
       }
@@ -123,11 +159,16 @@ let read_file = function(filename, filepath, cb){
       }
       //complete tree structure for ne tree
       for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
-        let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
-        let superC = result["Ontology"]["SubClassOf"][i]["Class"][1]["$"]["IRI"].replace("#", "");
-        classTree2[subC].displayOutput.subClassOf.push(languages[language].subClassOf(subC, superC));
-        classTree2[superC].children.push(classTree2[subC]);
-        classTree2[subC].used = true;
+        if (result["Ontology"]["SubClassOf"][i]["Class"].length >1){
+          let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+          let superC = result["Ontology"]["SubClassOf"][i]["Class"][1]["$"]["IRI"].replace("#", "");
+          classTree2[subC].displayOutput.subClassOf.push(languages[language].subClassOf(subC, superC));
+          if (classTree2[subC].used){
+            classTree2[subC].id+= shortid.generate();
+          }
+          classTree2[superC].children.push(classTree2[subC]);
+          classTree2[subC].used = true;
+        }
       }
 
       //remove class root nodes that are used elsewhere in the tree
@@ -178,6 +219,22 @@ let read_file = function(filename, filepath, cb){
       });
     });
   });
+}
+
+function changeIds(obj)
+{
+  for (var k in obj)
+  {
+    if (!obj.hasOwnProperty(k))
+        continue;
+    if (typeof obj[k] == "object" && obj[k] !== null){
+      console.log(obj[k].id)
+      obj[k].id += shortid.generate();
+      changeIds(obj[k]);
+    } else {
+      obj[k].id += shortid.generate();
+    }
+  }
 }
 
 let write_file = function (filename, trees, cb) {
