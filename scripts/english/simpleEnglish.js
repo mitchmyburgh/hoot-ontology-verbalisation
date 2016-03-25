@@ -50,6 +50,12 @@ let simpleEnglish = {
     }
     return return_string;
   },
+  instancesText: function () {
+    return "Instances";
+  },
+  instances: function (subC, superC) {
+    return "<img src='img/individ.png'></img>"+articles.articlize(decamelize(subC, " ")).capitalize(true)+" is "+articles.articlize(decamelize(superC, " ").capitalize(true));
+  },
   objectPropertyText: function () {
     return "Object Properties";
   },

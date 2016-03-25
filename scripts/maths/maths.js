@@ -49,6 +49,12 @@ let simpleEnglish = {
     return_string += ") &#8849;  &#8869;";
     return return_string;
   },
+  instancesText: function () {
+    return "Instances";
+  },
+  instances: function (subC, superC) {
+    return "<img src='img/individ.png'></img>"+subC+" &#8849; "+superC;
+  },
   objectPropertyText: function () {
     return "Object Properties";
   },

@@ -50,6 +50,7 @@ let read_file = function(filename, filepath, cb){
           };
           !classTree[clas.replace("#", "")].displayOutput.subClassOf ? classTree[clas.replace("#", "")].displayOutput.subClassOf = [languages[language].subClassText()] : null;
           !classTree[clas.replace("#", "")].displayOutput.disjointWith ? classTree[clas.replace("#", "")].displayOutput.disjointWith = [languages[language].disjointWithText()] : null;
+          !classTree[clas.replace("#", "")].displayOutput.instances ? classTree[clas.replace("#", "")].displayOutput.instances = [languages[language].instancesText()] : null;
         }
       }
       //list all relations
@@ -154,6 +155,7 @@ let read_file = function(filename, filepath, cb){
         let subC = result["Ontology"]["ClassAssertion"][i]["NamedIndividual"][0]["$"]["IRI"].replace("#", "");
         let superC = result["Ontology"]["ClassAssertion"][i]["Class"][0]["$"]["IRI"].replace("#", "");
         neTree[subC].displayOutput.subObjectOf.push(languages[language].subObjectOf(subC, superC));
+        classTree[superC].displayOutput.instances.push(languages[language].instances(subC, superC));
         classTree2[superC].children.push(neTree[subC]);
         neTree[subC].used = true;
       }
