@@ -48,6 +48,7 @@ let read_file = function(filename, filepath, cb){
             used: false
           };
           !classTree[clas.replace("#", "")].displayOutput.subClassOf ? classTree[clas.replace("#", "")].displayOutput.subClassOf = [languages[language].subClassText()] : null;
+          !classTree[clas.replace("#", "")].displayOutput.disjointWith ? classTree[clas.replace("#", "")].displayOutput.disjointWith = [languages[language].disjointWithText()] : null;
         }
       }
       //list all relations
@@ -87,6 +88,13 @@ let read_file = function(filename, filepath, cb){
           !neTree[ne.replace("#", "")].displayOutput.subObjectOf ? neTree[ne.replace("#", "")].displayOutput.subObjectOf = [languages[language].subObjectText()] : null;
         }
       }
+      //Disjoint Classes
+      console.log(JSON.stringify(result["Ontology"]["DisjointClasses"]));
+      for (let i = 0; i < result["Ontology"]["DisjointClasses"].length; i++){
+
+        let subC = result["Ontology"]["DisjointClasses"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+        classTree[subC].displayOutput.disjointWith.push(languages[language].disjointWith(result["Ontology"]["DisjointClasses"][i]["Class"]));
+      }
       //create text entries for sub classes + build tree structure
       var classTree2 = JSON.parse(JSON.stringify(classTree));
       for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
@@ -120,8 +128,6 @@ let read_file = function(filename, filepath, cb){
         classTree2[superC].children.push(classTree2[subC]);
         classTree2[subC].used = true;
       }
-      console.log("=================================");
-      console.log(JSON.stringify(classTree2))
 
       //remove class root nodes that are used elsewhere in the tree
       for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
@@ -142,14 +148,11 @@ let read_file = function(filename, filepath, cb){
         let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
         if (classTree2[subC]) {
           classTree2[subC].id = classTree2[subC].id+'_ne';
-          console.log(classTree2[subC].id);
         }
         if (classTree2[subC] && classTree2[subC].used) {
           classTree2[subC] = null;
         }
       }
-      console.log("=================================");
-      console.log(JSON.stringify(classTree2))
       //make class tree into list
       for (var key in classTree) {
         if (classTree.hasOwnProperty(key)) {
@@ -168,9 +171,6 @@ let read_file = function(filename, filepath, cb){
           classTree2[key] ? outNeTree.push(classTree2[key]) : null;
         }
       }
-      console.log("=================================");
-      console.log(JSON.stringify(neTree))
-      console.log(JSON.stringify(classTree));
       console.log('Done');
       write_file(filename+".js", [intText, outClassTree, outRelTree, outNeTree], function (path){
         cb(path);

@@ -79,6 +79,18 @@
     <DisjointClasses>
         <Class IRI="#Horse"/>
         <Class IRI="#Owl"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Horse"/>
+        <Class IRI="#Owl"/>
+        <Class IRI="#Zebra"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Horse"/>
+        <Class IRI="#Zebra"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Owl"/>
         <Class IRI="#Zebra"/>
     </DisjointClasses>
     <DisjointUnion>

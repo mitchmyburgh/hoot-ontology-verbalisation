@@ -16,6 +16,12 @@ $(function () {
     for (var i = 1; i < data.node.original.displayOutput.subClassOf.length; i++){
       $("#classDisp").append("<p>"+data.node.original.displayOutput.subClassOf[i]+"</p>");
     }
+    if (data.node.original.displayOutput.disjointWith.length > 1){
+      $("#classDisp").append("<h3>"+data.node.original.displayOutput.disjointWith[0]+"</h3>");
+    }
+    for (var i = 1; i < data.node.original.displayOutput.disjointWith.length; i++){
+      $("#classDisp").append("<p>"+data.node.original.displayOutput.disjointWith[i]+"</p>");
+    }
   });
 
   $('#relTree').on("changed.jstree", function (e, data) {
