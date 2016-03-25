@@ -21,6 +21,22 @@ let technicalEnglish = {
   subClassText: function (){
     return "Sub Class Of";
   },
+  //object restrictions
+  someValuesFrom: function (subC, superC, rel) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" some "+decamelize(superC, " ").capitalize(true)
+  },
+  allValuesFrom: function (subC, superC, rel) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" only "+decamelize(superC, " ").capitalize(true)
+  },
+  exactCardinality: function (subC, superC, rel, card) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" exactly "+card+" "+decamelize(superC, " ").capitalize(true)
+  },
+  minCardinality: function (subC, superC, rel, card) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" a minimum of "+card+" "+decamelize(superC, " ").capitalize(true)
+  },
+  maxCardinality: function (subC, superC, rel, card) {
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" a maximum of "+card+" "+decamelize(superC, " ").capitalize(true)
+  },
   disjointWithText: function () {
     return "Disjoint Classes";
   },
@@ -50,7 +66,7 @@ let technicalEnglish = {
     return "Parent";
   },
   subObjectOf: function (subC, superC) {
-    return subC + " is an individual of "+superC;
+    return decamelize(subC, " ").capitalize(true) + " is an individual of "+decamelize(superC, " ").capitalize(true);
   }
 }
 

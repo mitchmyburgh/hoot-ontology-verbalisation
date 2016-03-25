@@ -18,18 +18,35 @@ let simpleEnglish = {
   subClassText: function (){
     return "Sub Class Of";
   },
+  //object restrictions
+  someValuesFrom: function (subC, superC, rel) {
+    return subC+"  &#8849;  &#8707;"+rel+"."+superC;
+  },
+  allValuesFrom: function (subC, superC, rel) {
+    return subC+"  &#8849;  &#8704;"+rel+"."+superC;
+  },
+  exactCardinality: function (subC, superC, rel, card) {
+    return subC+"  &#8849;  ="+card+rel+"."+superC;
+  },
+  minCardinality: function (subC, superC, rel, card) {
+    return subC+"  &#8849;  &#8805;"+card+rel+"."+superC;
+  },
+  maxCardinality: function (subC, superC, rel, card) {
+    return subC+"  &#8849;  &#8804;"+card+rel+"."+superC;
+  },
   disjointWithText: function () {
     return "Disjoint Classes";
   },
   disjointWith: function (classes){
     var return_string = "";
-    for (var i = 0; i < classes.length; i++){
+    return_string += classes[0]["$"]["IRI"].replace("#", "")+" &#8851; (";
+    for (var i = 1; i < classes.length; i++){
       return_string += classes[i]["$"]["IRI"].replace("#", "")
       if (i != classes.length-1){
-        return_string += " &#8851; ";
+        return_string += " &#8852; ";
       }
     }
-    return_string += " =  &#8869;";
+    return_string += ") &#8849;  &#8869;";
     return return_string;
   },
   objectPropertyText: function () {

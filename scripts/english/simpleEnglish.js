@@ -66,7 +66,7 @@ let simpleEnglish = {
     return "Parent";
   },
   subObjectOf: function (subC, superC) {
-    return subC + " is a type of "+superC;
+    return decamelize(subC, " ").capitalize(true) + " is a type of " + decamelize(superC, " ").capitalize(true);
   }
 }
 

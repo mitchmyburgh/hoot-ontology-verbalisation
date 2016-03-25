@@ -99,13 +99,6 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Horse"/>
-        <ObjectUnionOf>
-            <Class IRI="#Animal"/>
-            <Class IRI="#Owl"/>
-        </ObjectUnionOf>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Horse"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#drinks"/>
             <Class IRI="#Water"/>
