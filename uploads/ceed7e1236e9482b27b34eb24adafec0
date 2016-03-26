@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2">
+    <Prefix name="" IRI="http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#amountOfMatter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#partOf"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Zebra"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AlsoOwl"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BobTheOwl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Phologolo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#eats"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sejalo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Motho"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pitsi"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contains"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#drinks"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Metsi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Morubisi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EagleOwl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BarnOwl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HomoSapien"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#JimTheOwl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tlhaga"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#bites"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#chews"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#digests"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bojalwa"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#HomoSapien"/>
+        <Class IRI="#Motho"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#HomoSapien"/>
+        <Class IRI="#Person"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Motho"/>
+        <Class IRI="#Person"/>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#AlsoOwl"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AlsoOwl"/>
+        <ObjectUnionOf>
+            <Class IRI="#Morubisi"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BarnOwl"/>
+        <Class IRI="#Morubisi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bojalwa"/>
+        <Class IRI="#amountOfMatter"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EagleOwl"/>
+        <Class IRI="#AlsoOwl"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EagleOwl"/>
+        <Class IRI="#Morubisi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EagleOwl"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+            <Datatype abbreviatedIRI="owl:real"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HomoSapien"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Metsi"/>
+        <Class IRI="#amountOfMatter"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Morubisi"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Morubisi"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AlsoOwl"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Motho"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Motho"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#drinks"/>
+            <Class IRI="#Bojalwa"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#drinks"/>
+            <Class IRI="#Metsi"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#eats"/>
+            <Class IRI="#Tlhaga"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#digests"/>
+            <Class IRI="#Tlhaga"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#digests"/>
+            <Class IRI="#Tlhaga"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#digests"/>
+            <Class IRI="#Tlhaga"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tlhaga"/>
+        <Class IRI="#Sejalo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zebra"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Morubisi"/>
+        <Class IRI="#Pitsi"/>
+        <Class IRI="#Zebra"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#EagleOwl"/>
+        <NamedIndividual IRI="#BobTheOwl"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Phologolo"/>
+        <NamedIndividual IRI="#JimTheOwl"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#BarnOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EagleOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </ClassAssertion>
+    <EquivalentObjectProperties>
+        <ObjectProperty IRI="#bites"/>
+        <ObjectProperty IRI="#chews"/>
+    </EquivalentObjectProperties>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#bites"/>
+        <ObjectProperty IRI="#eats"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#chews"/>
+        <ObjectProperty IRI="#eats"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#digests"/>
+        <ObjectProperty IRI="#drinks"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#digests"/>
+        <ObjectProperty IRI="#eats"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#contains"/>
+        <ObjectProperty IRI="#partOf"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#drinks"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#drinks"/>
+    </InverseFunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#drinks"/>
+    </SymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#drinks"/>
+    </AsymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#drinks"/>
+    </TransitiveObjectProperty>
+    <ReflexiveObjectProperty>
+        <ObjectProperty IRI="#drinks"/>
+    </ReflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#drinks"/>
+    </IrreflexiveObjectProperty>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
+
