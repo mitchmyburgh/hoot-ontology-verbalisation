@@ -150,7 +150,7 @@ let simpleEnglish = {
     return this.domainTrim(text)+". ";
   },
   rangePreNoD: function (text, rel) {
-    return rel+"(x,y) &#8658; ";
+    return rel+"(x,y) &#8658; "+text.substring(8, text.length-8);;
   },
   rangePre: function (rel) {
     return " &#8743; ";
@@ -174,7 +174,7 @@ let simpleEnglish = {
     return "y  &#8849;  ="+card+rel+"."+superC+" &#8743; ";
   },
   rangeTrim: function(text){
-    return text.substring(0, text.length);
+    return text.substring(0, text.length-8);
   },
   rangePost: function (text, subR){
     return this.rangeTrim(text)

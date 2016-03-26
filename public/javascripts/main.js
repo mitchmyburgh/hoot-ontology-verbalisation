@@ -1,8 +1,8 @@
 $(function () {
   //Language Dropdown
   $(".dropdown-menu li a").click(function(){
-    $(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
-    $(".btn:first-child").val($(this).attr("value"));
+    $("#dropdownMenu1").html($(this).text()+' <span class="caret"></span>');
+    $("#dropdownMenu1").val($(this).attr("value"));
     $("#language_select").val($(this).attr("value"));
   });
   $("#classParDisp").hide();
