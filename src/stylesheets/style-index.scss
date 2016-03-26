@@ -8,6 +8,18 @@
 #commonForm {
   display: inline-block;
 }
+#groupPanels {
+  display: none;
+}
+#classPanel {
+  @extend #groupPanels;
+}
+#relPanel {
+  @extend #groupPanels;
+}
+#nePanel {
+  @extend #groupPanels;
+}
 .form-group {
   @extend #commonForm;
 }

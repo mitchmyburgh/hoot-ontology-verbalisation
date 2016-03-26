@@ -5,6 +5,9 @@ $(function () {
     $(".btn:first-child").val($(this).text());
   });
   if (tree){
+    $("#classPanel").show();
+    $("#relPanel").show();
+    $("#nePanel").show();
     //set interface text
     $('#classText').html(tree[0].classText);
     $('#objectPropertyText').html(tree[0].objectPropertyText);

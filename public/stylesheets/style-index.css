@@ -11,6 +11,10 @@
   display: inline-block;
 }
 
+#groupPanels, #classPanel, #relPanel, #nePanel {
+  display: none;
+}
+
 .dropdown {
   margin: auto;
 }
