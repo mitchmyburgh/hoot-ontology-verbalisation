@@ -18,78 +18,78 @@ String.prototype.capitalize = function(lower) {
 
 let simpleEnglish = {
   classText: function () {
-    return "Classes";
+    return "Klasse";
   },
   subClassOf: function (subC, superC) {
     return (articles.articlize(decamelize(subC, " ")).capitalize(true)+" is "+articles.articlize(decamelize(superC, " ").capitalize(true)));
   },
   subClassText: function (){
-    return "Is A";
+    return "Is 'n";
   },
   //object restrictions
   someValuesFrom: function (subC, superC, rel) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" sometimes "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" soms "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
   },
   allValuesFrom: function (subC, superC, rel) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" always "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" altyd "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
   },
   exactCardinality: function (subC, superC, rel, card) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" exactly "+card+" "+decamelize(superC, " ").capitalize(true)
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" presies "+card+" "+decamelize(superC, " ").capitalize(true)
   },
   minCardinality: function (subC, superC, rel, card) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" at least "+card+" "+decamelize(superC, " ").capitalize(true)
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" ten minste "+card+" "+decamelize(superC, " ").capitalize(true)
   },
   maxCardinality: function (subC, superC, rel, card) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" at most "+card+" "+decamelize(superC, " ").capitalize(true)
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" by die meeste "+card+" "+decamelize(superC, " ").capitalize(true)
   },
   equivalentClassesText: function () {
-    return "Is Also";
+    return "Is ook";
   },
   equivalentClasses: function (subC, superC) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" is the same as "+articles.articlize(decamelize(superC, " ").capitalize(true))
+    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" is dieselfde as "+articles.articlize(decamelize(superC, " ").capitalize(true))
   },
   disjointWithText: function () {
-    return "Different Classes";
+    return "Verskillende Klasse";
   },
   disjointWith: function (classes){
-    var return_string = articles.articlize(decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ")).capitalize(true)+" is different from ";
+    var return_string = articles.articlize(decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ")).capitalize(true)+" verskil van ";
     for (var i = 1; i < classes.length; i++){
       return_string += articles.articlize(decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true))
       if (i != classes.length-1){
-        return_string += " and ";
+        return_string += " en ";
       }
     }
     return return_string;
   },
   instancesText: function () {
-    return "Instances";
+    return "Gevalle";
   },
   instances: function (subC, superC) {
     return "<img src='img/individ.png'></img>"+articles.articlize(decamelize(subC, " ")).capitalize(true)+" is "+articles.articlize(decamelize(superC, " ").capitalize(true));
   },
   objectPropertyText: function () {
-    return "Object Properties";
+    return "Objek Eienskappe";
   },
   subPropertyOf: function (subR, superR) {
     return (decamelize(subR, " ").capitalize(true)+" is "+articles.articlize(decamelize(superR, " ").capitalize(true)));
   },
   subPropertyText: function (){
-    return "Is A";
+    return "Is 'n";
   },
   equivalentRelationsText: function () {
-    return "Is Also"
+    return "Is Ook"
   },
   equivalentRelations: function (subR, superR){
-    return articles.articlize(decamelize(subR, " ")).capitalize(true)+" is the same as "+articles.articlize(decamelize(superR, " ").capitalize(true))
+    return articles.articlize(decamelize(subR, " ")).capitalize(true)+" is dieselfde as "+articles.articlize(decamelize(superR, " ").capitalize(true))
   },
   characteristicsText: function () {
-    return "Characteristics";
+    return "Eienskappe";
   },
   characteristicsFunctional: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "Elke Klas or Objek "+decamelize(rel, " ").capitalize(true)+" slegs 1 Klass of Objek";
   },
   characteristicsInverseFunctional: function (rel) {
-    return "Every Class or Object that is "+pastTense[rel]+", is only "+pastTense[rel]+" by 1 Class or Object";
+    return "Elke Klas of Objek wat "+pastTense[rel]+", is slegs "+pastTense[rel]+" by 1 Klass of Objek";
   },
   characteristicsTransitive: function (rel) {
     return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
@@ -107,13 +107,13 @@ let simpleEnglish = {
     return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
   },
   namedEntitiesText: function () {
-    return "Named Entities";
+    return "Vernoem Entiteite";
   },
   subObjectText: function () {
-    return "Parent";
+    return "Ouer";
   },
   subObjectOf: function (subC, superC) {
-    return decamelize(subC, " ").capitalize(true) + " is a type of " + decamelize(superC, " ").capitalize(true);
+    return decamelize(subC, " ").capitalize(true) + " is 'n tipe " + decamelize(superC, " ").capitalize(true);
   }
 }
 
