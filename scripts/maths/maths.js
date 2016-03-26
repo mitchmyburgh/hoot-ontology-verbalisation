@@ -70,6 +70,12 @@ let simpleEnglish = {
   subPropertyText: function (){
     return "Sub Property Of";
   },
+  equivalentRelationsText: function () {
+    return "Equivalent To"
+  },
+  equivalentRelations: function (subR, superR){
+    return subR+" &#8801; "+superR;
+  },
   characteristicsText: function () {
     return "Characteristics";
   },

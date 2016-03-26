@@ -71,6 +71,12 @@ let technicalEnglish = {
   subPropertyText: function (){
     return "Sub Property Of";
   },
+  equivalentRelationsText: function () {
+    return "Equivalent To"
+  },
+  equivalentRelations: function (subR, superR){
+    return articles.articlize(decamelize(subR, " ")).capitalize(true)+" is equivalent to "+articles.articlize(decamelize(superR, " ").capitalize(true))
+  },
   characteristicsText: function () {
     return "Characteristics";
   },

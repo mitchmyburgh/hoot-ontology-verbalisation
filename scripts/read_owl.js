@@ -5,7 +5,7 @@ let xml2js = require('xml2js');
 var shortid = require('shortid');
 
 //load the language translations
-let language = "simpleEnglish";
+let language = "maths";
 let languages = {};
 languages["simpleEnglish"] = require('./english/simpleEnglish');
 languages["technicalEnglish"] = require('./english/technicalEnglish');
@@ -71,6 +71,7 @@ let read_file = function(filename, filepath, cb){
           };
           !relTree[rel.replace("#", "")].displayOutput.equivalentRelations ? relTree[rel.replace("#", "")].displayOutput.equivalentRelations = [languages[language].equivalentRelationsText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.subPropertyOf ? relTree[rel.replace("#", "")].displayOutput.subPropertyOf = [languages[language].subPropertyText()] : null;
+          //!relTree[rel.replace("#", "")].displayOutput.inverseOf ? relTree[rel.replace("#", "")].displayOutput.inverseOf = [languages[language].inverseOfText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.characteristics ? relTree[rel.replace("#", "")].displayOutput.characteristics = [languages[language].characteristicsText()] : null;
         }
       }
