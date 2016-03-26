@@ -14,6 +14,8 @@
     <!-- Bootstrap core CSS -->
     <link href="stylesheets/style-index.css" rel="stylesheet">
     <link href="stylesheets/lib/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Toggle -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="stylesheets/lib/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -23,6 +25,7 @@
 
     <!-- jsTree -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -65,26 +68,48 @@
               <div class="form-group">
                 <input type="file" name="OWLFile" id="js-upload-files" single>
               </div>
-              <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Language
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">Simple English</a></li>
+                  <li><a href="#">Technical English</a></li>
+                  <li><a href="#">Mathematical Representation</a></li>
+                  <li><a href="#">Afrikaans</a></li>
+                  <li><a href="#">Tswana</a></li>
+                </ul>
+              </div>
+              <button type="submit" class="btn btn-sm btn-primary submit-upload-form" id="js-upload-submit">Upload files</button>
             </div>
           </form>
         </div>
       </div>
 
-      <div id="classNode">
-        <h2 id="classText"></h2>
-        <div id="classTree"></div>
-        <div id="classDisp"></div>
+      <div class="panel panel-default" style="margin-top: 20px;">
+        <div class="panel-heading"><strong id="classText" class="header-text"></strong><div class="par_cat_slider"><input  data-size="small" data-toggle="toggle" data-on="Paragraph" data-off="Categories" type="checkbox"></div></div>
+        <div class="panel-body">
+          <div id="classTree"></div>
+          <div id="classDisp"></div>
+        </div>
       </div>
-      <div id="relationNode">
-        <h2 id="objectPropertyText"></h2>
-        <div id="relTree"></div>
-        <div id="relDisp"></div>
+
+      <div class="panel panel-default" style="margin-top: 20px;">
+        <div class="panel-heading"><strong id="objectPropertyText" class="header-text"></strong><div class="par_cat_slider"><input  data-size="small" data-toggle="toggle" data-on="Paragraph" data-off="Categories" type="checkbox"></div></div>
+        <div class="panel-body">
+          <div id="relTree"></div>
+          <div id="relDisp"></div>
+        </div>
       </div>
-      <div id="entityNode">
-        <h2 id="namedEntitiesText"></h2>
-        <div id="neTree"></div>
-        <div id="neDisp"></div>
+
+      <div class="panel panel-default" style="margin-top: 20px;">
+        <div class="panel-heading"><strong id="namedEntitiesText" class="header-text"></strong><div class="par_cat_slider"><input  data-size="small" data-toggle="toggle" data-on="Paragraph" data-off="Categories" type="checkbox"></div></div>
+        <div class="panel-body">
+          <div id="neTree"></div>
+          <div id="neDisp"></div>
+        </div>
       </div>
 
     </div><!-- /.container -->
@@ -103,6 +128,8 @@
 
     <!-- jsTree -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <!-- Bootstrap Toggle -->
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- output file script script -->
     <script src="<%= linkToData %>"></script>
     <!-- main script -->

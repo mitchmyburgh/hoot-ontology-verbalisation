@@ -7,4 +7,20 @@
   display: inline-block;
 }
 
+#commonForm, .form-group, .dropdown, .submit-upload-form {
+  display: inline-block;
+}
+
+.dropdown {
+  margin: auto;
+}
+
+.submit-upload-form {
+  float: right;
+}
+
+.par_cat_slider {
+  float: right;
+}
+
 /*# sourceMappingURL=style-index.css.map */

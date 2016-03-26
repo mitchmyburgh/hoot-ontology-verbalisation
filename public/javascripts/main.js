@@ -1,4 +1,9 @@
 $(function () {
+  //Language Dropdown
+  $(".dropdown-menu li a").click(function(){
+    $(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
+    $(".btn:first-child").val($(this).text());
+  });
   if (tree){
     //set interface text
     $('#classText').html(tree[0].classText);
