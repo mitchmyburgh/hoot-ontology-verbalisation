@@ -59,6 +59,13 @@ $(function () {
     for (var i = 1; i < data.node.original.displayOutput.subPropertyOf.length; i++){
       $("#relDisp").append("<p>"+data.node.original.displayOutput.subPropertyOf[i]+"</p>");
     }
+    //inverse of
+    if (data.node.original.displayOutput.inverseOf.length > 1){
+      $("#relDisp").append("<h3>"+data.node.original.displayOutput.inverseOf[0]+"</h3>");
+    }
+    for (var i = 1; i < data.node.original.displayOutput.inverseOf.length; i++){
+      $("#relDisp").append("<p>"+data.node.original.displayOutput.inverseOf[i]+"</p>");
+    }
     // characteristics
     if (data.node.original.displayOutput.characteristics.length > 1){
       $("#relDisp").append("<h3>"+data.node.original.displayOutput.characteristics[0]+"</h3>");

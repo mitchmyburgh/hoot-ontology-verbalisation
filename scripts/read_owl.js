@@ -71,7 +71,7 @@ let read_file = function(filename, filepath, cb){
           };
           !relTree[rel.replace("#", "")].displayOutput.equivalentRelations ? relTree[rel.replace("#", "")].displayOutput.equivalentRelations = [languages[language].equivalentRelationsText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.subPropertyOf ? relTree[rel.replace("#", "")].displayOutput.subPropertyOf = [languages[language].subPropertyText()] : null;
-          //!relTree[rel.replace("#", "")].displayOutput.inverseOf ? relTree[rel.replace("#", "")].displayOutput.inverseOf = [languages[language].inverseOfText()] : null;
+          !relTree[rel.replace("#", "")].displayOutput.inverseOf ? relTree[rel.replace("#", "")].displayOutput.inverseOf = [languages[language].inverseOfText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.characteristics ? relTree[rel.replace("#", "")].displayOutput.characteristics = [languages[language].characteristicsText()] : null;
         }
       }
@@ -165,6 +165,12 @@ let read_file = function(filename, filepath, cb){
         let subR = result["Ontology"]["EquivalentObjectProperties"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
         let superR = result["Ontology"]["EquivalentObjectProperties"][i]["ObjectProperty"][1]["$"]["IRI"].replace("#", "");
         relTree[subR].displayOutput.equivalentRelations.push(languages[language].equivalentRelations(subR, superR));
+      }
+      // inverse relations
+      for (let i = 0; i < result["Ontology"]["InverseObjectProperties"].length; i++){
+        let subR = result["Ontology"]["InverseObjectProperties"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        let superR = result["Ontology"]["InverseObjectProperties"][i]["ObjectProperty"][1]["$"]["IRI"].replace("#", "");
+        relTree[subR].displayOutput.inverseOf.push(languages[language].inverseOf(subR, superR));
       }
       // Characteristics
       // Functional char

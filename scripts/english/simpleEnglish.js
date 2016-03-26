@@ -80,7 +80,13 @@ let simpleEnglish = {
     return "Is Also"
   },
   equivalentRelations: function (subR, superR){
-    return articles.articlize(decamelize(subR, " ")).capitalize(true)+" is the same as "+articles.articlize(decamelize(superR, " ").capitalize(true))
+    return decamelize(subR, " ").capitalize(true)+" is the same as "+decamelize(superR, " ").capitalize(true)
+  },
+  inverseOfText: function () {
+    return "Opposites";
+  },
+  inverseOf: function (subR, superR) {
+    return (decamelize(subR, " ").capitalize(true)+" is the opposite of "+decamelize(superR, " ").capitalize(true));
   },
   characteristicsText: function () {
     return "Characteristics";

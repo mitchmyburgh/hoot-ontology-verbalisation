@@ -76,6 +76,12 @@ let simpleEnglish = {
   equivalentRelations: function (subR, superR){
     return subR+" &#8801; "+superR;
   },
+  inverseOfText: function () {
+    return "Inverse Of";
+  },
+  inverseOf: function (subR, superR) {
+    return subR+" &#8801; "+superR+"&#8315;";
+  },
   characteristicsText: function () {
     return "Characteristics";
   },

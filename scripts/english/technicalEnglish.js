@@ -75,7 +75,13 @@ let technicalEnglish = {
     return "Equivalent To"
   },
   equivalentRelations: function (subR, superR){
-    return articles.articlize(decamelize(subR, " ")).capitalize(true)+" is equivalent to "+articles.articlize(decamelize(superR, " ").capitalize(true))
+    return decamelize(subR, " ").capitalize(true)+" is equivalent to "+decamelize(superR, " ").capitalize(true)
+  },
+  inverseOfText: function () {
+    return "Inverse Of";
+  },
+  inverseOf: function (subR, superR) {
+    return (decamelize(subR, " ").capitalize(true)+" is the inverse of "+decamelize(superR, " ").capitalize(true));
   },
   characteristicsText: function () {
     return "Characteristics";
