@@ -5,7 +5,7 @@ let xml2js = require('xml2js');
 var shortid = require('shortid');
 
 //load the language translations
-let language = "maths";
+let language = "Afrikaans";
 let languages = {};
 languages["simpleEnglish"] = require('./english/simpleEnglish');
 languages["technicalEnglish"] = require('./english/technicalEnglish');

@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2">
+    <Prefix name="" IRI="http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <NamedIndividual IRI="#BobTheOwl"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#loma"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#e_nale"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Phologolo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ja"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sejalo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Motho"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pitsi"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#nwa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Morubisi_o_o_mongwe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#lekanya_la_Sere"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Metsi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Morubisi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pitsi_ya_naga"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Morubisi_wa_Sefala"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#karoloYa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tlhafuna"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HomoSapien"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#JimTheOwl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tlhaga"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Morubisi_wa_Ntsu"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sila"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bojalwa"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#HomoSapien"/>
+        <Class IRI="#Motho"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#HomoSapien"/>
+        <Class IRI="#Person"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Motho"/>
+        <Class IRI="#Person"/>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Bojalwa"/>
+        <Class IRI="#lekanya_la_Sere"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HomoSapien"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Metsi"/>
+        <Class IRI="#lekanya_la_Sere"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Morubisi"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Morubisi"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Morubisi_o_o_mongwe"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Morubisi_o_o_mongwe"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Morubisi_o_o_mongwe"/>
+        <ObjectUnionOf>
+            <Class IRI="#Morubisi"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <Class IRI="#Morubisi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <Class IRI="#Morubisi_o_o_mongwe"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+            <Datatype abbreviatedIRI="owl:real"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Morubisi_wa_Sefala"/>
+        <Class IRI="#Morubisi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Motho"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Motho"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#nwa"/>
+            <Class IRI="#Bojalwa"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#nwa"/>
+            <Class IRI="#Metsi"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#ja"/>
+            <Class IRI="#Tlhaga"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#sila"/>
+            <Class IRI="#Tlhaga"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#sila"/>
+            <Class IRI="#Tlhaga"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#sila"/>
+            <Class IRI="#Tlhaga"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pitsi_ya_naga"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tlhaga"/>
+        <Class IRI="#Sejalo"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Morubisi"/>
+        <Class IRI="#Pitsi"/>
+        <Class IRI="#Pitsi_ya_naga"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <NamedIndividual IRI="#BobTheOwl"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Phologolo"/>
+        <NamedIndividual IRI="#JimTheOwl"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Morubisi_wa_Sefala"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </ClassAssertion>
+    <EquivalentObjectProperties>
+        <ObjectProperty IRI="#loma"/>
+        <ObjectProperty IRI="#tlhafuna"/>
+    </EquivalentObjectProperties>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#loma"/>
+        <ObjectProperty IRI="#ja"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sila"/>
+        <ObjectProperty IRI="#ja"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sila"/>
+        <ObjectProperty IRI="#nwa"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#tlhafuna"/>
+        <ObjectProperty IRI="#ja"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#e_nale"/>
+        <ObjectProperty IRI="#karoloYa"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#nwa"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#nwa"/>
+    </InverseFunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#nwa"/>
+    </SymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#nwa"/>
+    </AsymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#nwa"/>
+    </TransitiveObjectProperty>
+    <ReflexiveObjectProperty>
+        <ObjectProperty IRI="#nwa"/>
+    </ReflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#nwa"/>
+    </IrreflexiveObjectProperty>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
+
