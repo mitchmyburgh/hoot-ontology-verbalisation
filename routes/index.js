@@ -18,10 +18,12 @@ router.get('/contribute', function(req, res, next) {
 
 /* Post to upload page */
 router.post('/', upload.single('OWLFile'), function (req, res, next) {
-  console.log(req.file);
   //console.log(req.body);
-  read_file(req.file.originalname, req.file.path, function (path){
-    console.log(path);
+  console.log(req.body.language)
+  if (!req.file){
+    res.send(204);
+  }
+  read_file(req.file.originalname, req.file.path, req.body.language, function (path){
     res.render('index', { title: 'Hoot', linkToData: path });
   });
 

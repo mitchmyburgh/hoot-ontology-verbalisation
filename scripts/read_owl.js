@@ -5,7 +5,7 @@ let xml2js = require('xml2js');
 var shortid = require('shortid');
 
 //load the language translations
-let language = "Afrikaans";
+//let language = "simpleEnglish";
 let languages = {};
 languages["simpleEnglish"] = require('./english/simpleEnglish');
 languages["technicalEnglish"] = require('./english/technicalEnglish');
@@ -14,7 +14,7 @@ languages["Tswana"] = require('./tswana/Tswana');
 languages["maths"] = require('./maths/maths');
 
 
-let read_file = function(filename, filepath, cb){
+let read_file = function(filename, filepath, language, cb){
   var parser = new xml2js.Parser();
   fs.readFile(filepath, function(err, data) {
     parser.parseString(data, function (err, result) {

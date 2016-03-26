@@ -11,15 +11,6 @@
 #groupPanels {
   display: none;
 }
-#classPanel {
-  @extend #groupPanels;
-}
-#relPanel {
-  @extend #groupPanels;
-}
-#nePanel {
-  @extend #groupPanels;
-}
 .form-group {
   @extend #commonForm;
 }
@@ -44,6 +35,9 @@
 #classDisp {
   @extend .commonDisp;
 }
+#classParDisp {
+  @extend .commonDisp;
+}
 
 #relTree {
   @extend .commonTree;
@@ -51,10 +45,16 @@
 #relDisp {
   @extend .commonDisp;
 }
+#relParDisp {
+  @extend .commonDisp;
+}
 
 #neTree {
   @extend .commonTree;
 }
 #neDisp {
+  @extend .commonDisp;
+}
+#neParDisp {
   @extend .commonDisp;
 }

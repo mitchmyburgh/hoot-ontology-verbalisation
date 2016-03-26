@@ -2,7 +2,7 @@
   display: inline-block;
 }
 
-.commonDisp, #classDisp, #relDisp, #neDisp {
+.commonDisp, #classDisp, #classParDisp, #relDisp, #relParDisp, #neDisp, #neParDisp {
   padding-left: 3em;
   display: inline-block;
 }
@@ -11,7 +11,7 @@
   display: inline-block;
 }
 
-#groupPanels, #classPanel, #relPanel, #nePanel {
+#groupPanels {
   display: none;
 }
 
