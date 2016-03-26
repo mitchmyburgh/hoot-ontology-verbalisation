@@ -73,6 +73,7 @@ let read_file = function(filename, filepath, language, cb){
           !relTree[rel.replace("#", "")].displayOutput.subPropertyOf ? relTree[rel.replace("#", "")].displayOutput.subPropertyOf = [languages[language].subPropertyText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.inverseOf ? relTree[rel.replace("#", "")].displayOutput.inverseOf = [languages[language].inverseOfText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.characteristics ? relTree[rel.replace("#", "")].displayOutput.characteristics = [languages[language].characteristicsText()] : null;
+          !relTree[rel.replace("#", "")].displayOutput.domainAndRange ? relTree[rel.replace("#", "")].displayOutput.domainAndRange = [languages[language].domainAndRangeText()] : null;
         }
       }
 
@@ -147,7 +148,6 @@ let read_file = function(filename, filepath, language, cb){
           let card = result["Ontology"]["SubClassOf"][i]["ObjectMaxCardinality"][0]["$"]["cardinality"];
           classTree[subC].displayOutput.subClassOf.push(languages[language].maxCardinality(subC, superC, rel, card));
         }
-
       }
       //create text entries for sub relations + build tree structure
       for (let i = 0; i < result["Ontology"]["SubObjectPropertyOf"].length; i++){
@@ -171,6 +171,98 @@ let read_file = function(filename, filepath, language, cb){
         let subR = result["Ontology"]["InverseObjectProperties"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
         let superR = result["Ontology"]["InverseObjectProperties"][i]["ObjectProperty"][1]["$"]["IRI"].replace("#", "");
         relTree[subR].displayOutput.inverseOf.push(languages[language].inverseOf(subR, superR));
+      }
+      // domain
+      //create text entries for sub classes + build tree structure
+      var relDomain = {};
+      for (let i = 0; i < result["Ontology"]["ObjectPropertyDomain"].length; i++){
+        if (result["Ontology"]["ObjectPropertyDomain"][i]["Class"]){
+          let subC = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let superC = result["Ontology"]["ObjectPropertyDomain"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+          relDomain[subC] ? relDomain[subC]+=languages[language].domain(superC): relDomain[subC] = languages[language].domainPre(subC)+languages[language].domain(superC);
+          //relTree[subC].displayOutput.domain.push(languages[language].domain(subC, superC));
+        }
+      }
+      for (let i = 0; i < result["Ontology"]["ObjectPropertyDomain"].length; i++){
+        let subC = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        if (result["Ontology"]["ObjectPropertyDomain"][i]["ObjectSomeValuesFrom"]){
+          let superC = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectSomeValuesFrom"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectSomeValuesFrom"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          relDomain[subC] ? relDomain[subC]+=languages[language].domainSome(rel, superC): relDomain[subC] = languages[language].domainPre(subC)+languages[language].domainSome(rel, superC);
+        } else if (result["Ontology"]["ObjectPropertyDomain"][i]["ObjectAllValuesFrom"]){
+          let superC = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectAllValuesFrom"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectAllValuesFrom"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          relDomain[subC] ? relDomain[subC]+=languages[language].domainAll(rel, superC): relDomain[subC] = languages[language].domainPre(subC)+languages[language].domainAll(rel, superC);
+        } else if (result["Ontology"]["ObjectPropertyDomain"][i]["ObjectExactCardinality"]){
+          let superC = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectExactCardinality"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectExactCardinality"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let card = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectExactCardinality"][0]["$"]["cardinality"];
+          relDomain[subC] ? relDomain[subC]+=languages[language].domainExactly(rel, superC, card): relDomain[subC] = languages[language].domainPre(subC)+languages[language].domainExactly(rel, superC, card);
+        } else if (result["Ontology"]["ObjectPropertyDomain"][i]["ObjectMinCardinality"]){
+          let superC = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectMinCardinality"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectMinCardinality"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let card = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectMinCardinality"][0]["$"]["cardinality"];
+          relDomain[subC] ? relDomain[subC]+=languages[language].domainMin(rel, superC, card): relDomain[subC] = languages[language].domainPre(subC)+languages[language].domainMin(rel, superC, card);
+        } else if (result["Ontology"]["ObjectPropertyDomain"][i]["ObjectMaxCardinality"]){
+          let superC = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectMaxCardinality"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectMaxCardinality"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let card = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectMaxCardinality"][0]["$"]["cardinality"];
+          relDomain[subC] ? relDomain[subC]+=languages[language].domainMax(rel, superC, card): relDomain[subC] = languages[language].domainPre(subC)+languages[language].domainMax(rel, superC, card);
+        }
+      }
+      //range
+      var relRange = {};
+      for (let i = 0; i < result["Ontology"]["ObjectPropertyRange"].length; i++){
+        if (result["Ontology"]["ObjectPropertyRange"][i]["Class"]){
+          let subC = result["Ontology"]["ObjectPropertyRange"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let superC = result["Ontology"]["ObjectPropertyRange"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+          relRange[subC] ? relRange[subC]+=languages[language].range(superC): relRange[subC] = languages[language].rangePre(subC)+languages[language].range(superC);
+          //relTree[subC].displayOutput.range.push(languages[language].range(subC, superC));
+        }
+      }
+      for (let i = 0; i < result["Ontology"]["ObjectPropertyRange"].length; i++){
+        let subC = result["Ontology"]["ObjectPropertyRange"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        if (result["Ontology"]["ObjectPropertyRange"][i]["ObjectSomeValuesFrom"]){
+          let superC = result["Ontology"]["ObjectPropertyRange"][i]["ObjectSomeValuesFrom"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["ObjectPropertyRange"][i]["ObjectSomeValuesFrom"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          relRange[subC] ? relRange[subC]+=languages[language].rangeSome(rel, superC): relRange[subC] = languages[language].rangePre(subC)+languages[language].rangeSome(rel, superC);
+        } else if (result["Ontology"]["ObjectPropertyRange"][i]["ObjectAllValuesFrom"]){
+          let superC = result["Ontology"]["ObjectPropertyRange"][i]["ObjectAllValuesFrom"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["ObjectPropertyRange"][i]["ObjectAllValuesFrom"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          relRange[subC] ? relRange[subC]+=languages[language].rangeAll(rel, superC): relRange[subC] = languages[language].rangePre(subC)+languages[language].rangeAll(rel, superC);
+        } else if (result["Ontology"]["ObjectPropertyRange"][i]["ObjectExactCardinality"]){
+          let superC = result["Ontology"]["ObjectPropertyRange"][i]["ObjectExactCardinality"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["ObjectPropertyRange"][i]["ObjectExactCardinality"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let card = result["Ontology"]["ObjectPropertyRange"][i]["ObjectExactCardinality"][0]["$"]["cardinality"];
+          relRange[subC] ? relRange[subC]+=languages[language].rangeExactly(rel, superC, card): relRange[subC] = languages[language].rangePre(subC)+languages[language].rangeExactly(rel, superC, card);
+        } else if (result["Ontology"]["ObjectPropertyRange"][i]["ObjectMinCardinality"]){
+          let superC = result["Ontology"]["ObjectPropertyRange"][i]["ObjectMinCardinality"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["ObjectPropertyRange"][i]["ObjectMinCardinality"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let card = result["Ontology"]["ObjectPropertyRange"][i]["ObjectMinCardinality"][0]["$"]["cardinality"];
+          relRange[subC] ? relRange[subC]+=languages[language].rangeMin(rel, superC, card): relRange[subC] = languages[language].rangePre(subC)+languages[language].rangeMin(rel, superC, card);
+        } else if (result["Ontology"]["ObjectPropertyRange"][i]["ObjectMaxCardinality"]){
+          let superC = result["Ontology"]["ObjectPropertyRange"][i]["ObjectMaxCardinality"][0]["Class"][0]["$"]["IRI"].replace("#", "");
+          let rel = result["Ontology"]["ObjectPropertyRange"][i]["ObjectMaxCardinality"][0]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+          let card = result["Ontology"]["ObjectPropertyRange"][i]["ObjectMaxCardinality"][0]["$"]["cardinality"];
+          relRange[subC] ? relRange[subC]+=languages[language].rangeMax(rel, superC, card): relRange[subC] = languages[language].rangePre(subC)+languages[language].rangeMax(rel, superC, card);
+        }
+      }
+      for (var key in relDomain) {
+        if (relDomain.hasOwnProperty(key)) {
+          if (relRange[key]){
+            relTree[key].displayOutput.domainAndRange.push(languages[language].domainPost(relDomain[key], key)+languages[language].rangePost(relRange[key]));
+            relRange[key] = null;
+          } else {
+            relTree[key].displayOutput.domainAndRange.push(languages[language].domainPostNoR(relDomain[key], key));
+          }
+        }
+      }
+      for (var key in relRange) {
+        if (relRange.hasOwnProperty(key)) {
+          if (relRange[key]){
+            relTree[key].displayOutput.domainAndRange.push(languages[language].rangePreNoD(relRange[key], key));
+          }
+        }
       }
       // Characteristics
       // Functional char

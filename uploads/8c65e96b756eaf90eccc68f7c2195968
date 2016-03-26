@@ -339,13 +339,6 @@
         <Class IRI="#amountOfMatter"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#chews"/>
-        <ObjectMaxCardinality cardinality="1">
-            <ObjectProperty IRI="#drinks"/>
-            <Class IRI="#amountOfMatter"/>
-        </ObjectMaxCardinality>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#contains"/>
         <ObjectAllValuesFrom>
             <ObjectProperty IRI="#drinks"/>

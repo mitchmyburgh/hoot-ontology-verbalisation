@@ -114,6 +114,70 @@ let simpleEnglish = {
   },
   subObjectOf: function (subC, superC) {
     return subC + " &#8849; "+superC;
+  },
+  // new stuff
+  domainAndRangeText: function () {
+    return "Domain and Range";
+  },
+  domainPre: function (rel) {
+    return rel+"(x,y) &#8658; ";
+  },
+  domain: function (superC) {
+    return superC+"(x) &#8743; "
+  },
+  domainSome: function (rel, superC) {
+    return "x  &#8849;  &#8707;"+rel+"."+superC+" &#8743; ";
+  },
+  domainAll: function (rel, superC) {
+    return "x  &#8849;  &#8704;"+rel+"."+superC+" &#8743; ";
+  },
+  domainMin: function (rel, superC, card) {
+    return "x  &#8849;  &#8805;"+card+rel+"."+superC+" &#8743; ";
+  },
+  domainMax: function (rel, superC, card) {
+    return "x  &#8849;  &#8804;"+card+rel+"."+superC+" &#8743; ";
+  },
+  domainExactly: function (rel, superC, card) {
+    return "x  &#8849;  ="+card+rel+"."+superC+" &#8743; ";
+  },
+  domainTrim: function(text){
+    return text.substring(0, text.length-8);
+  },
+  domainPost: function (text, subR){
+    return this.domainTrim(text)
+  },
+  domainPostNoR: function (text, subR){
+    return this.domainTrim(text)+". ";
+  },
+  rangePreNoD: function (text, rel) {
+    return rel+"(x,y) &#8658; ";
+  },
+  rangePre: function (rel) {
+    return " &#8743; ";
+  },
+  range: function (superC) {
+    return superC+"(y) &#8743; "
+  },
+  rangeSome: function (rel, superC) {
+    return "y  &#8849;  &#8707;"+rel+"."+superC+" &#8743; ";
+  },
+  rangeAll: function (rel, superC) {
+    return "y  &#8849;  &#8704;"+rel+"."+superC+" &#8743; ";
+  },
+  rangeMin: function (rel, superC, card) {
+    return "y  &#8849;  &#8805;"+card+rel+"."+superC+" &#8743; ";
+  },
+  rangeMax: function (rel, superC, card) {
+    return "y  &#8849;  &#8804;"+card+rel+"."+superC+" &#8743; ";
+  },
+  rangeExactly: function (rel, superC, card) {
+    return "y  &#8849;  ="+card+rel+"."+superC+" &#8743; ";
+  },
+  rangeTrim: function(text){
+    return text.substring(0, text.length);
+  },
+  rangePost: function (text, subR){
+    return this.rangeTrim(text)
   }
 }
 
