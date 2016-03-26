@@ -116,10 +116,10 @@ let simpleEnglish = {
     return decamelize(subC, " ").capitalize(true) + " is 'n tipe " + decamelize(superC, " ").capitalize(true);
   },
   inverseOfText: function () {
-    return "Opposites";
+    return "Teenoorgesteldes";
   },
   inverseOf: function (subR, superR) {
-    return (decamelize(subR, " ").capitalize(true)+" is the opposite of "+decamelize(superR, " ").capitalize(true));
+    return (decamelize(subR, " ").capitalize(true)+" is die teenoorgestelde van "+decamelize(superR, " ").capitalize(true));
   },
 }
 
