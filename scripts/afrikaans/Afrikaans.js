@@ -28,10 +28,10 @@ let simpleEnglish = {
   },
   //object restrictions
   someValuesFrom: function (subC, superC, rel) {
-    return "'n "+decamelize(subC, " ").capitalize(true)+" soms "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
+    return "'n "+decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ")+" soms "+decamelize(superC, " ").capitalize(true)
   },
   allValuesFrom: function (subC, superC, rel) {
-    return "'n "+decamelize(subC, " ").capitalize(true)+" altyd "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
+    return "'n "+decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ")+" altyd "+decamelize(superC, " ").capitalize(true)
   },
   exactCardinality: function (subC, superC, rel, card) {
     return "'n "+decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ")+" presies "+card+" "+decamelize(superC, " ").capitalize(true)
