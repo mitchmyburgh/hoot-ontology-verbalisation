@@ -5,7 +5,7 @@ let xml2js = require('xml2js');
 var shortid = require('shortid');
 
 //load the language translations
-let language = "technicalEnglish";
+let language = "simpleEnglish";
 let languages = {};
 languages["simpleEnglish"] = require('./english/simpleEnglish');
 languages["technicalEnglish"] = require('./english/technicalEnglish');
@@ -69,6 +69,7 @@ let read_file = function(filename, filepath, cb){
             displayOutput: {},
             used: false
           };
+          !relTree[rel.replace("#", "")].displayOutput.equivalentRelations ? relTree[rel.replace("#", "")].displayOutput.equivalentRelations = [languages[language].equivalentRelationsText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.subPropertyOf ? relTree[rel.replace("#", "")].displayOutput.subPropertyOf = [languages[language].subPropertyText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.characteristics ? relTree[rel.replace("#", "")].displayOutput.characteristics = [languages[language].characteristicsText()] : null;
         }
@@ -157,6 +158,12 @@ let read_file = function(filename, filepath, cb){
         }
         relTree[superC].children.push(relTree[subC]);
         relTree[subC].used = true;
+      }
+      //Equivalent Object Properties
+      for (let i = 0; i < result["Ontology"]["EquivalentObjectProperties"].length; i++){
+        let subR = result["Ontology"]["EquivalentObjectProperties"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        let superR = result["Ontology"]["EquivalentObjectProperties"][i]["ObjectProperty"][1]["$"]["IRI"].replace("#", "");
+        relTree[subR].displayOutput.equivalentRelations.push(languages[language].equivalentRelations(subR, superR));
       }
       // Characteristics
       // Functional char

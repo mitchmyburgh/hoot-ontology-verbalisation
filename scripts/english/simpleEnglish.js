@@ -76,6 +76,12 @@ let simpleEnglish = {
   subPropertyText: function (){
     return "Is A";
   },
+  equivalentRelationsText: function () {
+    return "Is Also"
+  },
+  equivalentRelations: function (subR, superR){
+    return articles.articlize(decamelize(subR, " ")).capitalize(true)+" is the same as "+articles.articlize(decamelize(superR, " ").capitalize(true))
+  },
   characteristicsText: function () {
     return "Characteristics";
   },

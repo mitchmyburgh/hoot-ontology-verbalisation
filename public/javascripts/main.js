@@ -45,6 +45,13 @@ $(function () {
   $('#relTree').on("changed.jstree", function (e, data) {
     //cleat the content
     $("#relDisp").html("");
+    //equivalent relations
+    if (data.node.original.displayOutput.equivalentRelations.length > 1){
+      $("#relDisp").append("<h3>"+data.node.original.displayOutput.equivalentRelations[0]+"</h3>");
+    }
+    for (var i = 1; i < data.node.original.displayOutput.equivalentRelations.length; i++){
+      $("#relDisp").append("<p>"+data.node.original.displayOutput.equivalentRelations[i]+"</p>");
+    }
     //subPropertyOf
     if (data.node.original.displayOutput.subPropertyOf.length > 1){
       $("#relDisp").append("<h3>"+data.node.original.displayOutput.subPropertyOf[0]+"</h3>");
