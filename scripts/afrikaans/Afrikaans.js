@@ -114,7 +114,13 @@ let simpleEnglish = {
   },
   subObjectOf: function (subC, superC) {
     return decamelize(subC, " ").capitalize(true) + " is 'n tipe " + decamelize(superC, " ").capitalize(true);
-  }
+  },
+  inverseOfText: function () {
+    return "Opposites";
+  },
+  inverseOf: function (subR, superR) {
+    return (decamelize(subR, " ").capitalize(true)+" is the opposite of "+decamelize(superR, " ").capitalize(true));
+  },
 }
 
 module.exports = simpleEnglish;
