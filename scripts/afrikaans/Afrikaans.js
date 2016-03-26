@@ -21,40 +21,40 @@ let simpleEnglish = {
     return "Klasse";
   },
   subClassOf: function (subC, superC) {
-    return (articles.articlize(decamelize(subC, " ")).capitalize(true)+" is "+articles.articlize(decamelize(superC, " ").capitalize(true)));
+    return "'n "+decamelize(subC, " ").capitalize(true)+" is 'n "+decamelize(superC, " ").capitalize(true);
   },
   subClassText: function (){
     return "Is 'n";
   },
   //object restrictions
   someValuesFrom: function (subC, superC, rel) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" soms "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
+    return "'n "+decamelize(subC, " ").capitalize(true)+" soms "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
   },
   allValuesFrom: function (subC, superC, rel) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" altyd "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
+    return "'n "+decamelize(subC, " ").capitalize(true)+" altyd "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)
   },
   exactCardinality: function (subC, superC, rel, card) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" presies "+card+" "+decamelize(superC, " ").capitalize(true)
+    return "'n "+decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ")+" presies "+card+" "+decamelize(superC, " ").capitalize(true)
   },
   minCardinality: function (subC, superC, rel, card) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" ten minste "+card+" "+decamelize(superC, " ").capitalize(true)
+    return "'n "+decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ")+" ten minste "+card+" "+decamelize(superC, " ").capitalize(true)
   },
   maxCardinality: function (subC, superC, rel, card) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" by die meeste "+card+" "+decamelize(superC, " ").capitalize(true)
+    return "'n "+decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ")+" by die meeste "+card+" "+decamelize(superC, " ").capitalize(true)
   },
   equivalentClassesText: function () {
-    return "Is ook";
+    return "Is ook ";
   },
   equivalentClasses: function (subC, superC) {
-    return articles.articlize(decamelize(subC, " ")).capitalize(true)+" is dieselfde as "+articles.articlize(decamelize(superC, " ").capitalize(true))
+    return "'n "+decamelize(subC, " ").capitalize(true)+" is dieselfde as "+articles.articlize(decamelize(superC, " ").capitalize(true))
   },
   disjointWithText: function () {
     return "Verskillende Klasse";
   },
   disjointWith: function (classes){
-    var return_string = articles.articlize(decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ")).capitalize(true)+" verskil van ";
+    var return_string = "'n "+decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ").capitalize(true)+" verskil van ";
     for (var i = 1; i < classes.length; i++){
-      return_string += articles.articlize(decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true))
+      return_string += "'n "+decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
       if (i != classes.length-1){
         return_string += " en ";
       }
@@ -65,13 +65,13 @@ let simpleEnglish = {
     return "Gevalle";
   },
   instances: function (subC, superC) {
-    return "<img src='img/individ.png'></img>"+articles.articlize(decamelize(subC, " ")).capitalize(true)+" is "+articles.articlize(decamelize(superC, " ").capitalize(true));
+    return "<img src='img/individ.png'></img>"+"'n "+decamelize(subC, " ").capitalize(true)+" is n' "+decamelize(superC, " ").capitalize(true);
   },
   objectPropertyText: function () {
     return "Objek Eienskappe";
   },
   subPropertyOf: function (subR, superR) {
-    return (decamelize(subR, " ").capitalize(true)+" is "+articles.articlize(decamelize(superR, " ").capitalize(true)));
+    return (decamelize(subR, " ").capitalize(true)+" is 'n "+decamelize(superR, " ").capitalize(true));
   },
   subPropertyText: function (){
     return "Is 'n";
@@ -80,7 +80,7 @@ let simpleEnglish = {
     return "Is Ook"
   },
   equivalentRelations: function (subR, superR){
-    return articles.articlize(decamelize(subR, " ")).capitalize(true)+" is dieselfde as "+articles.articlize(decamelize(superR, " ").capitalize(true))
+    return "'n "+decamelize(subR, " ").capitalize(true)+" is dieselfde as 'n"+decamelize(superR, " ").capitalize(true)
   },
   characteristicsText: function () {
     return "Eienskappe";
