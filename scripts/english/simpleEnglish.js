@@ -184,7 +184,20 @@ let simpleEnglish = {
   },
   rangePost: function (text, subR){
     return this.rangeTrim(text)
-  }
+  },
+  disjointWithOPText: function () {
+    return "Different From";
+  },
+  disjointWithOP: function (classes){
+    var return_string = decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ").capitalize(true)+" is different from ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " and ";
+      }
+    }
+    return return_string;
+  },
 }
 
 module.exports = simpleEnglish;

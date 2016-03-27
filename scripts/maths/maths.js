@@ -178,7 +178,22 @@ let simpleEnglish = {
   },
   rangePost: function (text, subR){
     return this.rangeTrim(text)
-  }
+  },
+  disjointWithOPText: function () {
+    return "Disjoint With";
+  },
+  disjointWithOP: function (classes){
+    var return_string = "";
+    return_string += classes[0]["$"]["IRI"].replace("#", "")+" &#8851; (";
+    for (var i = 1; i < classes.length; i++){
+      return_string += classes[i]["$"]["IRI"].replace("#", "")
+      if (i != classes.length-1){
+        return_string += " &#8852; ";
+      }
+    }
+    return_string += ") &#8849;  &#8869;";
+    return return_string;
+  },
 }
 
 module.exports = simpleEnglish;

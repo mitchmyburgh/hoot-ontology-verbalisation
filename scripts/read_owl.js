@@ -74,6 +74,7 @@ let read_file = function(filename, filepath, language, cb){
           !relTree[rel.replace("#", "")].displayOutput.inverseOf ? relTree[rel.replace("#", "")].displayOutput.inverseOf = [languages[language].inverseOfText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.characteristics ? relTree[rel.replace("#", "")].displayOutput.characteristics = [languages[language].characteristicsText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.domainAndRange ? relTree[rel.replace("#", "")].displayOutput.domainAndRange = [languages[language].domainAndRangeText()] : null;
+          !relTree[rel.replace("#", "")].displayOutput.disjointWithOP ? relTree[rel.replace("#", "")].displayOutput.disjointWithOP = [languages[language].disjointWithOPText()] : null;
         }
       }
 
@@ -180,9 +181,9 @@ let read_file = function(filename, filepath, language, cb){
           let subC = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
           let superC = result["Ontology"]["ObjectPropertyDomain"][i]["Class"][0]["$"]["IRI"].replace("#", "");
           relDomain[subC] ? relDomain[subC]+=languages[language].domain(superC): relDomain[subC] = languages[language].domainPre(subC)+languages[language].domain(superC);
-          //relTree[subC].displayOutput.domain.push(languages[language].domain(subC, superC));
         }
       }
+      //domain some, all, max, min, exactly
       for (let i = 0; i < result["Ontology"]["ObjectPropertyDomain"].length; i++){
         let subC = result["Ontology"]["ObjectPropertyDomain"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
         if (result["Ontology"]["ObjectPropertyDomain"][i]["ObjectSomeValuesFrom"]){
@@ -217,9 +218,9 @@ let read_file = function(filename, filepath, language, cb){
           let subC = result["Ontology"]["ObjectPropertyRange"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
           let superC = result["Ontology"]["ObjectPropertyRange"][i]["Class"][0]["$"]["IRI"].replace("#", "");
           relRange[subC] ? relRange[subC]+=languages[language].range(superC): relRange[subC] = languages[language].rangePre(subC)+languages[language].range(superC);
-          //relTree[subC].displayOutput.range.push(languages[language].range(subC, superC));
         }
       }
+      //range some, all, max, min, exactly
       for (let i = 0; i < result["Ontology"]["ObjectPropertyRange"].length; i++){
         let subC = result["Ontology"]["ObjectPropertyRange"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
         if (result["Ontology"]["ObjectPropertyRange"][i]["ObjectSomeValuesFrom"]){
@@ -247,6 +248,7 @@ let read_file = function(filename, filepath, language, cb){
           relRange[subC] ? relRange[subC]+=languages[language].rangeMax(rel, superC, card): relRange[subC] = languages[language].rangePre(subC)+languages[language].rangeMax(rel, superC, card);
         }
       }
+      //build domain and range strings
       for (var key in relDomain) {
         if (relDomain.hasOwnProperty(key)) {
           if (relRange[key]){
@@ -263,6 +265,11 @@ let read_file = function(filename, filepath, language, cb){
             relTree[key].displayOutput.domainAndRange.push(languages[language].rangePreNoD(relRange[key], key));
           }
         }
+      }
+      //Disjoint Relations
+      for (let i = 0; i < result["Ontology"]["DisjointObjectProperties"].length; i++){
+        let subC = result["Ontology"]["DisjointObjectProperties"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        relTree[subC].displayOutput.disjointWithOP.push(languages[language].disjointWithOP(result["Ontology"]["DisjointObjectProperties"][i]["ObjectProperty"]));
       }
       // Characteristics
       // Functional char

@@ -134,13 +134,21 @@ $(function () {
       $("#relDisp").append("<p>"+data.node.original.displayOutput.characteristics[i]+"</p>");
       $("#relParDisp").append(data.node.original.displayOutput.characteristics[i]+". ");
     }
-    // characteristics
+    // domain and range
     if (data.node.original.displayOutput.domainAndRange.length > 1){
       $("#relDisp").append("<h3>"+data.node.original.displayOutput.domainAndRange[0]+"</h3>");
     }
     for (var i = 1; i < data.node.original.displayOutput.domainAndRange.length; i++){
       $("#relDisp").append("<p>"+data.node.original.displayOutput.domainAndRange[i]+"</p>");
       $("#relParDisp").append(data.node.original.displayOutput.domainAndRange[i]+". ");
+    }
+    // disjoint
+    if (data.node.original.displayOutput.disjointWithOP.length > 1){
+      $("#relDisp").append("<h3>"+data.node.original.displayOutput.disjointWithOP[0]+"</h3>");
+    }
+    for (var i = 1; i < data.node.original.displayOutput.disjointWithOP.length; i++){
+      $("#relDisp").append("<p>"+data.node.original.displayOutput.disjointWithOP[i]+"</p>");
+      $("#relParDisp").append(data.node.original.displayOutput.disjointWithOP[i]+". ");
     }
     $("#relParDisp").append("</p>");
   });
