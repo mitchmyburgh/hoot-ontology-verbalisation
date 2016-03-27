@@ -18,7 +18,7 @@ String.prototype.capitalize = function(lower) {
 
 let Tswana = {
   classText: function () {
-    return "Classes";
+    return "Mephato";
   },
   subClassOf: function (subC, superC) {
     return ((decamelize(subC, " ")).capitalize(true)+" ke "+(decamelize(superC, " ").capitalize(true)));
@@ -113,10 +113,10 @@ let Tswana = {
     return "A "+decamelize(rel, " ").capitalize(true)+" A ga se nnete";
   },
   namedEntitiesText: function () {
-    return "Named Entities";
+    return "Dilo tse di filweng maina";
   },
   subObjectText: function () {
-    return "Parent";
+    return "Motsadi";
   },
   subObjectOf: function (subC, superC) {
     return decamelize(subC, " ").capitalize(true) + " ke mofuta wa " + decamelize(superC, " ").capitalize(true);
