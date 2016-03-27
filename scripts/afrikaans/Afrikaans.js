@@ -239,13 +239,13 @@ let simpleEnglish = {
     return return_string;
   },
   negativeObjectPropertyAssertionText: function (){
-    return "Does Not";
+    return "Doen Nie";
   },
   negativeObjectPropertyAssertion: function (subC, superC, rel) {
     return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
   },
   objectPropertyAssertionText: function (){
-    return "Does";
+    return "Doen";
   },
   objectPropertyAssertion: function (subC, superC, rel) {
     return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
