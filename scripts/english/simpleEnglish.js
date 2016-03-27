@@ -9,6 +9,7 @@ nounInflector.attach();
 //list of past tense verbs
 var pastTense = {
   drinks: "drunk",
+  isPartOf: "was Part of",
 }
 
 //http://stackoverflow.com/questions/2332811/capitalize-words-in-string
@@ -98,19 +99,19 @@ let simpleEnglish = {
     return "Every Class or Object that is "+pastTense[rel]+", is only "+pastTense[rel]+" by 1 Class or Object";
   },
   characteristicsTransitive: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "If A "+decamelize(rel, " ").capitalize(true)+" B and B "+decamelize(rel, " ").capitalize(true)+" C then A "+decamelize(rel, " ").capitalize(true)+" C";
   },
   characteristicsSymmetric: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "If A "+decamelize(rel, " ").capitalize(true)+" B then B "+decamelize(rel, " ").capitalize(true)+" A";
   },
   characteristicsAsymmetric: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "If A "+decamelize(rel, " ").capitalize(true)+" B then B "+decamelize(rel, " ").capitalize(true)+" A is not true";
   },
   characteristicsReflexive: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "A "+decamelize(rel, " ").capitalize(true)+" A";
   },
   characteristicsIrreflexive: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "A "+decamelize(rel, " ").capitalize(true)+" A is not true";
   },
   namedEntitiesText: function () {
     return "Named Entities";
