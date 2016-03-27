@@ -121,7 +121,7 @@ let read_file = function(filename, filepath, language, cb){
         classTree[subC].displayOutput.disjointWith.push(languages[language].disjointWith(result["Ontology"]["DisjointClasses"][i]["Class"]));
       }
       //object relation restrictions
-      var classTree2 = JSON.parse(JSON.stringify(classTree));
+      //var classTree2 = JSON.parse(JSON.stringify(classTree));
       for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
         let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
         if (result["Ontology"]["SubClassOf"][i]["ObjectSomeValuesFrom"]){
@@ -309,6 +309,7 @@ let read_file = function(filename, filepath, language, cb){
         classTree2[superC].children.push(neTree[subC]);
         neTree[subC].used = true;
       }
+      console.log(JSON.stringify(classTree2))
       //complete tree structure for ne tree
       for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
         if (result["Ontology"]["SubClassOf"][i]["Class"].length >1){
@@ -347,6 +348,12 @@ let read_file = function(filename, filepath, language, cb){
           classTree2[subC] = null;
         }
       }
+      classTree = JSON.parse(JSON.stringify(classTree));
+      changeIds(classTree);
+      relTree = JSON.parse(JSON.stringify(relTree));
+      changeIds(relTree);
+      classTree2 = JSON.parse(JSON.stringify(classTree2));
+      changeIds(classTree2);
       //make class tree into list
       for (var key in classTree) {
         if (classTree.hasOwnProperty(key)) {
@@ -379,12 +386,11 @@ function changeIds(obj)
   {
     if (!obj.hasOwnProperty(k))
         continue;
-    if (typeof obj[k] == "object" && obj[k] !== null){
-      console.log(obj[k].id)
-      obj[k].id += shortid.generate();
-      changeIds(obj[k]);
-    } else {
-      obj[k].id += shortid.generate();
+    if (typeof obj[k] == "object" && obj[k] !== null && obj[k].hasOwnProperty("id")){
+      obj[k].id = shortid.generate();
+      changeIds(obj[k].children);
+    } else if (obj[k] !== null && obj[k].hasOwnProperty("id")) {
+      obj[k].id = shortid.generate();
     }
   }
 }
