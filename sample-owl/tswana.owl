@@ -22,6 +22,9 @@
         <ObjectProperty IRI="#e_nale"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Lekgarebe"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Phologolo"/>
     </Declaration>
     <Declaration>
@@ -29,9 +32,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Sejalo"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Motho"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Pitsi"/>
@@ -49,25 +49,19 @@
         <Class IRI="#Metsi"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Morubisi"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Pitsi_ya_naga"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Morubisi_wa_Sefala"/>
+        <Class IRI="#Morubisi"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Person"/>
+        <Class IRI="#Morubisi_wa_Sefala"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#karoloYa"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#tlhafuna"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#HomoSapien"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#SamTheOwl"/>
@@ -79,7 +73,13 @@
         <Class IRI="#Tlhaga"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Mosetsana"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Morubisi_wa_Ntsu"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ngwanyana"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#sila"/>
@@ -88,23 +88,23 @@
         <Class IRI="#Bojalwa"/>
     </Declaration>
     <EquivalentClasses>
-        <Class IRI="#HomoSapien"/>
-        <Class IRI="#Motho"/>
+        <Class IRI="#Lekgarebe"/>
+        <Class IRI="#Mosetsana"/>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#HomoSapien"/>
-        <Class IRI="#Person"/>
+        <Class IRI="#Lekgarebe"/>
+        <Class IRI="#Ngwanyana"/>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#Motho"/>
-        <Class IRI="#Person"/>
+        <Class IRI="#Mosetsana"/>
+        <Class IRI="#Ngwanyana"/>
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#Bojalwa"/>
         <Class IRI="#lekanya_la_Sere"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#HomoSapien"/>
+        <Class IRI="#Lekgarebe"/>
         <Class IRI="#Phologolo"/>
     </SubClassOf>
     <SubClassOf>
@@ -153,19 +153,19 @@
         <Class IRI="#Morubisi"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Motho"/>
+        <Class IRI="#Mosetsana"/>
         <Class IRI="#Phologolo"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Motho"/>
+        <Class IRI="#Ngwanyana"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ngwanyana"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#nwa"/>
             <Class IRI="#Bojalwa"/>
         </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Person"/>
-        <Class IRI="#Phologolo"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pitsi"/>
