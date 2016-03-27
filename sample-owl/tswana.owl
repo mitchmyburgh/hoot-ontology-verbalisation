@@ -13,13 +13,16 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
+        <Class IRI="#MorubisiOoMongwe"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#eNale"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Zebra"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#BobTheOwl"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#loma"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#e_nale"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Lekgarebe"/>
@@ -28,10 +31,7 @@
         <Class IRI="#Phologolo"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#ja"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Motho"/>
+        <ObjectProperty IRI="#Ja"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Sejalo"/>
@@ -40,31 +40,31 @@
         <Class IRI="#Pitsi"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#nwa"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Morubisi_o_o_mongwe"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#lekanya_la_Sere"/>
+        <ObjectProperty IRI="#Sila"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Metsi"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Pitsi_ya_naga"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Morubisi"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Morubisi_wa_Sefala"/>
+        <Class IRI="#lekanyaLaSere"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#karoloYa"/>
+        <ObjectProperty IRI="#Tlhafuna"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#tlhafuna"/>
+        <ObjectProperty IRI="#Nwa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#keKaroloYa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Loma"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MorubisiWaNtsu"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#SamTheOwl"/>
@@ -73,19 +73,16 @@
         <NamedIndividual IRI="#JimTheOwl"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Mosetsana"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Tlhaga"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Mosetsana"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Ngwanyana"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#sila"/>
+        <Class IRI="#MorubisiWaSefala"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Bojalwa"/>
@@ -101,10 +98,14 @@
     <EquivalentClasses>
         <Class IRI="#Mosetsana"/>
         <Class IRI="#Ngwanyana"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Ngwanyana"/>
+        <Class IRI="#Phologolo"/>
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#Bojalwa"/>
-        <Class IRI="#lekanya_la_Sere"/>
+        <Class IRI="#lekanyaLaSere"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Lekgarebe"/>
@@ -112,7 +113,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Metsi"/>
-        <Class IRI="#lekanya_la_Sere"/>
+        <Class IRI="#lekanyaLaSere"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Morubisi"/>
@@ -121,38 +122,38 @@
     <SubClassOf>
         <Class IRI="#Morubisi"/>
         <ObjectIntersectionOf>
-            <Class IRI="#Morubisi_o_o_mongwe"/>
+            <Class IRI="#MorubisiOoMongwe"/>
             <Class IRI="#Phologolo"/>
         </ObjectIntersectionOf>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Morubisi_o_o_mongwe"/>
+        <Class IRI="#MorubisiOoMongwe"/>
         <Class IRI="#Phologolo"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Morubisi_o_o_mongwe"/>
+        <Class IRI="#MorubisiOoMongwe"/>
         <ObjectUnionOf>
             <Class IRI="#Morubisi"/>
             <Class IRI="#Phologolo"/>
         </ObjectUnionOf>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <Class IRI="#MorubisiWaNtsu"/>
         <Class IRI="#Morubisi"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
-        <Class IRI="#Morubisi_o_o_mongwe"/>
+        <Class IRI="#MorubisiWaNtsu"/>
+        <Class IRI="#MorubisiOoMongwe"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <Class IRI="#MorubisiWaNtsu"/>
         <DataSomeValuesFrom>
             <DataProperty abbreviatedIRI="owl:topDataProperty"/>
             <Datatype abbreviatedIRI="owl:real"/>
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Morubisi_wa_Sefala"/>
+        <Class IRI="#MorubisiWaSefala"/>
         <Class IRI="#Morubisi"/>
     </SubClassOf>
     <SubClassOf>
@@ -160,70 +161,70 @@
         <Class IRI="#Phologolo"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Ngwanyana"/>
-        <Class IRI="#Phologolo"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Ngwanyana"/>
+        <Class IRI="#Mosetsana"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#nwa"/>
+            <ObjectProperty IRI="#Nwa"/>
             <Class IRI="#Bojalwa"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Ngwanyana"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Pitsi"/>
         <Class IRI="#Phologolo"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pitsi"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#nwa"/>
+            <ObjectProperty IRI="#Nwa"/>
             <Class IRI="#Metsi"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pitsi"/>
         <ObjectAllValuesFrom>
-            <ObjectProperty IRI="#ja"/>
+            <ObjectProperty IRI="#Ja"/>
             <Class IRI="#Tlhaga"/>
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pitsi"/>
         <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#sila"/>
+            <ObjectProperty IRI="#Sila"/>
             <Class IRI="#Tlhaga"/>
         </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pitsi"/>
         <ObjectExactCardinality cardinality="1">
-            <ObjectProperty IRI="#sila"/>
+            <ObjectProperty IRI="#Sila"/>
             <Class IRI="#Tlhaga"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pitsi"/>
         <ObjectMaxCardinality cardinality="1">
-            <ObjectProperty IRI="#sila"/>
+            <ObjectProperty IRI="#Sila"/>
             <Class IRI="#Tlhaga"/>
         </ObjectMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Pitsi_ya_naga"/>
-        <Class IRI="#Phologolo"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Tlhaga"/>
         <Class IRI="#Sejalo"/>
     </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zebra"/>
+        <Class IRI="#Phologolo"/>
+    </SubClassOf>
     <DisjointClasses>
         <Class IRI="#Morubisi"/>
         <Class IRI="#Pitsi"/>
-        <Class IRI="#Pitsi_ya_naga"/>
+        <Class IRI="#Zebra"/>
     </DisjointClasses>
     <ClassAssertion>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <Class IRI="#MorubisiWaNtsu"/>
         <NamedIndividual IRI="#BobTheOwl"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -231,57 +232,229 @@
         <NamedIndividual IRI="#JimTheOwl"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <Class IRI="#MorubisiWaNtsu"/>
         <NamedIndividual IRI="#SamTheOwl"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Morubisi_wa_Sefala"/>
+        <Class IRI="#MorubisiWaSefala"/>
         <NamedIndividual IRI="#SamTheOwl"/>
     </ClassAssertion>
+    <SameIndividual>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#JimTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </SameIndividual>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#JimTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Ja"/>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </ObjectPropertyAssertion>
+    <NegativeObjectPropertyAssertion>
+        <ObjectProperty IRI="#Ja"/>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </NegativeObjectPropertyAssertion>
     <EquivalentObjectProperties>
-        <ObjectProperty IRI="#loma"/>
-        <ObjectProperty IRI="#tlhafuna"/>
+        <ObjectProperty IRI="#Loma"/>
+        <ObjectProperty IRI="#Tlhafuna"/>
     </EquivalentObjectProperties>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#loma"/>
-        <ObjectProperty IRI="#ja"/>
+        <ObjectProperty IRI="#Loma"/>
+        <ObjectProperty IRI="#Ja"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#sila"/>
-        <ObjectProperty IRI="#ja"/>
+        <ObjectProperty IRI="#Sila"/>
+        <ObjectProperty IRI="#Ja"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#sila"/>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#Sila"/>
+        <ObjectProperty IRI="#Nwa"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#tlhafuna"/>
-        <ObjectProperty IRI="#ja"/>
+        <ObjectProperty IRI="#Tlhafuna"/>
+        <ObjectProperty IRI="#Ja"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#e_nale"/>
-        <ObjectProperty IRI="#karoloYa"/>
+        <ObjectProperty IRI="#eNale"/>
+        <ObjectProperty IRI="#keKaroloYa"/>
     </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#Nwa"/>
+    </FunctionalObjectProperty>
     <InverseFunctionalObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#Nwa"/>
     </InverseFunctionalObjectProperty>
     <SymmetricObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#Nwa"/>
     </SymmetricObjectProperty>
     <AsymmetricObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#Nwa"/>
     </AsymmetricObjectProperty>
     <TransitiveObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#Nwa"/>
     </TransitiveObjectProperty>
     <ReflexiveObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#Nwa"/>
     </ReflexiveObjectProperty>
     <IrreflexiveObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#Nwa"/>
     </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Sila"/>
+        <Class IRI="#Lekgarebe"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#eNale"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectMaxCardinality>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <Class IRI="#Phologolo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <Class IRI="#Sejalo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectAllValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectMinCardinality>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectExactCardinality>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectMaxCardinality>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Loma"/>
+        <Class IRI="#lekanyaLaSere"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Tlhafuna"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#Nwa"/>
+            <Class IRI="#lekanyaLaSere"/>
+        </ObjectMaxCardinality>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#eNale"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#Nwa"/>
+            <Class IRI="#lekanyaLaSere"/>
+        </ObjectAllValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <Class IRI="#Phologolo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <Class IRI="#Sejalo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectAllValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectMinCardinality>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectExactCardinality>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#keKaroloYa"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#eNale"/>
+            <Class IRI="#Phologolo"/>
+        </ObjectMaxCardinality>
+    </ObjectPropertyRange>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#Ja"/>
+        <ObjectProperty IRI="#Nwa"/>
+        <ObjectProperty IRI="#keKaroloYa"/>
+    </DisjointObjectProperties>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#eNale"/>
+        <ObjectProperty IRI="#keKaroloYa"/>
+    </DisjointObjectProperties>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#keKaroloYa"/>
+    </DisjointObjectProperties>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#Nwa"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#keKaroloYa"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#eNale"/>
+            <ObjectProperty IRI="#Loma"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#keKaroloYa"/>
+    </SubObjectPropertyOf>
 </Ontology>
 
 
 
 <!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
+
