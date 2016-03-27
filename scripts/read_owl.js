@@ -5,7 +5,7 @@ let xml2js = require('xml2js');
 var shortid = require('shortid');
 
 //load the language translations
-let language = "Tswana";
+let language = "Afrikaans";
 let languages = {};
 languages["simpleEnglish"] = require('./english/simpleEnglish');
 languages["technicalEnglish"] = require('./english/technicalEnglish');
@@ -34,78 +34,82 @@ let read_file = function(filename, filepath, cb){
       intText.objectPropertyText = languages[language].objectPropertyText();
       intText.namedEntitiesText = languages[language].namedEntitiesText();
       //list all clases
-      for (let i = 0; i < result["Ontology"]["Declaration"].length; i++){
-        if (result["Ontology"]["Declaration"][i]["Class"]){
-          let clas = result["Ontology"]["Declaration"][i]["Class"][0]["$"]["IRI"];
-          classTree[clas.replace("#", "")] = {
-            id: clas.replace("#", "class_"),
-            text: clas.replace("#", ""),
-            icon: "img/class.png",
-            state: {opened: false, disabled: false, selected: false},
-            children: [],
-            li_attr: {},
-            a_attr: {href: clas+"_describe"},
-            displayOutput: {},
-            used: false
-          };
-          !classTree[clas.replace("#", "")].displayOutput.subClassOf ? classTree[clas.replace("#", "")].displayOutput.subClassOf = [languages[language].subClassText()] : null;
-          !classTree[clas.replace("#", "")].displayOutput.disjointWith ? classTree[clas.replace("#", "")].displayOutput.disjointWith = [languages[language].disjointWithText()] : null;
-          !classTree[clas.replace("#", "")].displayOutput.instances ? classTree[clas.replace("#", "")].displayOutput.instances = [languages[language].instancesText()] : null;
-          !classTree[clas.replace("#", "")].displayOutput.equivalentClasses ? classTree[clas.replace("#", "")].displayOutput.equivalentClasses = [languages[language].equivalentClassesText()] : null;
-        }
-      }
-      //list all relations
-      for (let i = 0; i < result["Ontology"]["Declaration"].length; i++){
-        if (result["Ontology"]["Declaration"][i]["ObjectProperty"]){
-          let rel = result["Ontology"]["Declaration"][i]["ObjectProperty"][0]["$"]["IRI"];
-          relTree[rel.replace("#", "")] = {
-            id: rel.replace("#", "rel_"),
-            text: rel.replace("#", ""),
-            icon: "img/relation.png",
-            state: {opened: false, disabled: false, selected: false},
-            children: [],
-            li_attr: {},
-            a_attr: {href: rel+"_describe"},
-            displayOutput: {},
-            used: false
-          };
-          !relTree[rel.replace("#", "")].displayOutput.equivalentRelations ? relTree[rel.replace("#", "")].displayOutput.equivalentRelations = [languages[language].equivalentRelationsText()] : null;
-          !relTree[rel.replace("#", "")].displayOutput.subPropertyOf ? relTree[rel.replace("#", "")].displayOutput.subPropertyOf = [languages[language].subPropertyText()] : null;
-          !relTree[rel.replace("#", "")].displayOutput.inverseOf ? relTree[rel.replace("#", "")].displayOutput.inverseOf = [languages[language].inverseOfText()] : null;
-          !relTree[rel.replace("#", "")].displayOutput.characteristics ? relTree[rel.replace("#", "")].displayOutput.characteristics = [languages[language].characteristicsText()] : null;
-        }
-      }
-
-      //list all named entities
-      for (let i = 0; i < result["Ontology"]["Declaration"].length; i++){
-        if (result["Ontology"]["Declaration"][i]["NamedIndividual"]){
-          let ne = result["Ontology"]["Declaration"][i]["NamedIndividual"][0]["$"]["IRI"];
-          neTree[ne.replace("#", "")] = {
-            id: ne.replace("#", "ne_"),
-            text: ne.replace("#", ""),
-            icon: "img/individ.png",
-            state: {opened: false, disabled: false, selected: false},
-            children: [],
-            li_attr: {},
-            a_attr: {href: ne+"_describe"},
-            displayOutput: {},
-            used: false
-          };
-          !neTree[ne.replace("#", "")].displayOutput.subObjectOf ? neTree[ne.replace("#", "")].displayOutput.subObjectOf = [languages[language].subObjectText()] : null;
-        }
-      }
-      //create text entries for sub classes + build tree structure
-      var classTree2 = JSON.parse(JSON.stringify(classTree));
-      for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
-        if (result["Ontology"]["SubClassOf"][i]["Class"].length >1){
-          let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
-          let superC = result["Ontology"]["SubClassOf"][i]["Class"][1]["$"]["IRI"].replace("#", "");
-          classTree[subC].displayOutput.subClassOf.push(languages[language].subClassOf(subC, superC));
-          if (classTree[subC].used){
-            classTree[subC].id+= shortid.generate();
+      if (result["Ontology"]["Declaration"]){
+        for (let i = 0; i < result["Ontology"]["Declaration"].length; i++){
+          if (result["Ontology"]["Declaration"][i]["Class"]){
+            let clas = result["Ontology"]["Declaration"][i]["Class"][0]["$"]["IRI"];
+            classTree[clas.replace("#", "")] = {
+              id: clas.replace("#", "class_"),
+              text: clas.replace("#", ""),
+              icon: "img/class.png",
+              state: {opened: false, disabled: false, selected: false},
+              children: [],
+              li_attr: {},
+              a_attr: {href: clas+"_describe"},
+              displayOutput: {},
+              used: false
+            };
+            !classTree[clas.replace("#", "")].displayOutput.subClassOf ? classTree[clas.replace("#", "")].displayOutput.subClassOf = [languages[language].subClassText()] : null;
+            !classTree[clas.replace("#", "")].displayOutput.disjointWith ? classTree[clas.replace("#", "")].displayOutput.disjointWith = [languages[language].disjointWithText()] : null;
+            !classTree[clas.replace("#", "")].displayOutput.instances ? classTree[clas.replace("#", "")].displayOutput.instances = [languages[language].instancesText()] : null;
+            !classTree[clas.replace("#", "")].displayOutput.equivalentClasses ? classTree[clas.replace("#", "")].displayOutput.equivalentClasses = [languages[language].equivalentClassesText()] : null;
           }
-          classTree[superC].children.push(classTree[subC]);
-          classTree[subC].used = true;
+        }
+        //list all relations
+        for (let i = 0; i < result["Ontology"]["Declaration"].length; i++){
+          if (result["Ontology"]["Declaration"][i]["ObjectProperty"]){
+            let rel = result["Ontology"]["Declaration"][i]["ObjectProperty"][0]["$"]["IRI"];
+            relTree[rel.replace("#", "")] = {
+              id: rel.replace("#", "rel_"),
+              text: rel.replace("#", ""),
+              icon: "img/relation.png",
+              state: {opened: false, disabled: false, selected: false},
+              children: [],
+              li_attr: {},
+              a_attr: {href: rel+"_describe"},
+              displayOutput: {},
+              used: false
+            };
+            !relTree[rel.replace("#", "")].displayOutput.equivalentRelations ? relTree[rel.replace("#", "")].displayOutput.equivalentRelations = [languages[language].equivalentRelationsText()] : null;
+            !relTree[rel.replace("#", "")].displayOutput.subPropertyOf ? relTree[rel.replace("#", "")].displayOutput.subPropertyOf = [languages[language].subPropertyText()] : null;
+            !relTree[rel.replace("#", "")].displayOutput.inverseOf ? relTree[rel.replace("#", "")].displayOutput.inverseOf = [languages[language].inverseOfText()] : null;
+            !relTree[rel.replace("#", "")].displayOutput.characteristics ? relTree[rel.replace("#", "")].displayOutput.characteristics = [languages[language].characteristicsText()] : null;
+          }
+        }
+
+        //list all named entities
+        for (let i = 0; i < result["Ontology"]["Declaration"].length; i++){
+          if (result["Ontology"]["Declaration"][i]["NamedIndividual"]){
+            let ne = result["Ontology"]["Declaration"][i]["NamedIndividual"][0]["$"]["IRI"];
+            neTree[ne.replace("#", "")] = {
+              id: ne.replace("#", "ne_"),
+              text: ne.replace("#", ""),
+              icon: "img/individ.png",
+              state: {opened: false, disabled: false, selected: false},
+              children: [],
+              li_attr: {},
+              a_attr: {href: ne+"_describe"},
+              displayOutput: {},
+              used: false
+            };
+            !neTree[ne.replace("#", "")].displayOutput.subObjectOf ? neTree[ne.replace("#", "")].displayOutput.subObjectOf = [languages[language].subObjectText()] : null;
+          }
+        }
+      }
+      if (result["Ontology"]["SubClassOf"]){
+        //create text entries for sub classes + build tree structure
+        var classTree2 = JSON.parse(JSON.stringify(classTree));
+        for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
+          if (result["Ontology"]["SubClassOf"][i]["Class"].length >1){
+            let subC = result["Ontology"]["SubClassOf"][i]["Class"][0]["$"]["IRI"].replace("#", "");
+            let superC = result["Ontology"]["SubClassOf"][i]["Class"][1]["$"]["IRI"].replace("#", "");
+            classTree[subC].displayOutput.subClassOf.push(languages[language].subClassOf(subC, superC));
+            if (classTree[subC].used){
+              classTree[subC].id+= shortid.generate();
+            }
+            classTree[superC].children.push(classTree[subC]);
+            classTree[subC].used = true;
+          }
         }
       }
       //Equivalent Classes

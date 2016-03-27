@@ -13,66 +13,61 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
+        <Class IRI="#Animal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#amountOfMatter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Zebra"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AlsoOwl"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#BobTheOwl"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#loma"/>
+        <ObjectProperty IRI="#eats"/>
     </Declaration>
     <Declaration>
-<<<<<<< HEAD
-        <Class IRI="#Lekgarebe"/>
+        <Class IRI="#Horse"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#e_nale"/>
-=======
-        <Class IRI="#Zebra"/>
->>>>>>> ce25e50731bcae6253a5c5dd074b6ec9d7609dfc
+        <Class IRI="#Human"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Phologolo"/>
+        <ObjectProperty IRI="#contains"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#ja"/>
+        <ObjectProperty IRI="#drinks"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Sejalo"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Pitsi"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#nwa"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Morubisi_o_o_mongwe"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#lekanya_la_Sere"/>
-    </Declaration>
-    <Declaration>
-<<<<<<< HEAD
-        <Class IRI="#Metsi"/>
-=======
         <ObjectProperty IRI="#isPartOf"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Beer"/>
->>>>>>> ce25e50731bcae6253a5c5dd074b6ec9d7609dfc
     </Declaration>
     <Declaration>
-        <Class IRI="#Morubisi"/>
+        <Class IRI="#Person"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Pitsi_ya_naga"/>
+        <Class IRI="#EagleOwl"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Morubisi_wa_Sefala"/>
+        <Class IRI="#Water"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#karoloYa"/>
+        <Class IRI="#BarnOwl"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#tlhafuna"/>
+        <Class IRI="#Plant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Grass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HomoSapien"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#SamTheOwl"/>
@@ -81,178 +76,167 @@
         <NamedIndividual IRI="#JimTheOwl"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Tlhaga"/>
+        <Class IRI="#Owl"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Mosetsana"/>
+        <ObjectProperty IRI="#bites"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <ObjectProperty IRI="#digests"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Ngwanyana"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#sila"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Bojalwa"/>
+        <ObjectProperty IRI="#chews"/>
     </Declaration>
     <EquivalentClasses>
-<<<<<<< HEAD
-        <Class IRI="#Lekgarebe"/>
-        <Class IRI="#Mosetsana"/>
-=======
         <Class IRI="#Animal"/>
         <Class IRI="#Person"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#HomoSapien"/>
         <Class IRI="#Human"/>
->>>>>>> ce25e50731bcae6253a5c5dd074b6ec9d7609dfc
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#Lekgarebe"/>
-        <Class IRI="#Ngwanyana"/>
+        <Class IRI="#HomoSapien"/>
+        <Class IRI="#Person"/>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#Mosetsana"/>
-        <Class IRI="#Ngwanyana"/>
+        <Class IRI="#Human"/>
+        <Class IRI="#Person"/>
     </EquivalentClasses>
     <SubClassOf>
-        <Class IRI="#Bojalwa"/>
-        <Class IRI="#lekanya_la_Sere"/>
+        <Class IRI="#AlsoOwl"/>
+        <Class IRI="#Animal"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Lekgarebe"/>
-        <Class IRI="#Phologolo"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Lekgarebe"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#nwa"/>
-            <Class IRI="#Bojalwa"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Metsi"/>
-        <Class IRI="#lekanya_la_Sere"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Morubisi"/>
-        <Class IRI="#Phologolo"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Morubisi"/>
-        <ObjectIntersectionOf>
-            <Class IRI="#Morubisi_o_o_mongwe"/>
-            <Class IRI="#Phologolo"/>
-        </ObjectIntersectionOf>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Morubisi_o_o_mongwe"/>
-        <Class IRI="#Phologolo"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Morubisi_o_o_mongwe"/>
+        <Class IRI="#AlsoOwl"/>
         <ObjectUnionOf>
-            <Class IRI="#Morubisi"/>
-            <Class IRI="#Phologolo"/>
+            <Class IRI="#Animal"/>
+            <Class IRI="#Owl"/>
         </ObjectUnionOf>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
-        <Class IRI="#Morubisi"/>
+        <Class IRI="#BarnOwl"/>
+        <Class IRI="#Owl"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
-        <Class IRI="#Morubisi_o_o_mongwe"/>
+        <Class IRI="#Beer"/>
+        <Class IRI="#amountOfMatter"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <Class IRI="#EagleOwl"/>
+        <Class IRI="#AlsoOwl"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EagleOwl"/>
+        <Class IRI="#Owl"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EagleOwl"/>
         <DataSomeValuesFrom>
             <DataProperty abbreviatedIRI="owl:topDataProperty"/>
             <Datatype abbreviatedIRI="owl:real"/>
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Morubisi_wa_Sefala"/>
-        <Class IRI="#Morubisi"/>
+        <Class IRI="#Grass"/>
+        <Class IRI="#Plant"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Mosetsana"/>
-        <Class IRI="#Phologolo"/>
+        <Class IRI="#HomoSapien"/>
+        <Class IRI="#Animal"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Ngwanyana"/>
-        <Class IRI="#Phologolo"/>
+        <Class IRI="#Horse"/>
+        <Class IRI="#Animal"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Pitsi"/>
-        <Class IRI="#Phologolo"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Pitsi"/>
+        <Class IRI="#Horse"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#nwa"/>
-            <Class IRI="#Metsi"/>
+            <ObjectProperty IRI="#drinks"/>
+            <Class IRI="#Water"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Pitsi"/>
+        <Class IRI="#Horse"/>
         <ObjectAllValuesFrom>
-            <ObjectProperty IRI="#ja"/>
-            <Class IRI="#Tlhaga"/>
+            <ObjectProperty IRI="#eats"/>
+            <Class IRI="#Grass"/>
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Pitsi"/>
+        <Class IRI="#Horse"/>
         <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#sila"/>
-            <Class IRI="#Tlhaga"/>
+            <ObjectProperty IRI="#digests"/>
+            <Class IRI="#Grass"/>
         </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Pitsi"/>
+        <Class IRI="#Horse"/>
         <ObjectExactCardinality cardinality="1">
-            <ObjectProperty IRI="#sila"/>
-            <Class IRI="#Tlhaga"/>
+            <ObjectProperty IRI="#digests"/>
+            <Class IRI="#Grass"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Pitsi"/>
+        <Class IRI="#Horse"/>
         <ObjectMaxCardinality cardinality="1">
-            <ObjectProperty IRI="#sila"/>
-            <Class IRI="#Tlhaga"/>
+            <ObjectProperty IRI="#digests"/>
+            <Class IRI="#Grass"/>
         </ObjectMaxCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Pitsi_ya_naga"/>
-        <Class IRI="#Phologolo"/>
+        <Class IRI="#Human"/>
+        <Class IRI="#Animal"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Tlhaga"/>
-        <Class IRI="#Sejalo"/>
+        <Class IRI="#Human"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#drinks"/>
+            <Class IRI="#Beer"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Owl"/>
+        <Class IRI="#Animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Owl"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AlsoOwl"/>
+            <Class IRI="#Animal"/>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <Class IRI="#Animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Water"/>
+        <Class IRI="#amountOfMatter"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zebra"/>
+        <Class IRI="#Animal"/>
     </SubClassOf>
     <DisjointClasses>
-        <Class IRI="#Morubisi"/>
-        <Class IRI="#Pitsi"/>
-        <Class IRI="#Pitsi_ya_naga"/>
+        <Class IRI="#Horse"/>
+        <Class IRI="#Owl"/>
+        <Class IRI="#Zebra"/>
     </DisjointClasses>
     <ClassAssertion>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <Class IRI="#EagleOwl"/>
         <NamedIndividual IRI="#BobTheOwl"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Phologolo"/>
+        <Class IRI="#Animal"/>
         <NamedIndividual IRI="#JimTheOwl"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Morubisi_wa_Ntsu"/>
+        <Class IRI="#BarnOwl"/>
         <NamedIndividual IRI="#SamTheOwl"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Morubisi_wa_Sefala"/>
+        <Class IRI="#EagleOwl"/>
         <NamedIndividual IRI="#SamTheOwl"/>
     </ClassAssertion>
     <SameIndividual>
@@ -284,54 +268,49 @@
         <NamedIndividual IRI="#SamTheOwl"/>
     </NegativeObjectPropertyAssertion>
     <EquivalentObjectProperties>
-        <ObjectProperty IRI="#loma"/>
-        <ObjectProperty IRI="#tlhafuna"/>
+        <ObjectProperty IRI="#bites"/>
+        <ObjectProperty IRI="#chews"/>
     </EquivalentObjectProperties>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#loma"/>
-        <ObjectProperty IRI="#ja"/>
+        <ObjectProperty IRI="#bites"/>
+        <ObjectProperty IRI="#eats"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#sila"/>
-        <ObjectProperty IRI="#ja"/>
+        <ObjectProperty IRI="#chews"/>
+        <ObjectProperty IRI="#eats"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#sila"/>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#digests"/>
+        <ObjectProperty IRI="#drinks"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#tlhafuna"/>
-        <ObjectProperty IRI="#ja"/>
+        <ObjectProperty IRI="#digests"/>
+        <ObjectProperty IRI="#eats"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
-<<<<<<< HEAD
-        <ObjectProperty IRI="#e_nale"/>
-        <ObjectProperty IRI="#karoloYa"/>
-=======
         <ObjectProperty IRI="#contains"/>
         <ObjectProperty IRI="#isPartOf"/>
->>>>>>> ce25e50731bcae6253a5c5dd074b6ec9d7609dfc
     </InverseObjectProperties>
     <FunctionalObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#drinks"/>
     </FunctionalObjectProperty>
     <InverseFunctionalObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#drinks"/>
     </InverseFunctionalObjectProperty>
     <SymmetricObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#drinks"/>
     </SymmetricObjectProperty>
     <AsymmetricObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#drinks"/>
     </AsymmetricObjectProperty>
     <TransitiveObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#drinks"/>
     </TransitiveObjectProperty>
     <ReflexiveObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#drinks"/>
     </ReflexiveObjectProperty>
     <IrreflexiveObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
+        <ObjectProperty IRI="#drinks"/>
     </IrreflexiveObjectProperty>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#contains"/>
@@ -477,5 +456,5 @@
 
 
 
-<!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.1.20160306-0033) https://github.com/owlcs/owlapi -->
 
