@@ -43,13 +43,13 @@ let Tswana = {
     return (decamelize(subC, " ")).capitalize(true)+" "+decamelize(rel, " ")+" "+decamelize(superC, " ").capitalize(true)+" tse di sa feteng "+card+" "
   },
   equivalentClassesText: function () {
-    return "Is Also";
+    return "Ke gape";
   },
   equivalentClasses: function (subC, superC) {
     return (decamelize(subC, " ")).capitalize(true)+" e ka bitswa "+superC
   },
   disjointWithText: function () {
-    return "Different Classes";
+    return "Mephato e e farologaneng";
   },
   disjointWith: function (classes){
     var return_string = (decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ")).capitalize(true)+" e farologane le ";
@@ -62,34 +62,34 @@ let Tswana = {
     return return_string;
   },
   instancesText: function () {
-    return "Instances";
+    return "Karolo";
   },
   instances: function (subC, superC) {
     return "<img src='img/individ.png'></img>"+(decamelize(subC, " ")).capitalize(true)+" ke "+(decamelize(superC, " ").capitalize(true));
   },
   objectPropertyText: function () {
-    return "Object Properties";
+    return "Semelo sa selo";
   },
   subPropertyOf: function (subR, superR) {
     return (decamelize(subR, " ").capitalize(true)+" ke karolo ya "+(decamelize(superR, " ").capitalize(true)));
   },
   subPropertyText: function (){
-    return "Is A";
+    return "Ke";
   },
   equivalentRelationsText: function () {
-    return "Is Also"
+    return "Ke gape"
   },
   equivalentRelations: function (subR, superR){
     return decamelize(subR, " ").capitalize(true)+" e tshwana le "+decamelize(superR, " ").capitalize(true)
   },
   inverseOfText: function () {
-    return "Opposites";
+    return "Pharologano ";
   },
   inverseOf: function (subR, superR) {
     return (decamelize(subR, " ").capitalize(true)+" e kgatlhanong le  "+decamelize(superR, " ").capitalize(true));
   },
   characteristicsText: function () {
-    return "Characteristics";
+    return "Semelo";
   },
   characteristicsFunctional: function (rel) {
     return "Mophato kgotsa Selo ngwe le ngwe "+decamelize(rel, " ").capitalize(true)+" Mophato kgotsa Selo e le 1";
@@ -98,19 +98,19 @@ let Tswana = {
     return "Mophato kgotsa Selo ngwe le ngwe e e nwewang "+", e "+rel+" ke bonnye Mophato kgotsa Selo e le 1";
   },
   characteristicsTransitive: function (rel) {
-    return "Mophato kgotsa Selo ngwe le ngwe e "+decamelize(rel, " ").capitalize(true)+" Mophato kgotsa Selo e le 1";
+    return "Ga A "+decamelize(rel, " ").capitalize(true)+" B le B "+decamelize(rel, " ").capitalize(true)+" C tla diragala gore A "+decamelize(rel, " ").capitalize(true)+" C";
   },
   characteristicsSymmetric: function (rel) {
-    return "Mophato kgotsa Selo ngwe le ngwe e "+decamelize(rel, " ").capitalize(true)+" Mophato kgotsa Selo e le 1";
+    return "Ga A "+decamelize(rel, " ").capitalize(true)+" B go tla diragala gore B "+decamelize(rel, " ").capitalize(true)+" A";
   },
   characteristicsAsymmetric: function (rel) {
-    return "Mophato kgotsa Selo ngwe le ngwe e "+decamelize(rel, " ").capitalize(true)+" Mophato kgotsa Selo e le 1";
+    return "Ga A "+decamelize(rel, " ").capitalize(true)+" B tla diragala gore B "+decamelize(rel, " ").capitalize(true)+" A ga se nnete";
   },
   characteristicsReflexive: function (rel) {
-    return "Mophato kgotsa Selo ngwe le ngwe e "+decamelize(rel, " ").capitalize(true)+" Mophato kgotsa Selo e le 1";
+    return "A "+decamelize(rel, " ").capitalize(true)+" A";
   },
   characteristicsIrreflexive: function (rel) {
-    return "Mophato kgotsa Selo ngwe le ngwe e "+decamelize(rel, " ").capitalize(true)+" Mophato kgotsa Selo e le 1";
+    return "A "+decamelize(rel, " ").capitalize(true)+" A ga se nnete";
   },
   namedEntitiesText: function () {
     return "Named Entities";
@@ -124,7 +124,7 @@ let Tswana = {
   
   // new stuff
   domainAndRangeText: function () {
-    return "Domain and Range";
+    return "Bonno le Boleng";
   },
   domainPre: function (rel) {
     return "Selo se e leng ";
