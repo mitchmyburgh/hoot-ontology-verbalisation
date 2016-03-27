@@ -436,6 +436,9 @@
         <ObjectProperty IRI="#eats"/>
         <ObjectProperty IRI="#isPartOf"/>
     </DisjointObjectProperties>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#isPartOf"/>
+    </DisjointObjectProperties>
     <SubObjectPropertyOf>
         <ObjectPropertyChain>
             <ObjectProperty IRI="#contains"/>

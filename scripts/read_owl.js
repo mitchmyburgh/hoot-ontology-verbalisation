@@ -13,6 +13,14 @@ languages["Afrikaans"] = require('./afrikaans/Afrikaans');
 languages["Tswana"] = require('./tswana/Tswana');
 languages["maths"] = require('./maths/maths');
 
+//language in plain text
+let fullLang = {
+  simpleEnglish: "Simple English",
+  technicalEnglish: "Technical English",
+  Afrikaans: "Afrikaans",
+  Tswana: "Tswana",
+  maths: "Mathematical Representation"
+}
 
 let read_file = function(filename, filepath, language, cb){
   var parser = new xml2js.Parser();
@@ -33,6 +41,7 @@ let read_file = function(filename, filepath, language, cb){
       intText.classText = languages[language].classText();
       intText.objectPropertyText = languages[language].objectPropertyText();
       intText.namedEntitiesText = languages[language].namedEntitiesText();
+      intText.headerText = filename+" in "+fullLang[language];
       //list all clases
       for (let i = 0; i < result["Ontology"]["Declaration"].length; i++){
         if (result["Ontology"]["Declaration"][i]["Class"]){

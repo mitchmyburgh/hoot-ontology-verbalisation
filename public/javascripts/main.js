@@ -43,6 +43,7 @@ $(function () {
     $("#relPanel").show();
     $("#nePanel").show();
     //set interface text
+    $("#headerText").html(tree[0].headerText);
     $('#classText').html(tree[0].classText);
     $('#objectPropertyText').html(tree[0].objectPropertyText);
     $('#namedEntitiesText').html(tree[0].namedEntitiesText);

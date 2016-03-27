@@ -11,10 +11,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Hoot', linkToData: ''  });
 });
 
-/* get contribute language page */
-router.get('/contribute', function(req, res, next) {
-  res.render('contribute', { title: 'Express', linkToData: '' });
+/* GET about page. */
+router.get('/about', function(req, res, next) {
+  res.render('about', { title: 'Hoot', linkToData: ''  });
 });
+
 
 /* Post to upload page */
 router.post('/', upload.single('OWLFile'), function (req, res, next) {

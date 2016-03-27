@@ -45,12 +45,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><%= title %></a>
+          <a class="navbar-brand" href="/"><img alt="Brand" src="img/hoot.png" style="max-width: 50px; max-height: 30px; width: auto; height: auto; display: inline-block" ><div style="display: inline-block; margin-left: 20px"><%= title %></div></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Analyise File</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="/">Analyse File</a></li>
+            <li class="active"><a href="/about">About</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -59,29 +59,87 @@
     <div class="container">
 
       <div class="panel panel-default" style="margin-top: 20px;" id="classPanel">
-        <div class="panel-heading"><strong id="classText" class="header-text"></strong><div class="par_cat_slider"><input id="toggle-par-class" data-size="small" data-toggle="toggle" data-on="Paragraph" data-off="Categories" type="checkbox"></div></div>
+        <div class="panel-heading"><strong>Authors</strong></div>
         <div class="panel-body">
-          <div id="classTree"></div>
-          <div id="classDisp"></div>
-          <div id="classParDisp"></div>
+          <div id="authors" style="text-align: center"><strong>Hoot is by Mitch Myburgh, Roscoe Jampies, Bayanda Chakuma and Tumelo Makgaka</strong></div><br>
+          <div id="paper" style="text-align: center">Access the paper associated with this project <a href="#">here</a></div>
         </div>
       </div>
-
+      <h2>The following features are supported by the Hoot Ontology Verbalisation System</h2>
       <div class="panel panel-default" style="margin-top: 20px;" id="relPanel">
-        <div class="panel-heading"><strong id="objectPropertyText" class="header-text"></strong><div class="par_cat_slider"><input id="toggle-par-rel" data-size="small" data-toggle="toggle" data-on="Paragraph" data-off="Categories" type="checkbox"></div></div>
+        <div class="panel-heading"><strong id="objectPropertyText" class="header-text">Classes</strong></div>
         <div class="panel-body">
-          <div id="relTree"></div>
-          <div id="relDisp"></div>
-          <div id="relParDisp"></div>
+          <ul>
+           <li>Equivalent To
+             <ul>
+               <li>From Class Heirachy</li>
+             </ul>
+           </li>
+           <li>Sub Class Of
+             <ul>
+               <li>From Class Heirachy</li>
+               <li>From Object Restriction Creator</li>
+             </ul>
+           </li>
+           <li>Instances
+           </li>
+           <li>Disjoint With
+             <ul>
+               <li>From Class Heirachy</li>
+             </ul>
+           </li>
+          </ul>
         </div>
       </div>
 
       <div class="panel panel-default" style="margin-top: 20px;" id="nePanel">
-        <div class="panel-heading"><strong id="namedEntitiesText" class="header-text"></strong><div class="par_cat_slider"><input id="toggle-par-ne" data-size="small" data-toggle="toggle" data-on="Paragraph" data-off="Categories" type="checkbox"></div></div>
+        <div class="panel-heading"><strong id="namedEntitiesText" class="header-text">Object Properties</strong></div>
         <div class="panel-body">
-          <div id="neTree"></div>
-          <div id="neDisp"></div>
-          <div id="neParDisp"></div>
+          <ul>
+           <li>Equivalent To
+           </li>
+           <li>Sub Property Of</li>
+           <li>Inverse Of</li>
+           <li>Domain
+             <ul>
+               <li>From Class Heirachy</li>
+               <li>From Object Restriction Creator</li>
+             </ul>
+           </li>
+           <li>Range
+             <ul>
+               <li>From Class Heirachy</li>
+               <li>From Object Restriction Creator</li>
+             </ul>
+           </li>
+           <li>Disjoint With
+             <ul>
+               <li>From Property Heirachy</li>
+             </ul>
+           </li>
+           <li>Sub Property Of (Chain)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel panel-default" style="margin-top: 20px;" id="nePanel">
+        <div class="panel-heading"><strong id="namedEntitiesText" class="header-text">Named Entities</strong></div>
+        <div class="panel-body">
+          <ul>
+           <li>Types
+             <ul>
+               <li>From Class Heirachy</li>
+             </ul>
+           </li>
+           <li>Same Individual As
+           </li>
+           <li>Different Individuals
+           </li>
+           <li>Object Property Assertions
+           </li>
+           <li>Negative Object Property Assertions
+           </li>
+          </ul>
         </div>
       </div>
 
@@ -94,18 +152,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="javascripts/lib/jquery.min.js"><\/script>')</script>
     <script src="javascripts/lib/bootstrap.min.js"></script>
-    <!-- lodash -->
-    <script src="javascripts/lib/lodash.core.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="javascripts/lib/ie10-viewport-bug-workaround.js"></script>
-
-    <!-- jsTree -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-    <!-- Bootstrap Toggle -->
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <!-- output file script script -->
-    <script src="<%= linkToData %>"></script>
-    <!-- main script -->
-    <script src="javascripts/main.js"></script>
   </body>
 </html>
