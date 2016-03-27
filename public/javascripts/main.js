@@ -189,6 +189,22 @@ $(function () {
       $("#neDisp").append("<p>"+data.node.original.displayOutput.differentIndividuals[i]+"</p>");
       $("#neParDisp").append(data.node.original.displayOutput.differentIndividuals[i]+". ");
     }
+    // objectPropertyAssertion
+    if (data.node.original.displayOutput.objectPropertyAssertion.length > 1){
+      $("#neDisp").append("<h3>"+data.node.original.displayOutput.objectPropertyAssertion[0]+"</h3>");
+    }
+    for (var i = 1; i < data.node.original.displayOutput.objectPropertyAssertion.length; i++){
+      $("#neDisp").append("<p>"+data.node.original.displayOutput.objectPropertyAssertion[i]+"</p>");
+      $("#neParDisp").append(data.node.original.displayOutput.objectPropertyAssertion[i]+". ");
+    }
+    // negativeObjectPropertyAssertion
+    if (data.node.original.displayOutput.negativeObjectPropertyAssertion.length > 1){
+      $("#neDisp").append("<h3>"+data.node.original.displayOutput.negativeObjectPropertyAssertion[0]+"</h3>");
+    }
+    for (var i = 1; i < data.node.original.displayOutput.negativeObjectPropertyAssertion.length; i++){
+      $("#neDisp").append("<p>"+data.node.original.displayOutput.negativeObjectPropertyAssertion[i]+"</p>");
+      $("#neParDisp").append(data.node.original.displayOutput.negativeObjectPropertyAssertion[i]+". ");
+    }
     $("#neParDisp").append("</p>");
   });
 });

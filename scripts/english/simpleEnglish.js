@@ -237,6 +237,18 @@ let simpleEnglish = {
       }
     }
     return return_string;
+  },
+  negativeObjectPropertyAssertionText: function (){
+    return "Does Not";
+  },
+  negativeObjectPropertyAssertion: function (subC, superC, rel) {
+    return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
+  },
+  objectPropertyAssertionText: function (){
+    return "Does";
+  },
+  objectPropertyAssertion: function (subC, superC, rel) {
+    return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
   }
 }
 

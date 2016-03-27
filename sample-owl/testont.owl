@@ -257,6 +257,16 @@
         <NamedIndividual IRI="#BobTheOwl"/>
         <NamedIndividual IRI="#SamTheOwl"/>
     </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#eats"/>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </ObjectPropertyAssertion>
+    <NegativeObjectPropertyAssertion>
+        <ObjectProperty IRI="#eats"/>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </NegativeObjectPropertyAssertion>
     <EquivalentObjectProperties>
         <ObjectProperty IRI="#bites"/>
         <ObjectProperty IRI="#chews"/>

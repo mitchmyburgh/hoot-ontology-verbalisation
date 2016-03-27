@@ -235,6 +235,18 @@ let simpleEnglish = {
     }
     return_string += ") &#8849;  &#8869;";
     return return_string;
+  },
+  negativeObjectPropertyAssertionText: function (){
+    return "Negative Object Property Assertion";
+  },
+  negativeObjectPropertyAssertion: function (subC, superC, rel) {
+    return " &#172; "+rel+"("+subC+", "+superC+")";
+  },
+  objectPropertyAssertionText: function (){
+    return "Object Property Assertion";
+  },
+  objectPropertyAssertion: function (subC, superC, rel) {
+    return ""+rel+"("+subC+", "+superC+")";
   }
 }
 

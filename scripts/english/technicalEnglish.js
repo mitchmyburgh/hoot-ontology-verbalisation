@@ -232,7 +232,19 @@ let technicalEnglish = {
       }
     }
     return return_string;
-  }
+  },
+  negativeObjectPropertyAssertionText: function (){
+    return "Negative Object Property Assertion";
+  },
+  negativeObjectPropertyAssertion: function (subC, superC, rel) {
+    return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
+  },
+  objectPropertyAssertionText: function (){
+    return "Object Property Assertion";
+  },
+  objectPropertyAssertion: function (subC, superC, rel) {
+    return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
+  },
 }
 
 

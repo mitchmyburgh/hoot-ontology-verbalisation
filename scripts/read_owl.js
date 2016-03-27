@@ -97,6 +97,8 @@ let read_file = function(filename, filepath, language, cb){
           !neTree[ne.replace("#", "")].displayOutput.subObjectOf ? neTree[ne.replace("#", "")].displayOutput.subObjectOf = [languages[language].subObjectText()] : null;
           !neTree[ne.replace("#", "")].displayOutput.sameIndividual ? neTree[ne.replace("#", "")].displayOutput.sameIndividual = [languages[language].sameIndividualText()] : null;
           !neTree[ne.replace("#", "")].displayOutput.differentIndividuals ? neTree[ne.replace("#", "")].displayOutput.differentIndividuals = [languages[language].differentIndividualsText()] : null;
+          !neTree[ne.replace("#", "")].displayOutput.negativeObjectPropertyAssertion ? neTree[ne.replace("#", "")].displayOutput.negativeObjectPropertyAssertion = [languages[language].negativeObjectPropertyAssertionText()] : null;
+          !neTree[ne.replace("#", "")].displayOutput.objectPropertyAssertion ? neTree[ne.replace("#", "")].displayOutput.objectPropertyAssertion = [languages[language].objectPropertyAssertionText()] : null;
         }
       }
       //create text entries for sub classes + build tree structure
@@ -329,6 +331,20 @@ let read_file = function(filename, filepath, language, cb){
         let subC = result["Ontology"]["DifferentIndividuals"][i]["NamedIndividual"][0]["$"]["IRI"].replace("#", "");
         neTree[subC].displayOutput.differentIndividuals.push(languages[language].differentIndividuals(result["Ontology"]["DifferentIndividuals"][i]["NamedIndividual"]));
       }
+      // ne negative object property assertions
+      for (let i = 0; i < result["Ontology"]["NegativeObjectPropertyAssertion"].length; i++){
+        let subC = result["Ontology"]["NegativeObjectPropertyAssertion"][i]["NamedIndividual"][0]["$"]["IRI"].replace("#", "");
+        let superC = result["Ontology"]["NegativeObjectPropertyAssertion"][i]["NamedIndividual"][1]["$"]["IRI"].replace("#", "");
+        let rel = result["Ontology"]["NegativeObjectPropertyAssertion"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        neTree[subC].displayOutput.negativeObjectPropertyAssertion.push(languages[language].negativeObjectPropertyAssertion(subC, superC, rel));
+      }
+      // ne object property assertions
+      for (let i = 0; i < result["Ontology"]["ObjectPropertyAssertion"].length; i++){
+        let subC = result["Ontology"]["ObjectPropertyAssertion"][i]["NamedIndividual"][0]["$"]["IRI"].replace("#", "");
+        let superC = result["Ontology"]["ObjectPropertyAssertion"][i]["NamedIndividual"][1]["$"]["IRI"].replace("#", "");
+        let rel = result["Ontology"]["ObjectPropertyAssertion"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        neTree[subC].displayOutput.objectPropertyAssertion.push(languages[language].objectPropertyAssertion(subC, superC, rel));
+      }
       //create text entries for sub objects + build tree structure
       for (let i = 0; i < result["Ontology"]["ClassAssertion"].length; i++){
         let subC = result["Ontology"]["ClassAssertion"][i]["NamedIndividual"][0]["$"]["IRI"].replace("#", "");
@@ -339,7 +355,6 @@ let read_file = function(filename, filepath, language, cb){
         neTree[subC].used = true;
       }
 
-      console.log(JSON.stringify(classTree2))
       //complete tree structure for ne tree
       for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
         if (result["Ontology"]["SubClassOf"][i]["Class"].length >1){

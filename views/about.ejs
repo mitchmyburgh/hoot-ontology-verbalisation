@@ -57,37 +57,6 @@
     </nav>
 
     <div class="container">
-      <div class="panel panel-default" style="margin-top: 20px;">
-        <div class="panel-heading"><strong>Upload File</strong> <small>Upload your OWL file.</small></div>
-        <div class="panel-body">
-
-          <!-- Standar Form -->
-          <h4>Select file from your computer</h4>
-          <form action="http://localhost:3000/" method="post" enctype="multipart/form-data" id="js-upload-form">
-            <div class="form-inline">
-              <div class="form-group">
-                <input type="file" name="OWLFile" id="js-upload-files" single>
-                <input class="span2" id="language_select" name="language" type="hidden">
-              </div>
-
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  Language
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="#" value="simpleEnglish">Simple English</a></li>
-                  <li><a href="#" value="technicalEnglish">Technical English</a></li>
-                  <li><a href="#" value="maths">Mathematical Representation</a></li>
-                  <li><a href="#" value="Afrikaans">Afrikaans</a></li>
-                  <li><a href="#" value="Tswana">Tswana</a></li>
-                </ul>
-              </div>
-              <button type="submit" class="btn btn-sm btn-primary submit-upload-form" id="js-upload-submit">Upload files</button>
-            </div>
-          </form>
-        </div>
-      </div>
 
       <div class="panel panel-default" style="margin-top: 20px;" id="classPanel">
         <div class="panel-heading"><strong id="classText" class="header-text"></strong><div class="par_cat_slider"><input id="toggle-par-class" data-size="small" data-toggle="toggle" data-on="Paragraph" data-off="Categories" type="checkbox"></div></div>
