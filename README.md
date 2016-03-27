@@ -14,7 +14,13 @@ Nodemon reloads the project when files are changed
 ```bash
 npm install -g nodemon
 ```
-### The following steps are only for css, you can ignore them
+
+### Install forever
+forever recovers the app from crashes
+```bash
+npm install -g forever
+```
+### The following steps are only for css
 #### Install Grunt
 
 ```bash
@@ -29,17 +35,22 @@ sudo apt-get install ruby-full
 ```bash
 sudo su -c "gem install sass"
 ```
-### /end css steps
 
 ## Running
 
+### Running on Dev
 ```bash
 npm start
 ```
 
+### Running on Production
+```bash
+sudo npm run start_prod
+```
+
 ## Coding
 
-For UI code we are using React and SASS. Edit the code in:
+For UI code we are using SASS. Edit the code in:
 ```
 ./src
 ```
@@ -49,15 +60,10 @@ grunt
 ```
 Then refresh the site.
 
-For Your code edit the file in
+For The Language Modules code edit the file in
 ```
 ./scripts/lang/lang.js
 ```
 and modify it to output the correct string given a certain input.
 
 NOTE: don't use any owl file, the one in `./sample-owl` contains the features that are currently in use.
-
-To change the language change the var `language` in
-```
-./scripts/read_owl.js
-```
