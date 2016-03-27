@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+<<<<<<< HEAD
+        <uri id="Automatically generated entry, Timestamp=1459083148321" name="duplicate:http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2" uri="testAfr.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1459083148321" name="duplicate:http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2" uri="testont.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1459083148321" name="duplicate:http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2" uri="tswana.owl"/>
+=======
+        <uri id="Automatically generated entry, Timestamp=1459082765841" name="duplicate:http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2" uri="testAfr.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1459082765841" name="duplicate:http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2" uri="testont.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1459082765841" name="duplicate:http://www.semanticweb.org/mitch/ontologies/2016/2/untitled-ontology-2" uri="tswana.owl"/>
+>>>>>>> b83411f606a58e68ae8571a9fd68aed57a6481c6
+    </group>
+</catalog>
