@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon --ignore uploads/ --ignore public/rendered/ ./bin/www",
-    "start_prod": "forever ./bin/www"
+    "start_prod": "PORT=80 forever start ./bin/www"
   },
   "dependencies": {
     "articles": "^0.2.1",
