@@ -24,7 +24,7 @@ let Tswana = {
     return ((decamelize(subC, " ")).capitalize(true)+" ke "+(decamelize(superC, " ").capitalize(true)));
   },
   subClassText: function (){
-    return "Is A";
+    return "Ke";
   },
   //object restrictions
   someValuesFrom: function (subC, superC, rel) {
