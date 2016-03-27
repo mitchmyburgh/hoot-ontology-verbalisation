@@ -121,6 +121,135 @@ let simpleEnglish = {
   inverseOf: function (subR, superR) {
     return (decamelize(subR, " ").capitalize(true)+" is die teenoorgestelde van "+decamelize(superR, " ").capitalize(true));
   },
+
+ domainAndRangeText: function () {
+    return "Definisieversameling en Waardeversameling";
+  },
+  domainPre: function (rel) {
+    return "'n objek wat ";
+  },
+  domain: function (superC) {
+    return "is "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  domainSome: function (subR, superC) {
+    return "soms "+decamelize(subR, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  domainAll: function (subR, superC) {
+    return "altyd "+decamelize(subR, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  domainMin: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" ten minste "+card+" "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  domainMax: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" by die meeste "+card+" "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  domainExactly: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" presies "+card+" "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  domainTrim: function(text){
+    return text.substring(0, text.length-4);
+  },
+  domainPost: function (text, subR){
+    return this.domainTrim(text)+decamelize(subR, " ").capitalize(true)
+  },
+  domainPostNoR: function (text, subR){
+    return this.domainTrim(text)+decamelize(subR, " ").capitalize(true)+" 'n Objek";
+  },
+  rangePreNoD: function (text, rel) {
+    return "A klas "+rel+" 'n objek wat is "+text.substring(19, text.length-4);
+  },
+  rangePre: function (rel) {
+    return " 'n objek wat ";
+  },
+  range: function (superC) {
+    return "is "+articles.articlize(decamelize(superC, " ").capitalize(true))+ " en ";
+  },
+  rangeSome: function (subR, superC) {
+    return "soms "+decamelize(subR, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  rangeAll: function (subR, superC) {
+    return "altyd "+decamelize(subR, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  rangeMin: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" ten minste "+card+" "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  rangeMax: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" by die meeste "+card+" "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  rangeExactly: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" presies "+card+" "+decamelize(superC, " ").capitalize(true)+ " en ";
+  },
+  rangeTrim: function(text){
+    return text.substring(0, text.length-4);
+  },
+  rangePost: function (text, subR){
+    return this.rangeTrim(text)
+  },
+  disjointWithOPText: function () {
+    return "Verskil Van";
+  },
+  disjointWithOP: function (classes){
+    var return_string = decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ").capitalize(true)+" verskil van ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " en ";
+      }
+    }
+    return return_string;
+  },
+  subPropertyOfChainingText: function () {
+    return "Sub Property (Anneenskakeling)";
+  },
+  subPropertyOfChaining: function (subC, classes){
+    var return_string = "";
+    for (var i = 0; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " en ";
+      }
+    }
+    return_string += " is vervat in "+decamelize(subC, " ").capitalize(true);
+    return return_string;
+  },
+  sameIndividualText: function () {
+    return "Die selfde as"
+  },
+  sameIndividual: function (classes) {
+    var return_string = decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ").capitalize(true)+" is die selde as as ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " en ";
+      }
+    }
+    return return_string;
+  },
+  differentIndividualsText: function () {
+    return "Verskil Van"
+  },
+  differentIndividuals: function (classes) {
+    var return_string = decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ").capitalize(true)+" verskil van ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " en ";
+      }
+    }
+    return return_string;
+  },
+  negativeObjectPropertyAssertionText: function (){
+    return "Does Not";
+  },
+  negativeObjectPropertyAssertion: function (subC, superC, rel) {
+    return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
+  },
+  objectPropertyAssertionText: function (){
+    return "Does";
+  },
+  objectPropertyAssertion: function (subC, superC, rel) {
+    return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
+  }
 }
 
 module.exports = simpleEnglish;
