@@ -88,6 +88,10 @@
         <ObjectProperty IRI="#chews"/>
     </Declaration>
     <EquivalentClasses>
+        <Class IRI="#Animal"/>
+        <Class IRI="#Person"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="#HomoSapien"/>
         <Class IRI="#Human"/>
     </EquivalentClasses>
@@ -235,6 +239,24 @@
         <Class IRI="#EagleOwl"/>
         <NamedIndividual IRI="#SamTheOwl"/>
     </ClassAssertion>
+    <SameIndividual>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#JimTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </SameIndividual>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#JimTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </DifferentIndividuals>
     <EquivalentObjectProperties>
         <ObjectProperty IRI="#bites"/>
         <ObjectProperty IRI="#chews"/>

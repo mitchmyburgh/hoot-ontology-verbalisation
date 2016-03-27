@@ -165,12 +165,29 @@ $(function () {
     $("#neParDisp").html("");
     $("#neParDisp").append("<h3>"+data.node.original.text+"</h3>");
     $("#neParDisp").append("<p>");
+    // sub object of
     if (data.node.original.displayOutput.subObjectOf.length > 1){
       $("#neDisp").append("<h3>"+data.node.original.displayOutput.subObjectOf[0]+"</h3>");
     }
     for (var i = 1; i < data.node.original.displayOutput.subObjectOf.length; i++){
       $("#neDisp").append("<p>"+data.node.original.displayOutput.subObjectOf[i]+"</p>");
       $("#neParDisp").append(data.node.original.displayOutput.subObjectOf[i]+". ");
+    }
+    // same individual
+    if (data.node.original.displayOutput.sameIndividual.length > 1){
+      $("#neDisp").append("<h3>"+data.node.original.displayOutput.sameIndividual[0]+"</h3>");
+    }
+    for (var i = 1; i < data.node.original.displayOutput.sameIndividual.length; i++){
+      $("#neDisp").append("<p>"+data.node.original.displayOutput.sameIndividual[i]+"</p>");
+      $("#neParDisp").append(data.node.original.displayOutput.sameIndividual[i]+". ");
+    }
+    // different individual
+    if (data.node.original.displayOutput.differentIndividuals.length > 1){
+      $("#neDisp").append("<h3>"+data.node.original.displayOutput.differentIndividuals[0]+"</h3>");
+    }
+    for (var i = 1; i < data.node.original.displayOutput.differentIndividuals.length; i++){
+      $("#neDisp").append("<p>"+data.node.original.displayOutput.differentIndividuals[i]+"</p>");
+      $("#neParDisp").append(data.node.original.displayOutput.differentIndividuals[i]+". ");
     }
     $("#neParDisp").append("</p>");
   });

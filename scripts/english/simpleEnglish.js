@@ -211,6 +211,32 @@ let simpleEnglish = {
     }
     return_string += " is contained in "+decamelize(subC, " ").capitalize(true);
     return return_string;
+  },
+  sameIndividualText: function () {
+    return "The same as"
+  },
+  sameIndividual: function (classes) {
+    var return_string = decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ").capitalize(true)+" is the same as ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " and ";
+      }
+    }
+    return return_string;
+  },
+  differentIndividualsText: function () {
+    return "Different From"
+  },
+  differentIndividuals: function (classes) {
+    var return_string = decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ").capitalize(true)+" is different from ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " and ";
+      }
+    }
+    return return_string;
   }
 }
 

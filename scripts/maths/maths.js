@@ -207,6 +207,34 @@ let simpleEnglish = {
     }
     return_string += " &#8849; "+subC;
     return return_string;
+  },
+  sameIndividualText: function () {
+    return "Same Individual As"
+  },
+  sameIndividual: function (classes) {
+    var return_string = classes[0]["$"]["IRI"].replace("#", "")+" &#8801; ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += classes[i]["$"]["IRI"].replace("#", "")
+      if (i != classes.length-1){
+        return_string += " &#8743; ";
+      }
+    }
+    return return_string;
+  },
+  differentIndividualsText: function () {
+    return "Disjoint Individuals"
+  },
+  differentIndividuals: function (classes) {
+    var return_string = "";
+    return_string += classes[0]["$"]["IRI"].replace("#", "")+" &#8851; (";
+    for (var i = 1; i < classes.length; i++){
+      return_string += classes[i]["$"]["IRI"].replace("#", "")
+      if (i != classes.length-1){
+        return_string += " &#8852; ";
+      }
+    }
+    return_string += ") &#8849;  &#8869;";
+    return return_string;
   }
 }
 

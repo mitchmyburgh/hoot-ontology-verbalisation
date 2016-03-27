@@ -95,6 +95,8 @@ let read_file = function(filename, filepath, language, cb){
             used: false
           };
           !neTree[ne.replace("#", "")].displayOutput.subObjectOf ? neTree[ne.replace("#", "")].displayOutput.subObjectOf = [languages[language].subObjectText()] : null;
+          !neTree[ne.replace("#", "")].displayOutput.sameIndividual ? neTree[ne.replace("#", "")].displayOutput.sameIndividual = [languages[language].sameIndividualText()] : null;
+          !neTree[ne.replace("#", "")].displayOutput.differentIndividuals ? neTree[ne.replace("#", "")].displayOutput.differentIndividuals = [languages[language].differentIndividualsText()] : null;
         }
       }
       //create text entries for sub classes + build tree structure
@@ -317,6 +319,16 @@ let read_file = function(filename, filepath, language, cb){
         let rel = result["Ontology"]["IrreflexiveObjectProperty"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
         relTree[rel].displayOutput.characteristics.push(languages[language].characteristicsIrreflexive(rel));
       }
+      //ne same individual
+      for (let i = 0; i < result["Ontology"]["SameIndividual"].length; i++){
+        let subC = result["Ontology"]["SameIndividual"][i]["NamedIndividual"][0]["$"]["IRI"].replace("#", "");
+        neTree[subC].displayOutput.sameIndividual.push(languages[language].sameIndividual(result["Ontology"]["SameIndividual"][i]["NamedIndividual"]));
+      }
+      //ne same individual
+      for (let i = 0; i < result["Ontology"]["DifferentIndividuals"].length; i++){
+        let subC = result["Ontology"]["DifferentIndividuals"][i]["NamedIndividual"][0]["$"]["IRI"].replace("#", "");
+        neTree[subC].displayOutput.differentIndividuals.push(languages[language].differentIndividuals(result["Ontology"]["DifferentIndividuals"][i]["NamedIndividual"]));
+      }
       //create text entries for sub objects + build tree structure
       for (let i = 0; i < result["Ontology"]["ClassAssertion"].length; i++){
         let subC = result["Ontology"]["ClassAssertion"][i]["NamedIndividual"][0]["$"]["IRI"].replace("#", "");
@@ -326,6 +338,7 @@ let read_file = function(filename, filepath, language, cb){
         classTree2[superC].children.push(neTree[subC]);
         neTree[subC].used = true;
       }
+
       console.log(JSON.stringify(classTree2))
       //complete tree structure for ne tree
       for (let i = 0; i < result["Ontology"]["SubClassOf"].length; i++){
