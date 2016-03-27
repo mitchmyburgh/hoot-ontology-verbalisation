@@ -92,19 +92,19 @@ let simpleEnglish = {
     return "Elke Klas of Objek wat "+pastTense[rel]+", is slegs "+pastTense[rel]+" by 1 Klass of Objek";
   },
   characteristicsTransitive: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "As A "+decamelize(rel, " ").capitalize(true)+" B en B "+decamelize(rel, " ").capitalize(true)+" C dan A "+decamelize(rel, " ").capitalize(true)+" C";
   },
   characteristicsSymmetric: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "As A "+decamelize(rel, " ").capitalize(true)+" B dan B "+decamelize(rel, " ").capitalize(true)+" A";
   },
   characteristicsAsymmetric: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "As A "+decamelize(rel, " ").capitalize(true)+" B dan B "+decamelize(rel, " ").capitalize(true)+" A is nie waar nie";
   },
   characteristicsReflexive: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "A "+decamelize(rel, " ").capitalize(true)+" A";
   },
   characteristicsIrreflexive: function (rel) {
-    return "Every Class or Object "+decamelize(rel, " ").capitalize(true)+" only 1 Class or Object";
+    return "A "+decamelize(rel, " ").capitalize(true)+" A is nie waar nie";
   },
   namedEntitiesText: function () {
     return "Vernoem Entiteite";
@@ -239,13 +239,13 @@ let simpleEnglish = {
     return return_string;
   },
   negativeObjectPropertyAssertionText: function (){
-    return "Does Not";
+    return "Doen Nie";
   },
   negativeObjectPropertyAssertion: function (subC, superC, rel) {
     return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
   },
   objectPropertyAssertionText: function (){
-    return "Does";
+    return "Doen";
   },
   objectPropertyAssertion: function (subC, superC, rel) {
     return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
