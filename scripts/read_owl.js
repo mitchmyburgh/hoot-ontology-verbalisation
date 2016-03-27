@@ -75,6 +75,7 @@ let read_file = function(filename, filepath, language, cb){
           !relTree[rel.replace("#", "")].displayOutput.characteristics ? relTree[rel.replace("#", "")].displayOutput.characteristics = [languages[language].characteristicsText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.domainAndRange ? relTree[rel.replace("#", "")].displayOutput.domainAndRange = [languages[language].domainAndRangeText()] : null;
           !relTree[rel.replace("#", "")].displayOutput.disjointWithOP ? relTree[rel.replace("#", "")].displayOutput.disjointWithOP = [languages[language].disjointWithOPText()] : null;
+          !relTree[rel.replace("#", "")].displayOutput.subPropertyOfChaining ? relTree[rel.replace("#", "")].displayOutput.subPropertyOfChaining = [languages[language].subPropertyOfChainingText()] : null;
         }
       }
 
@@ -153,13 +154,15 @@ let read_file = function(filename, filepath, language, cb){
       //create text entries for sub relations + build tree structure
       for (let i = 0; i < result["Ontology"]["SubObjectPropertyOf"].length; i++){
         let subC = result["Ontology"]["SubObjectPropertyOf"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
-        let superC = result["Ontology"]["SubObjectPropertyOf"][i]["ObjectProperty"][1]["$"]["IRI"].replace("#", "");
-        relTree[subC].displayOutput.subPropertyOf.push(languages[language].subPropertyOf(subC, superC));
-        if (relTree[subC].used){
-          relTree[subC].id+= shortid.generate();
+        if (result["Ontology"]["SubObjectPropertyOf"][i]["ObjectProperty"].length > 1) {
+          let superC = result["Ontology"]["SubObjectPropertyOf"][i]["ObjectProperty"][1]["$"]["IRI"].replace("#", "");
+          relTree[subC].displayOutput.subPropertyOf.push(languages[language].subPropertyOf(subC, superC));
+          if (relTree[subC].used){
+            relTree[subC].id+= shortid.generate();
+          }
+          relTree[superC].children.push(relTree[subC]);
+          relTree[subC].used = true;
         }
-        relTree[superC].children.push(relTree[subC]);
-        relTree[subC].used = true;
       }
       //Equivalent Object Properties
       for (let i = 0; i < result["Ontology"]["EquivalentObjectProperties"].length; i++){
@@ -270,6 +273,13 @@ let read_file = function(filename, filepath, language, cb){
       for (let i = 0; i < result["Ontology"]["DisjointObjectProperties"].length; i++){
         let subC = result["Ontology"]["DisjointObjectProperties"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
         relTree[subC].displayOutput.disjointWithOP.push(languages[language].disjointWithOP(result["Ontology"]["DisjointObjectProperties"][i]["ObjectProperty"]));
+      }
+      // sub property chaining
+      for (let i = 0; i < result["Ontology"]["SubObjectPropertyOf"].length; i++){
+        let subC = result["Ontology"]["SubObjectPropertyOf"][i]["ObjectProperty"][0]["$"]["IRI"].replace("#", "");
+        if (result["Ontology"]["SubObjectPropertyOf"][i]["ObjectPropertyChain"]) {
+          relTree[subC].displayOutput.subPropertyOfChaining.push(languages[language].subPropertyOfChaining(subC, result["Ontology"]["SubObjectPropertyOf"][i]["ObjectPropertyChain"][0]["ObjectProperty"]));
+        }
       }
       // Characteristics
       // Functional char

@@ -198,6 +198,20 @@ let simpleEnglish = {
     }
     return return_string;
   },
+  subPropertyOfChainingText: function () {
+    return "Sub Property (Chaining)";
+  },
+  subPropertyOfChaining: function (subC, classes){
+    var return_string = "";
+    for (var i = 0; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " and ";
+      }
+    }
+    return_string += " is contained in "+decamelize(subC, " ").capitalize(true);
+    return return_string;
+  }
 }
 
 module.exports = simpleEnglish;

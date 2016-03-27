@@ -150,6 +150,14 @@ $(function () {
       $("#relDisp").append("<p>"+data.node.original.displayOutput.disjointWithOP[i]+"</p>");
       $("#relParDisp").append(data.node.original.displayOutput.disjointWithOP[i]+". ");
     }
+    // sub property chaining
+    if (data.node.original.displayOutput.subPropertyOfChaining.length > 1){
+      $("#relDisp").append("<h3>"+data.node.original.displayOutput.subPropertyOfChaining[0]+"</h3>");
+    }
+    for (var i = 1; i < data.node.original.displayOutput.subPropertyOfChaining.length; i++){
+      $("#relDisp").append("<p>"+data.node.original.displayOutput.subPropertyOfChaining[i]+"</p>");
+      $("#relParDisp").append(data.node.original.displayOutput.subPropertyOfChaining[i]+". ");
+    }
     $("#relParDisp").append("</p>");
   });
   $('#neTree').on("changed.jstree", function (e, data) {

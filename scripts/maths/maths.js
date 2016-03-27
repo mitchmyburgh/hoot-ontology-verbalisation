@@ -194,6 +194,20 @@ let simpleEnglish = {
     return_string += ") &#8849;  &#8869;";
     return return_string;
   },
+  subPropertyOfChainingText: function () {
+    return "Sub Property (Chaining)";
+  },
+  subPropertyOfChaining: function (subC, classes){
+    var return_string = "";
+    for (var i = 0; i < classes.length; i++){
+      return_string += classes[i]["$"]["IRI"].replace("#", "")
+      if (i != classes.length-1){
+        return_string += " &#8728; ";
+      }
+    }
+    return_string += " &#8849; "+subC;
+    return return_string;
+  }
 }
 
 module.exports = simpleEnglish;
