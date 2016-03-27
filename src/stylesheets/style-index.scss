@@ -5,11 +5,37 @@
   padding-left: 3em;
   display: inline-block;
 }
+#commonForm {
+  display: inline-block;
+}
+#groupPanels {
+  display: none;
+}
+.form-group {
+  @extend #commonForm;
+}
+
+.dropdown {
+  @extend #commonForm;
+  margin: auto;
+}
+
+.submit-upload-form {
+  @extend #commonForm;
+  float: right;
+}
+
+.par_cat_slider {
+  float: right;
+}
 
 #classTree {
   @extend .commonTree;
 }
 #classDisp {
+  @extend .commonDisp;
+}
+#classParDisp {
   @extend .commonDisp;
 }
 
@@ -19,10 +45,16 @@
 #relDisp {
   @extend .commonDisp;
 }
+#relParDisp {
+  @extend .commonDisp;
+}
 
 #neTree {
   @extend .commonTree;
 }
 #neDisp {
+  @extend .commonDisp;
+}
+#neParDisp {
   @extend .commonDisp;
 }

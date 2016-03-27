@@ -2,9 +2,29 @@
   display: inline-block;
 }
 
-.commonDisp, #classDisp, #relDisp, #neDisp {
+.commonDisp, #classDisp, #classParDisp, #relDisp, #relParDisp, #neDisp, #neParDisp {
   padding-left: 3em;
   display: inline-block;
+}
+
+#commonForm, .form-group, .dropdown, .submit-upload-form {
+  display: inline-block;
+}
+
+#groupPanels {
+  display: none;
+}
+
+.dropdown {
+  margin: auto;
+}
+
+.submit-upload-form {
+  float: right;
+}
+
+.par_cat_slider {
+  float: right;
 }
 
 /*# sourceMappingURL=style-index.css.map */

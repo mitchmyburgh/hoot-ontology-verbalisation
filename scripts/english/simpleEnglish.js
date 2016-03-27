@@ -120,6 +120,135 @@ let simpleEnglish = {
   },
   subObjectOf: function (subC, superC) {
     return decamelize(subC, " ").capitalize(true) + " is a type of " + decamelize(superC, " ").capitalize(true);
+  },
+  // new stuff
+  domainAndRangeText: function () {
+    return "Domain and Range";
+  },
+  domainPre: function (rel) {
+    return "An object that ";
+  },
+  domain: function (superC) {
+    return "is "+articles.articlize(decamelize(superC, " ").capitalize(true))+ " and ";
+  },
+  domainSome: function (subR, superC) {
+    return "sometimes "+decamelize(subR, " ").capitalize(true)+" "+articles.articlize(decamelize(superC, " ").capitalize(true))+ " and ";
+  },
+  domainAll: function (subR, superC) {
+    return "always "+decamelize(subR, " ").capitalize(true)+" "+articles.articlize(decamelize(superC, " ").capitalize(true))+ " and ";
+  },
+  domainMin: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" at least "+card+" "+decamelize(superC, " ").capitalize(true)+ " and ";
+  },
+  domainMax: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" at most "+card+" "+decamelize(superC, " ").capitalize(true)+ " and ";
+  },
+  domainExactly: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" exactly "+card+" "+decamelize(superC, " ").capitalize(true)+ " and ";
+  },
+  domainTrim: function(text){
+    return text.substring(0, text.length-4);
+  },
+  domainPost: function (text, subR){
+    return this.domainTrim(text)+decamelize(subR, " ").capitalize(true)
+  },
+  domainPostNoR: function (text, subR){
+    return this.domainTrim(text)+decamelize(subR, " ").capitalize(true)+" an Object";
+  },
+  rangePreNoD: function (text, rel) {
+    return "A class "+rel+" an object that is "+text.substring(19, text.length-4);
+  },
+  rangePre: function (rel) {
+    return " an object that ";
+  },
+  range: function (superC) {
+    return "is "+articles.articlize(decamelize(superC, " ").capitalize(true))+ " and ";
+  },
+  rangeSome: function (subR, superC) {
+    return "sometimes "+decamelize(subR, " ").capitalize(true)+" "+articles.articlize(decamelize(superC, " ").capitalize(true))+ " and ";
+  },
+  rangeAll: function (subR, superC) {
+    return "always "+decamelize(subR, " ").capitalize(true)+" "+articles.articlize(decamelize(superC, " ").capitalize(true))+ " and ";
+  },
+  rangeMin: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" at least "+card+" "+decamelize(superC, " ").capitalize(true)+ " and ";
+  },
+  rangeMax: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" at most "+card+" "+decamelize(superC, " ").capitalize(true)+ " and ";
+  },
+  rangeExactly: function (subR, superC, card) {
+    return decamelize(subR, " ").capitalize(true)+" exactly "+card+" "+decamelize(superC, " ").capitalize(true)+ " and ";
+  },
+  rangeTrim: function(text){
+    return text.substring(0, text.length-4);
+  },
+  rangePost: function (text, subR){
+    return this.rangeTrim(text)
+  },
+  disjointWithOPText: function () {
+    return "Different From";
+  },
+  disjointWithOP: function (classes){
+    var return_string = decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ").capitalize(true)+" is different from ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " and ";
+      }
+    }
+    return return_string;
+  },
+  subPropertyOfChainingText: function () {
+    return "Sub Property (Chaining)";
+  },
+  subPropertyOfChaining: function (subC, classes){
+    var return_string = "";
+    for (var i = 0; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " and ";
+      }
+    }
+    return_string += " is contained in "+decamelize(subC, " ").capitalize(true);
+    return return_string;
+  },
+  sameIndividualText: function () {
+    return "The same as"
+  },
+  sameIndividual: function (classes) {
+    var return_string = decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ").capitalize(true)+" is the same as ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " and ";
+      }
+    }
+    return return_string;
+  },
+  differentIndividualsText: function () {
+    return "Different From"
+  },
+  differentIndividuals: function (classes) {
+    var return_string = decamelize(classes[0]["$"]["IRI"].replace("#", ""), " ").capitalize(true)+" is different from ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += decamelize(classes[i]["$"]["IRI"].replace("#", ""), " ").capitalize(true)
+      if (i != classes.length-1){
+        return_string += " and ";
+      }
+    }
+    return return_string;
+  },
+  negativeObjectPropertyAssertionText: function (){
+    return "Does Not";
+  },
+  negativeObjectPropertyAssertion: function (subC, superC, rel) {
+    return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
+  },
+  objectPropertyAssertionText: function (){
+    return "Does";
+  },
+  objectPropertyAssertion: function (subC, superC, rel) {
+    return decamelize(subC, " ").capitalize(true)+" "+decamelize(rel, " ").capitalize(true)+" "+decamelize(superC, " ").capitalize(true)
   }
 }
 

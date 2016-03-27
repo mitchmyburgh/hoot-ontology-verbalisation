@@ -14,6 +14,8 @@
     <!-- Bootstrap core CSS -->
     <link href="stylesheets/style-index.css" rel="stylesheet">
     <link href="stylesheets/lib/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Toggle -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="stylesheets/lib/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -23,6 +25,7 @@
 
     <!-- jsTree -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -42,12 +45,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><%= title %></a>
+          <a class="navbar-brand" href="/"><img alt="Brand" src="img/hoot.png" style="max-width: 50px; max-height: 30px; width: auto; height: auto; display: inline-block" ><div style="display: inline-block; margin-left: 20px"><%= title %></div></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Analyise File</a></li>
-            <li><a href="#contact">About</a></li>
+            <li class="active"><a href="#">Analyse File</a></li>
+            <li><a href="/about">About</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -64,27 +67,63 @@
             <div class="form-inline">
               <div class="form-group">
                 <input type="file" name="OWLFile" id="js-upload-files" single>
+                <input class="span2" id="language_select" name="language" type="hidden">
               </div>
-              <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Language
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#" value="simpleEnglish">Simple English</a></li>
+                  <li><a href="#" value="technicalEnglish">Technical English</a></li>
+                  <li><a href="#" value="maths">Mathematical Representation</a></li>
+                  <li><a href="#" value="Afrikaans">Afrikaans</a></li>
+                  <li><a href="#" value="Tswana">Tswana</a></li>
+                </ul>
+              </div>
+              <button type="submit" class="btn btn-sm btn-primary submit-upload-form" id="js-upload-submit">Upload file</button>
             </div>
           </form>
         </div>
       </div>
+      <div class="panel panel-default" style="margin-top: 20px;">
+        <div class="panel-heading"><strong>Pre Built OWL Files</strong></div>
+        <div class="panel-body">
+          <a href="/prebuiltSEnglish">Simple English</a>
+          <a href="/prebuiltTEnglish" style="padding-left: 20px;">Technical English</a>
+          <a href="/prebuiltMaths" style="padding-left: 20px;">Mathematical Representation</a>
+          <a href="/prebuiltTswana" style="padding-left: 20px;">Tswana</a>
+          <a href="/prebuiltAfrikaans" style="padding-left: 20px;">Afrikaans</a>
+        </div>
+      </div>
+      <h2 id="headerText"></h2>
+      <div class="panel panel-default" style="margin-top: 20px;" id="classPanel">
+        <div class="panel-heading"><strong id="classText" class="header-text"></strong><div class="par_cat_slider"><input id="toggle-par-class" data-size="small" data-toggle="toggle" data-on="Paragraph" data-off="Categories" type="checkbox"></div></div>
+        <div class="panel-body">
+          <div id="classTree"></div>
+          <div id="classDisp"></div>
+          <div id="classParDisp"></div>
+        </div>
+      </div>
 
-      <div id="classNode">
-        <h2 id="classText"></h2>
-        <div id="classTree"></div>
-        <div id="classDisp"></div>
+      <div class="panel panel-default" style="margin-top: 20px;" id="relPanel">
+        <div class="panel-heading"><strong id="objectPropertyText" class="header-text"></strong><div class="par_cat_slider"><input id="toggle-par-rel" data-size="small" data-toggle="toggle" data-on="Paragraph" data-off="Categories" type="checkbox"></div></div>
+        <div class="panel-body">
+          <div id="relTree"></div>
+          <div id="relDisp"></div>
+          <div id="relParDisp"></div>
+        </div>
       </div>
-      <div id="relationNode">
-        <h2 id="objectPropertyText"></h2>
-        <div id="relTree"></div>
-        <div id="relDisp"></div>
-      </div>
-      <div id="entityNode">
-        <h2 id="namedEntitiesText"></h2>
-        <div id="neTree"></div>
-        <div id="neDisp"></div>
+
+      <div class="panel panel-default" style="margin-top: 20px;" id="nePanel">
+        <div class="panel-heading"><strong id="namedEntitiesText" class="header-text"></strong><div class="par_cat_slider"><input id="toggle-par-ne" data-size="small" data-toggle="toggle" data-on="Paragraph" data-off="Categories" type="checkbox"></div></div>
+        <div class="panel-body">
+          <div id="neTree"></div>
+          <div id="neDisp"></div>
+          <div id="neParDisp"></div>
+        </div>
       </div>
 
     </div><!-- /.container -->
@@ -103,6 +142,8 @@
 
     <!-- jsTree -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <!-- Bootstrap Toggle -->
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- output file script script -->
     <script src="<%= linkToData %>"></script>
     <!-- main script -->

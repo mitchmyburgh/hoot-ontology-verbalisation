@@ -114,6 +114,139 @@ let simpleEnglish = {
   },
   subObjectOf: function (subC, superC) {
     return subC + " &#8849; "+superC;
+  },
+  // new stuff
+  domainAndRangeText: function () {
+    return "Domain and Range";
+  },
+  domainPre: function (rel) {
+    return rel+"(x,y) &#8658; ";
+  },
+  domain: function (superC) {
+    return superC+"(x) &#8743; "
+  },
+  domainSome: function (rel, superC) {
+    return "x  &#8849;  &#8707;"+rel+"."+superC+" &#8743; ";
+  },
+  domainAll: function (rel, superC) {
+    return "x  &#8849;  &#8704;"+rel+"."+superC+" &#8743; ";
+  },
+  domainMin: function (rel, superC, card) {
+    return "x  &#8849;  &#8805;"+card+rel+"."+superC+" &#8743; ";
+  },
+  domainMax: function (rel, superC, card) {
+    return "x  &#8849;  &#8804;"+card+rel+"."+superC+" &#8743; ";
+  },
+  domainExactly: function (rel, superC, card) {
+    return "x  &#8849;  ="+card+rel+"."+superC+" &#8743; ";
+  },
+  domainTrim: function(text){
+    return text.substring(0, text.length-8);
+  },
+  domainPost: function (text, subR){
+    return this.domainTrim(text)
+  },
+  domainPostNoR: function (text, subR){
+    return this.domainTrim(text)+". ";
+  },
+  rangePreNoD: function (text, rel) {
+    return rel+"(x,y) &#8658; "+text.substring(8, text.length-9);;
+  },
+  rangePre: function (rel) {
+    return " &#8743; ";
+  },
+  range: function (superC) {
+    return superC+"(y) &#8743; "
+  },
+  rangeSome: function (rel, superC) {
+    return "y  &#8849;  &#8707;"+rel+"."+superC+" &#8743; ";
+  },
+  rangeAll: function (rel, superC) {
+    return "y  &#8849;  &#8704;"+rel+"."+superC+" &#8743; ";
+  },
+  rangeMin: function (rel, superC, card) {
+    return "y  &#8849;  &#8805;"+card+rel+"."+superC+" &#8743; ";
+  },
+  rangeMax: function (rel, superC, card) {
+    return "y  &#8849;  &#8804;"+card+rel+"."+superC+" &#8743; ";
+  },
+  rangeExactly: function (rel, superC, card) {
+    return "y  &#8849;  ="+card+rel+"."+superC+" &#8743; ";
+  },
+  rangeTrim: function(text){
+    return text.substring(0, text.length-9);
+  },
+  rangePost: function (text, subR){
+    return this.rangeTrim(text)
+  },
+  disjointWithOPText: function () {
+    return "Disjoint With";
+  },
+  disjointWithOP: function (classes){
+    var return_string = "";
+    return_string += classes[0]["$"]["IRI"].replace("#", "")+" &#8851; (";
+    for (var i = 1; i < classes.length; i++){
+      return_string += classes[i]["$"]["IRI"].replace("#", "")
+      if (i != classes.length-1){
+        return_string += " &#8852; ";
+      }
+    }
+    return_string += ") &#8849;  &#8869;";
+    return return_string;
+  },
+  subPropertyOfChainingText: function () {
+    return "Sub Property (Chaining)";
+  },
+  subPropertyOfChaining: function (subC, classes){
+    var return_string = "";
+    for (var i = 0; i < classes.length; i++){
+      return_string += classes[i]["$"]["IRI"].replace("#", "")
+      if (i != classes.length-1){
+        return_string += " &#8728; ";
+      }
+    }
+    return_string += " &#8849; "+subC;
+    return return_string;
+  },
+  sameIndividualText: function () {
+    return "Same Individual As"
+  },
+  sameIndividual: function (classes) {
+    var return_string = classes[0]["$"]["IRI"].replace("#", "")+" &#8801; ";
+    for (var i = 1; i < classes.length; i++){
+      return_string += classes[i]["$"]["IRI"].replace("#", "")
+      if (i != classes.length-1){
+        return_string += " &#8743; ";
+      }
+    }
+    return return_string;
+  },
+  differentIndividualsText: function () {
+    return "Disjoint Individuals"
+  },
+  differentIndividuals: function (classes) {
+    var return_string = "";
+    return_string += classes[0]["$"]["IRI"].replace("#", "")+" &#8851; (";
+    for (var i = 1; i < classes.length; i++){
+      return_string += classes[i]["$"]["IRI"].replace("#", "")
+      if (i != classes.length-1){
+        return_string += " &#8852; ";
+      }
+    }
+    return_string += ") &#8849;  &#8869;";
+    return return_string;
+  },
+  negativeObjectPropertyAssertionText: function (){
+    return "Negative Object Property Assertion";
+  },
+  negativeObjectPropertyAssertion: function (subC, superC, rel) {
+    return " &#172; "+rel+"("+subC+", "+superC+")";
+  },
+  objectPropertyAssertionText: function (){
+    return "Object Property Assertion";
+  },
+  objectPropertyAssertion: function (subC, superC, rel) {
+    return ""+rel+"("+subC+", "+superC+")";
   }
 }
 

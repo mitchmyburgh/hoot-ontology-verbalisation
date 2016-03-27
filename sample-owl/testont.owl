@@ -19,10 +19,14 @@
         <ObjectProperty IRI="#loma"/>
     </Declaration>
     <Declaration>
+<<<<<<< HEAD
         <Class IRI="#Lekgarebe"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#e_nale"/>
+=======
+        <Class IRI="#Zebra"/>
+>>>>>>> ce25e50731bcae6253a5c5dd074b6ec9d7609dfc
     </Declaration>
     <Declaration>
         <Class IRI="#Phologolo"/>
@@ -46,7 +50,14 @@
         <Class IRI="#lekanya_la_Sere"/>
     </Declaration>
     <Declaration>
+<<<<<<< HEAD
         <Class IRI="#Metsi"/>
+=======
+        <ObjectProperty IRI="#isPartOf"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Beer"/>
+>>>>>>> ce25e50731bcae6253a5c5dd074b6ec9d7609dfc
     </Declaration>
     <Declaration>
         <Class IRI="#Morubisi"/>
@@ -88,8 +99,17 @@
         <Class IRI="#Bojalwa"/>
     </Declaration>
     <EquivalentClasses>
+<<<<<<< HEAD
         <Class IRI="#Lekgarebe"/>
         <Class IRI="#Mosetsana"/>
+=======
+        <Class IRI="#Animal"/>
+        <Class IRI="#Person"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#HomoSapien"/>
+        <Class IRI="#Human"/>
+>>>>>>> ce25e50731bcae6253a5c5dd074b6ec9d7609dfc
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#Lekgarebe"/>
@@ -235,6 +255,34 @@
         <Class IRI="#Morubisi_wa_Sefala"/>
         <NamedIndividual IRI="#SamTheOwl"/>
     </ClassAssertion>
+    <SameIndividual>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#JimTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </SameIndividual>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#JimTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#eats"/>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </ObjectPropertyAssertion>
+    <NegativeObjectPropertyAssertion>
+        <ObjectProperty IRI="#eats"/>
+        <NamedIndividual IRI="#BobTheOwl"/>
+        <NamedIndividual IRI="#SamTheOwl"/>
+    </NegativeObjectPropertyAssertion>
     <EquivalentObjectProperties>
         <ObjectProperty IRI="#loma"/>
         <ObjectProperty IRI="#tlhafuna"/>
@@ -256,8 +304,13 @@
         <ObjectProperty IRI="#ja"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
+<<<<<<< HEAD
         <ObjectProperty IRI="#e_nale"/>
         <ObjectProperty IRI="#karoloYa"/>
+=======
+        <ObjectProperty IRI="#contains"/>
+        <ObjectProperty IRI="#isPartOf"/>
+>>>>>>> ce25e50731bcae6253a5c5dd074b6ec9d7609dfc
     </InverseObjectProperties>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#nwa"/>
@@ -280,6 +333,146 @@
     <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#nwa"/>
     </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#contains"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectMaxCardinality>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#digests"/>
+        <Class IRI="#HomoSapien"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOf"/>
+        <Class IRI="#Animal"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOf"/>
+        <Class IRI="#Plant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectAllValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectMinCardinality>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectExactCardinality>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectMaxCardinality>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#bites"/>
+        <Class IRI="#amountOfMatter"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#chews"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#drinks"/>
+            <Class IRI="#amountOfMatter"/>
+        </ObjectMaxCardinality>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#contains"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#drinks"/>
+            <Class IRI="#amountOfMatter"/>
+        </ObjectAllValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartOf"/>
+        <Class IRI="#Animal"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartOf"/>
+        <Class IRI="#Plant"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectAllValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectMinCardinality>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectExactCardinality>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#Animal"/>
+        </ObjectMaxCardinality>
+    </ObjectPropertyRange>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#contains"/>
+        <ObjectProperty IRI="#isPartOf"/>
+    </DisjointObjectProperties>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#drinks"/>
+        <ObjectProperty IRI="#eats"/>
+        <ObjectProperty IRI="#isPartOf"/>
+    </DisjointObjectProperties>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#isPartOf"/>
+    </DisjointObjectProperties>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#contains"/>
+            <ObjectProperty IRI="#bites"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#isPartOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#drinks"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#isPartOf"/>
+    </SubObjectPropertyOf>
 </Ontology>
 
 
