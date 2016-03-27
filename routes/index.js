@@ -20,7 +20,7 @@ router.get('/about', function(req, res, next) {
 /* GET simpleEnglish */
 router.get('/prebuiltSEnglish', function(req, res, next) {
   read_file("testont.owl", "sample-owl/testont.owl", "simpleEnglish", function (path){
-    res.render('index', { title: 'Hoot', linkToData: path });
+    res.render('index', { title: 'Hoot', linkToData: path});
   });
 });
 /* GET technicalEnglish */
