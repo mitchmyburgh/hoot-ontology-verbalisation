@@ -28,10 +28,10 @@
         <ObjectProperty IRI="#ja"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Sejalo"/>
+        <Class IRI="#Motho"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Motho"/>
+        <Class IRI="#Sejalo"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Pitsi"/>
@@ -49,10 +49,10 @@
         <Class IRI="#Metsi"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Morubisi"/>
+        <Class IRI="#Pitsi_ya_naga"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Pitsi_ya_naga"/>
+        <Class IRI="#Morubisi"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Morubisi_wa_Sefala"/>
@@ -259,9 +259,6 @@
         <ObjectProperty IRI="#e_nale"/>
         <ObjectProperty IRI="#karoloYa"/>
     </InverseObjectProperties>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#nwa"/>
-    </FunctionalObjectProperty>
     <InverseFunctionalObjectProperty>
         <ObjectProperty IRI="#nwa"/>
     </InverseFunctionalObjectProperty>
