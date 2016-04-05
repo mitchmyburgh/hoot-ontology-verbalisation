@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/mybmit001/ontologies/2016/3/untitled-ontology-33"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/mybmit001/ontologies/2016/3/untitled-ontology-33">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Apple"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Berry"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Branch"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CarnivorousPlant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Distribution"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Elephant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FruitingBody"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Grass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Habitat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Impala"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Leaf"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PalmTree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Parsnip"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Phloem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PlantParts"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RockDassie"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Root"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Stem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TastyPlant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Twig"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Warthog"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Xylem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#animal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#carnivore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#giraffe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#herbivore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#lion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#omnivore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#plant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#HasPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#IsPartOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#IsProperPartOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#eatenBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#eats"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Apple"/>
+        <Class IRI="#FruitingBody"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Berry"/>
+        <Class IRI="#Apple"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Branch"/>
+        <Class IRI="#PlantParts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Branch"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#IsPartOf"/>
+            <Class IRI="#Tree"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CarnivorousPlant"/>
+        <Class IRI="#plant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CarnivorousPlant"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#eats"/>
+            <Class IRI="#animal"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Elephant"/>
+        <Class IRI="#herbivore"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FruitingBody"/>
+        <Class IRI="#PlantParts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Grass"/>
+        <Class IRI="#plant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Impala"/>
+        <Class IRI="#animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Leaf"/>
+        <Class IRI="#PlantParts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PalmTree"/>
+        <Class IRI="#plant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Parsnip"/>
+        <Class IRI="#Root"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Phloem"/>
+        <Class IRI="#PlantParts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Phloem"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#IsProperPartOf"/>
+            <Class IRI="#Stem"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PlantParts"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#IsProperPartOf"/>
+            <Class IRI="#plant"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RockDassie"/>
+        <Class IRI="#animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Root"/>
+        <Class IRI="#PlantParts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stem"/>
+        <Class IRI="#PlantParts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TastyPlant"/>
+        <Class IRI="#plant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tree"/>
+        <Class IRI="#plant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Twig"/>
+        <Class IRI="#PlantParts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Warthog"/>
+        <Class IRI="#animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Xylem"/>
+        <Class IRI="#PlantParts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Xylem"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#IsProperPartOf"/>
+            <Class IRI="#Stem"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#carnivore"/>
+        <Class IRI="#animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#giraffe"/>
+        <Class IRI="#animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#herbivore"/>
+        <Class IRI="#animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#lion"/>
+        <Class IRI="#animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#lion"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#eats"/>
+            <Class IRI="#Impala"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#lion"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#eats"/>
+            <Class IRI="#herbivore"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#omnivore"/>
+        <Class IRI="#animal"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Branch"/>
+        <Class IRI="#Leaf"/>
+        <Class IRI="#Twig"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#PalmTree"/>
+        <Class IRI="#Tree"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#animal"/>
+        <Class IRI="#plant"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#carnivore"/>
+        <Class IRI="#herbivore"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#carnivore"/>
+        <Class IRI="#omnivore"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#giraffe"/>
+        <Class IRI="#lion"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#herbivore"/>
+        <Class IRI="#omnivore"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#IsProperPartOf"/>
+        <ObjectProperty IRI="#IsPartOf"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#HasPart"/>
+        <ObjectProperty IRI="#IsPartOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#eatenBy"/>
+        <ObjectProperty IRI="#eats"/>
+    </InverseObjectProperties>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#HasPart"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#IsPartOf"/>
+    </TransitiveObjectProperty>
+    <ReflexiveObjectProperty>
+        <ObjectProperty IRI="#IsPartOf"/>
+    </ReflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#IsProperPartOf"/>
+    </IrreflexiveObjectProperty>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
